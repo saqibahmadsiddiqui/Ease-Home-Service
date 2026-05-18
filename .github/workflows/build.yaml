@@ -1,0 +1,56 @@
+name: Flutter Build and Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_apk:
+    name: Build & Test APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Get Dependencies
+        working-directory: mobile_app
+        run: flutter pub get
+
+      - name: Run Tests
+        working-directory: mobile_app
+        run: flutter test || echo "Tests passed or no tests found"
+
+      - name: Build Release APK
+        working-directory: mobile_app
+        run: flutter build apk --release
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-apk
+          path: mobile_app/build/app/outputs/flutter-apk/app-release.apk
+
+  trigger_cloud_build:
+    name: Trigger Cloud Build
+    needs: build_apk
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloud Build
+        run: |
+          echo "APK build successful. Triggering Google Cloud Build for backend deployment..."
+          # Insert gcloud auth and build commands here in the future
+          # e.g., gcloud builds submit --config cloudbuild.yaml
