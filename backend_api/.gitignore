@@ -1,4 +1,34 @@
-venv/*
-__pycache__/*
+# Environments
 .env
-/venv/*
+.venv
+venv/
+Envs/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django
+*.log
+
+# Bytecode
+*.pyo
+*.pyd
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Distribution / Build
+dist/
+build/
+*.egg-info/
+.Python
+
+# OS
+.DS_Store
+Thumbs.db
