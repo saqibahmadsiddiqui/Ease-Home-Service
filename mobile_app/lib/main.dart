@@ -3,61 +3,61 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:your_project_name/core/constants/app_colors.dart';
-import 'package:your_project_name/core/constants/app_routes.dart';
+import 'package:ease_home_service/core/constants/app_colors.dart';
+import 'package:ease_home_service/core/constants/app_routes.dart';
 
 // Import screens (adjust paths based on your actual structure)
-import 'package:your_project_name/features/auth/presentation/splash_screen.dart';
-import 'package:your_project_name/features/auth/presentation/onboarding_screen.dart';
-import 'package:your_project_name/features/auth/presentation/role_selection_screen.dart';
-import 'package:your_project_name/features/auth/presentation/sign_in_screen.dart';
-import 'package:your_project_name/features/auth/presentation/registration_screen.dart';
-import 'package:your_project_name/features/auth/presentation/otp_verification_screen.dart';
+import 'package:ease_home_service/features/auth/presentation/splash_screen.dart';
+import 'package:ease_home_service/features/auth/presentation/onboarding_screen.dart';
+import 'package:ease_home_service/features/auth/presentation/role_selection_screen.dart';
+import 'package:ease_home_service/features/auth/presentation/sign_in_screen.dart';
+import 'package:ease_home_service/features/auth/presentation/registration_screen.dart';
+import 'package:ease_home_service/features/auth/presentation/otp_verification_screen.dart';
 
 // User Screens
-import 'package:your_project_name/features/user/presentation/home_dashboard_screen.dart';
-import 'package:your_project_name/features/user/presentation/profile_setup_screen.dart';
-import 'package:your_project_name/features/user/presentation/ai_request_screen.dart';
-import 'package:your_project_name/features/user/presentation/provider_map_screen.dart';
-import 'package:your_project_name/features/user/presentation/provider_profile_screen.dart';
-import 'package:your_project_name/features/user/presentation/checkout_screen.dart';
-import 'package:your_project_name/features/user/presentation/booking_tracking_screen.dart';
-import 'package:your_project_name/features/user/presentation/chat_screen.dart';
-import 'package:your_project_name/features/user/presentation/service_completion_screen.dart';
-import 'package:your_project_name/features/user/presentation/dispute_filing_screen.dart';
-import 'package:your_project_name/features/user/presentation/booking_history_screen.dart';
-import 'package:your_project_name/features/user/presentation/receipt_detail_screen.dart';
-import 'package:your_project_name/features/user/presentation/notifications_screen.dart';
-import 'package:your_project_name/features/user/presentation/saved_providers_screen.dart';
-import 'package:your_project_name/features/user/presentation/no_provider_screen.dart';
-import 'package:your_project_name/features/user/presentation/user_settings_screen.dart';
+import 'package:ease_home_service/features/user/presentation/home_dashboard_screen.dart';
+import 'package:ease_home_service/features/user/presentation/profile_setup_screen.dart';
+import 'package:ease_home_service/features/user/presentation/ai_request_screen.dart';
+import 'package:ease_home_service/features/user/presentation/provider_map_screen.dart';
+import 'package:ease_home_service/features/user/presentation/provider_profile_screen.dart';
+import 'package:ease_home_service/features/user/presentation/checkout_screen.dart';
+import 'package:ease_home_service/features/user/presentation/booking_tracking_screen.dart';
+import 'package:ease_home_service/features/user/presentation/chat_screen.dart';
+import 'package:ease_home_service/features/user/presentation/service_completion_screen.dart';
+import 'package:ease_home_service/features/user/presentation/dispute_filing_screen.dart';
+import 'package:ease_home_service/features/user/presentation/booking_history_screen.dart';
+import 'package:ease_home_service/features/user/presentation/receipt_detail_screen.dart';
+import 'package:ease_home_service/features/user/presentation/notifications_screen.dart';
+import 'package:ease_home_service/features/user/presentation/saved_providers_screen.dart';
+import 'package:ease_home_service/features/user/presentation/no_provider_screen.dart';
+import 'package:ease_home_service/features/user/presentation/user_settings_screen.dart';
 
 // Provider Screens
-import 'package:your_project_name/features/service_provider/presentation/provider_home_screen.dart';
-import 'package:your_project_name/features/service_provider/presentation/job_request_screen.dart';
-import 'package:your_project_name/features/service_provider/presentation/active_job_screen.dart';
-import 'package:your_project_name/features/service_provider/presentation/job_completion_screen.dart';
-import 'package:your_project_name/features/service_provider/presentation/earnings_screen.dart';
-import 'package:your_project_name/features/service_provider/presentation/performance_screen.dart';
-import 'package:your_project_name/features/service_provider/presentation/demand_forecast_screen.dart';
-import 'package:your_project_name/features/service_provider/presentation/availability_calendar_screen.dart';
-import 'package:your_project_name/features/service_provider/presentation/dispute_response_screen.dart';
-import 'package:your_project_name/features/service_provider/presentation/job_history_screen.dart';
-import 'package:your_project_name/features/service_provider/presentation/provider_settings_screen.dart';
-import 'package:your_project_name/features/service_provider/presentation/provider_pending_screen.dart';
+import 'package:ease_home_service/features/service_provider/presentation/provider_home_screen.dart';
+import 'package:ease_home_service/features/service_provider/presentation/job_request_screen.dart';
+import 'package:ease_home_service/features/service_provider/presentation/active_job_screen.dart';
+import 'package:ease_home_service/features/service_provider/presentation/job_completion_screen.dart';
+import 'package:ease_home_service/features/service_provider/presentation/earnings_screen.dart';
+import 'package:ease_home_service/features/service_provider/presentation/performance_screen.dart';
+import 'package:ease_home_service/features/service_provider/presentation/demand_forecast_screen.dart';
+import 'package:ease_home_service/features/service_provider/presentation/availability_calendar_screen.dart';
+import 'package:ease_home_service/features/service_provider/presentation/dispute_response_screen.dart';
+import 'package:ease_home_service/features/service_provider/presentation/job_history_screen.dart';
+import 'package:ease_home_service/features/service_provider/presentation/provider_settings_screen.dart';
+import 'package:ease_home_service/features/service_provider/presentation/provider_pending_screen.dart';
 
 // Admin Screens
-import 'package:your_project_name/features/admin/presentation/admin_dashboard_screen.dart';
-import 'package:your_project_name/features/admin/presentation/kyc_queue_screen.dart';
-import 'package:your_project_name/features/admin/presentation/dispute_center_screen.dart';
-import 'package:your_project_name/features/admin/presentation/user_management_screen.dart';
-import 'package:your_project_name/features/admin/presentation/provider_management_screen.dart';
-import 'package:your_project_name/features/admin/presentation/category_management_screen.dart';
-import 'package:your_project_name/features/admin/presentation/pricing_config_screen.dart';
-import 'package:your_project_name/features/admin/presentation/antigravity_logs_screen.dart';
-import 'package:your_project_name/features/admin/presentation/analytics_screen.dart';
-import 'package:your_project_name/features/admin/presentation/blacklist_screen.dart';
-import 'package:your_project_name/features/admin/presentation/admin_settings_screen.dart';
+import 'package:ease_home_service/features/admin/presentation/admin_dashboard_screen.dart';
+import 'package:ease_home_service/features/admin/presentation/kyc_queue_screen.dart';
+import 'package:ease_home_service/features/admin/presentation/dispute_center_screen.dart';
+import 'package:ease_home_service/features/admin/presentation/user_management_screen.dart';
+import 'package:ease_home_service/features/admin/presentation/provider_management_screen.dart';
+import 'package:ease_home_service/features/admin/presentation/category_management_screen.dart';
+import 'package:ease_home_service/features/admin/presentation/pricing_config_screen.dart';
+import 'package:ease_home_service/features/admin/presentation/antigravity_logs_screen.dart';
+import 'package:ease_home_service/features/admin/presentation/analytics_screen.dart';
+import 'package:ease_home_service/features/admin/presentation/blacklist_screen.dart';
+import 'package:ease_home_service/features/admin/presentation/admin_settings_screen.dart';
 
 // Mock Auth Provider for Routing Logic (Replace with actual auth_provider)
 final authStateProvider = StateProvider<AuthState>((ref) => AuthState.initial);
@@ -74,11 +74,12 @@ void main() async {
   // Request FCM Permission
   // await FirebaseMessaging.instance.requestPermission();
 
-  runApp(
-    const ProviderScope(
-      child: EaseHomeServiceApp(),
-    ),
-  );
+  // runApp(
+  //   const ProviderScope(
+  //     child: EaseHomeServiceApp(),
+  //   ),
+  // );
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class EaseHomeServiceApp extends ConsumerWidget {
