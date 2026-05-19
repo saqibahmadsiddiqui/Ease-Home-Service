@@ -116,3 +116,96 @@ async def schedule_booking(req: SlotRequest) -> ScheduleResponse:
         alternate_slots=alts, waitlist_id=waitlist_id,
         trace_id=trace.trace_id, session_id=sid,
     )
+
+
+async def suggest_schedule(
+    provider_id: str,
+    availability: list[dict],
+    requested_at: Optional[str] = None,
+    session_id: Optional[str] = None,
+) -> dict:
+    """
+    Suggest available slots for the provider based on their availability profile
+    and existing bookings, using travel buffer constraints.
+    """
+    import logging
+    logger = logging.getLogger(__name__)
+
+    sid = session_id or str(uuid.uuid4())
+    trace = AntigravityTrace(agent_type="scheduling_agent", session_id=sid)
+    trace.workplan = f"Suggest schedule options for provider {provider_id}"
+    trace.task_plan = {"provider_id": provider_id, "availability_count": len(availability)}
+
+    # We will look at the next 3 days
+    now = datetime.now(timezone.utc)
+    suggested_slots = []
+
+    # Map weekday abbreviation
+    days_map = {0: "Mon", 1: "Tue", 2: "Wed", 3: "Thu", 4: "Fri", 5: "Sat", 6: "Sun"}
+
+    # Fetch availability slots
+    parsed_slots = []
+    for slot in availability:
+        if isinstance(slot, dict):
+            parsed_slots.append(slot)
+        else:
+            try:
+                parsed_slots.append(slot.model_dump())
+            except Exception:
+                pass
+
+    for i in range(3):
+        target_date = now + timedelta(days=i)
+        day_name = days_map[target_date.weekday()]
+        
+        # Existing bookings for this provider on this day
+        existing = await _get_provider_bookings(provider_id, target_date)
+        trace.tool_calls.append({"tool": "firestore.provider_bookings", "day": day_name, "count": len(existing)})
+
+        # Match slots for this day
+        day_slots = [s for s in parsed_slots if s.get("day") == day_name]
+        
+        if not day_slots:
+            # Fallback/default availability if not specified: 09:00 - 17:00
+            day_slots = [{"day": day_name, "start_time": "09:00", "end_time": "17:00"}]
+
+        for ds in day_slots:
+            try:
+                sh, sm = map(int, ds["start_time"].split(":"))
+                eh, em = map(int, ds["end_time"].split(":"))
+                
+                start_dt = target_date.replace(hour=sh, minute=sm, second=0, microsecond=0)
+                end_dt = target_date.replace(hour=eh, minute=em, second=0, microsecond=0)
+                
+                # Check 1-hour slots within this window
+                current_slot_start = start_dt
+                while current_slot_start + timedelta(hours=1) <= end_dt:
+                    slot_end = current_slot_start + timedelta(hours=1)
+                    if current_slot_start > now:
+                        # Check conflicts
+                        if not _conflicts(existing, current_slot_start, slot_end):
+                            suggested_slots.append({
+                                "start": current_slot_start.isoformat(),
+                                "end": slot_end.isoformat(),
+                                "is_available": True
+                            })
+                    current_slot_start += timedelta(hours=1)
+            except Exception as e:
+                logger.error(f"Error parsing slot {ds}: {e}")
+
+    # Limit to 5 suggested slots
+    suggested_slots = suggested_slots[:5]
+
+    trace.observations = json.dumps({"suggested_count": len(suggested_slots)})
+    trace.reasoning = f"Generated {len(suggested_slots)} available schedule slots for provider {provider_id} over the next 3 days."
+    trace.decisions = {"suggested_slots": len(suggested_slots)}
+    trace.confidence = 1.0
+    trace.final_outcome = f"SUCCESS — {len(suggested_slots)} slots suggested"
+    await trace.persist()
+
+    return {
+        "provider_id": provider_id,
+        "suggested_slots": suggested_slots,
+        "trace_id": trace.trace_id,
+    }
+

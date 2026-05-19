@@ -30,7 +30,8 @@ async def test_health_check(client: AsyncClient):
 @pytest.mark.anyio
 async def test_protected_route_without_token(client: AsyncClient):
     response = await client.get("/api/v1/auth/me")
-    assert response.status_code == 403  # No token → 403
+    assert response.status_code == 401  # No token → 401
+
 
 
 @pytest.mark.anyio

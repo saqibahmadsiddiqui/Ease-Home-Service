@@ -97,4 +97,24 @@ async def match_providers(request: MatchRequest) -> MatchResponse:
     trace.confidence=round(result[0].match_score/100,2) if result else 0.0
     trace.final_outcome=json.dumps(mask_pii_in_dict({"top":[p.provider_id for p in result]}))
     await trace.persist()
-    return MatchResponse(providers=result,ai_explanation=expl,trace_id=trace.trace_id,session_id=sid)
+    return MatchResponse(providers=result, ai_explanation=expl, trace_id=trace.trace_id, session_id=sid)
+
+
+async def match_provider(
+    service_type: str,
+    city: str,
+    user_lat: float,
+    user_lon: float,
+    session_id: Optional[str] = None,
+    top_k: int = 5,
+) -> list[dict]:
+    """Helper for internal/route calls that want simple provider dicts."""
+    cands = await get_providers_by_skill_and_city(service_type, city)
+    scored = []
+    for c in cands:
+        s, f, d = _score(c, service_type, user_lat, user_lon, "medium")
+        if s >= 0:
+            scored.append((s, c))
+    scored.sort(key=lambda x: x[0], reverse=True)
+    return [c for s, c in scored[:top_k]]
+

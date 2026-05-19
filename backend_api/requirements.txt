@@ -4,7 +4,13 @@ firebase-admin
 google-cloud-firestore
 google-cloud-storage
 pydantic[email]>=2.0
+pydantic-settings
+bcrypt
+google-cloud-aiplatform
 python-jose[cryptography]
 httpx
 python-multipart
 google-cloud-logging
+pytest
+anyio
+pydantic
