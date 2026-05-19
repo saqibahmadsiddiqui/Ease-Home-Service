@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ease_home_service/core/constants/app_colors.dart';
 import 'package:ease_home_service/core/constants/app_text_styles.dart';
+import 'package:ease_home_service/core/constants/app_routes.dart';
 
 class RoleSelectionScreen extends ConsumerWidget {
   const RoleSelectionScreen({super.key});
@@ -29,7 +31,7 @@ class RoleSelectionScreen extends ConsumerWidget {
                 description: 'I want to book home services',
                 icon: Icons.person,
                 onTap: () {
-                  // Navigator.pushNamed(context, AppRoutes.signIn, arguments: 'user');
+                  context.push(AppRoutes.signIn, extra: 'user');
                 },
               ),
               const SizedBox(height: 24),
@@ -39,13 +41,13 @@ class RoleSelectionScreen extends ConsumerWidget {
                 description: 'I want to offer my services',
                 icon: Icons.work,
                 onTap: () {
-                  // Navigator.pushNamed(context, AppRoutes.signIn, arguments: 'provider');
+                  context.push(AppRoutes.signIn, extra: 'provider');
                 },
               ),
               const Spacer(),
               TextButton(
                 onPressed: () {
-                  // Navigator.pushNamed(context, AppRoutes.adminSignIn);
+                  context.push(AppRoutes.adminSignIn);
                 },
                 child: Text('Sign In as Admin',
                     style:
@@ -57,6 +59,7 @@ class RoleSelectionScreen extends ConsumerWidget {
       ),
     );
   }
+
 
   Widget _buildRoleCard({
     required BuildContext context,

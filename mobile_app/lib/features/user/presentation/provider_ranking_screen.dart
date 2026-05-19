@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ease_home_service/core/constants/app_colors.dart';
 import 'package:ease_home_service/core/constants/app_routes.dart';
+import 'package:ease_home_service/shared/widgets/user_bottom_nav_bar.dart';
+
 
 class ProviderRankingScreen extends ConsumerStatefulWidget {
   const ProviderRankingScreen({super.key});
@@ -278,6 +280,7 @@ class _ProviderRankingScreenState extends ConsumerState<ProviderRankingScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: const UserBottomNavBar(currentIndex: 2),
     );
   }
 }

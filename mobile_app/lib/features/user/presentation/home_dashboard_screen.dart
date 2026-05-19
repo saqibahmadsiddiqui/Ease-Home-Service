@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ease_home_service/core/constants/app_colors.dart';
 import 'package:ease_home_service/core/constants/app_routes.dart';
+import 'package:ease_home_service/shared/widgets/user_bottom_nav_bar.dart';
+
 
 class HomeDashboardScreen extends ConsumerWidget {
   const HomeDashboardScreen({super.key});
@@ -155,26 +157,33 @@ class HomeDashboardScreen extends ConsumerWidget {
                 ),
                 itemCount: categories.length,
                 itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          color: AppColors.surface,
-                          borderRadius: BorderRadius.circular(16),
+                  return InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, AppRoutes.userRanking);
+                    },
+                    borderRadius: BorderRadius.circular(16),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            color: AppColors.surface,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Icon(categories[index]['icon'] as IconData,
+                              color: AppColors.primary, size: 28),
                         ),
-                        child: Icon(categories[index]['icon'] as IconData,
-                            color: AppColors.primary, size: 28),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        categories[index]['name'] as String,
-                        style: const TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w500),
-                        textAlign: TextAlign.center,
-                      )
-                    ],
+                        const SizedBox(height: 8),
+                        Text(
+                          categories[index]['name'] as String,
+                          style: const TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.w500),
+                          textAlign: TextAlign.center,
+                        )
+                      ],
+                    ),
                   );
                 },
               ),
@@ -215,6 +224,7 @@ class HomeDashboardScreen extends ConsumerWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const UserBottomNavBar(currentIndex: 0),
     );
   }
 }

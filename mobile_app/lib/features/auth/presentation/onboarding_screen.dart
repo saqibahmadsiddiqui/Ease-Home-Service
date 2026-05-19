@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_text_styles.dart';
 import '../../../../core/constants/app_routes.dart';
 import '../../../../shared/widgets/custom_button.dart';
+import '../../../../core/services/preferences_helper.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
@@ -23,11 +25,13 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   }
 
   void _onSkip() {
-    Navigator.pushReplacementNamed(context, AppRoutes.roleSelect);
+    PreferencesHelper.setFirstTimeCompleted();
+    context.go(AppRoutes.roleSelect);
   }
 
   void _onGetStarted() {
-    Navigator.pushReplacementNamed(context, AppRoutes.roleSelect);
+    PreferencesHelper.setFirstTimeCompleted();
+    context.go(AppRoutes.roleSelect);
   }
 
   @override

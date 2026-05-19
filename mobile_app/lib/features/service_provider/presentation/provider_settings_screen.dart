@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ease_home_service/core/constants/app_colors.dart';
 import 'package:ease_home_service/core/constants/app_routes.dart';
+import 'package:ease_home_service/shared/widgets/provider_bottom_nav_bar.dart';
+import 'package:ease_home_service/shared/widgets/logout_helper.dart';
+
 
 class ProviderSettingsScreen extends ConsumerWidget {
   const ProviderSettingsScreen({super.key});
@@ -114,7 +117,9 @@ class ProviderSettingsScreen extends ConsumerWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  LogoutHelper.logout(context, ref);
+                },
                 style: OutlinedButton.styleFrom(
                   foregroundColor: AppColors.error,
                   side: const BorderSide(color: AppColors.error),
@@ -130,6 +135,7 @@ class ProviderSettingsScreen extends ConsumerWidget {
           ],
         ),
       ),
+      bottomNavigationBar: const ProviderBottomNavBar(currentIndex: 3),
     );
   }
 

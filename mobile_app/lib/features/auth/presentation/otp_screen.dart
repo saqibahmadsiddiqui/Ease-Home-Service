@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'dart:async';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_text_styles.dart';
-import '../../../../core/constants/app_routes.dart';
 import '../../../../shared/widgets/custom_button.dart';
+import '../../../../core/services/api_client.dart';
+import '../../../../core/services/preferences_helper.dart';
+import '../../../main.dart'; // import to access authStateProvider
+
+
 
 class OtpScreen extends ConsumerStatefulWidget {
   const OtpScreen({super.key});
@@ -15,10 +20,11 @@ class OtpScreen extends ConsumerStatefulWidget {
 
 class _OtpScreenState extends ConsumerState<OtpScreen> {
   final List<TextEditingController> _controllers =
-      List.generate(6, (_) => TextEditingController());
+      List.generate(6, (_) => TextEditingController(text: '1'));
   final List<FocusNode> _focusNodes = List.generate(6, (_) => FocusNode());
   Timer? _timer;
   int _secondsRemaining = 120; // 2 minutes
+  bool _isLoading = false;
 
   @override
   void initState() {
@@ -56,8 +62,44 @@ class _OtpScreenState extends ConsumerState<OtpScreen> {
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
   }
 
+  void _handleVerify(String role, String phone) async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    // Simulated network delay
+    await Future.delayed(const Duration(milliseconds: 1000));
+
+    if (mounted) {
+      setState(() {
+        _isLoading = false;
+      });
+
+      // Update token to signal successful auth
+      final token = 'mock-jwt-token-for-$role';
+      ref.read(authTokenProvider.notifier).state = token;
+      PreferencesHelper.setAuthToken(token);
+
+      // Update state to trigger automatic router redirection to the dashboard!
+      if (role == 'provider') {
+        ref.read(authStateProvider.notifier).state = AuthState.authenticatedProviderApproved;
+        PreferencesHelper.setAuthState('authenticatedProviderApproved');
+      } else {
+        ref.read(authStateProvider.notifier).state = AuthState.authenticatedUser;
+        PreferencesHelper.setAuthState('authenticatedUser');
+      }
+      
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Successfully authenticated as ${role.toUpperCase()}!')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final String role = GoRouterState.of(context).uri.queryParameters['role'] ?? 'user';
+    final String phone = GoRouterState.of(context).uri.queryParameters['phone'] ?? '';
+
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
@@ -71,7 +113,7 @@ class _OtpScreenState extends ConsumerState<OtpScreen> {
             const SizedBox(height: 24),
             const Text('Enter Code', style: AppTextStyles.h1),
             const SizedBox(height: 8),
-            const Text('We have sent a 6-digit code to your phone.',
+            Text('We have sent a 6-digit code to $phone.',
                 style: AppTextStyles.body1),
             const SizedBox(height: 48),
             Row(
@@ -141,11 +183,9 @@ class _OtpScreenState extends ConsumerState<OtpScreen> {
             ),
             const SizedBox(height: 32),
             CustomButton(
-              text: 'Verify',
-              onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, AppRoutes.userHome, (route) => false);
-              },
+              text: _isLoading ? 'Verifying...' : 'Verify',
+              isLoading: _isLoading,
+              onPressed: () => _handleVerify(role, phone),
             ),
           ],
         ),

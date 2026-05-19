@@ -13,6 +13,11 @@ import 'package:ease_home_service/features/auth/presentation/role_selection_scre
 import 'package:ease_home_service/features/auth/presentation/sign_in_screen.dart';
 import 'package:ease_home_service/features/auth/presentation/user_registration_screen.dart';
 import 'package:ease_home_service/features/auth/presentation/otp_screen.dart';
+import 'package:ease_home_service/features/auth/presentation/admin_sign_in_screen.dart';
+import 'package:ease_home_service/features/auth/presentation/provider_reg_step1_screen.dart';
+import 'package:ease_home_service/features/auth/presentation/provider_reg_step2_screen.dart';
+import 'package:ease_home_service/features/auth/presentation/provider_reg_step3_screen.dart';
+
 
 // User Screens
 import 'package:ease_home_service/features/user/presentation/home_dashboard_screen.dart';
@@ -99,6 +104,10 @@ class EaseHomeServiceApp extends ConsumerWidget {
       AppRoutes.signIn,
       AppRoutes.registerUser,    // ← fixed: was register
       AppRoutes.verifyOtp,       // ← fixed: was otpVerify
+      AppRoutes.registerProvider1,
+      AppRoutes.registerProvider2,
+      AppRoutes.registerProvider3,
+      AppRoutes.adminSignIn,
     };
 
     final router = GoRouter(
@@ -135,8 +144,17 @@ class EaseHomeServiceApp extends ConsumerWidget {
             builder: (c, s) => const SignInScreen()),
         GoRoute(path: AppRoutes.registerUser,      // ← fixed
             builder: (c, s) => const UserRegistrationScreen()),
+        GoRoute(path: AppRoutes.registerProvider1,
+            builder: (c, s) => const ProviderRegStep1Screen()),
+        GoRoute(path: AppRoutes.registerProvider2,
+            builder: (c, s) => const ProviderRegStep2Screen()),
+        GoRoute(path: AppRoutes.registerProvider3,
+            builder: (c, s) => const ProviderRegStep3Screen()),
         GoRoute(path: AppRoutes.verifyOtp,         // ← fixed
             builder: (c, s) => const OtpScreen()),
+        GoRoute(path: AppRoutes.adminSignIn,
+            builder: (c, s) => const AdminSignInScreen()),
+
 
         // ── User ────────────────────────────────────────────────────────────
         GoRoute(path: AppRoutes.userProfileSetup,

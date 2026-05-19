@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ease_home_service/core/constants/app_colors.dart';
+import 'package:ease_home_service/shared/widgets/user_bottom_nav_bar.dart';
+import 'package:ease_home_service/shared/widgets/logout_helper.dart';
+
+
 
 class UserSettingsScreen extends ConsumerStatefulWidget {
   const UserSettingsScreen({super.key});
@@ -98,7 +102,9 @@ class _UserSettingsScreenState extends ConsumerState<UserSettingsScreen> {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  LogoutHelper.logout(context, ref);
+                },
                 style: OutlinedButton.styleFrom(
                   foregroundColor: AppColors.error,
                   side: const BorderSide(color: AppColors.error),
@@ -120,6 +126,7 @@ class _UserSettingsScreenState extends ConsumerState<UserSettingsScreen> {
           ],
         ),
       ),
+      bottomNavigationBar: const UserBottomNavBar(currentIndex: 4),
     );
   }
 

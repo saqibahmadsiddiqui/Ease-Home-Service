@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ease_home_service/core/constants/app_colors.dart';
+import 'package:ease_home_service/shared/widgets/user_bottom_nav_bar.dart';
+
 
 class SavedProvidersScreen extends ConsumerStatefulWidget {
   const SavedProvidersScreen({super.key});
@@ -221,6 +223,7 @@ class _SavedProvidersScreenState extends ConsumerState<SavedProvidersScreen> {
           );
         },
       ),
+      bottomNavigationBar: const UserBottomNavBar(currentIndex: 3),
     );
   }
 }

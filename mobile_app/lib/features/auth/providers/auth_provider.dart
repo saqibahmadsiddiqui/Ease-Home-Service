@@ -93,3 +93,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<AuthUser?>> {
 
 /// Riverpod provider for AuthNotifier
 final authProvider = StateNotifierProvider<AuthNotifier, AsyncValue<AuthUser?>>((ref) => AuthNotifier(ref));
+
+/// Temporary state holder for Multi-Step Provider Registration
+final providerRegStateProvider = StateProvider<Map<String, dynamic>>((ref) => {});
+

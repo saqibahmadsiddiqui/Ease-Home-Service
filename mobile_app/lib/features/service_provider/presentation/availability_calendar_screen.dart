@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ease_home_service/core/constants/app_colors.dart';
+import 'package:ease_home_service/shared/widgets/provider_bottom_nav_bar.dart';
+
 
 class AvailabilityCalendarScreen extends ConsumerStatefulWidget {
   const AvailabilityCalendarScreen({super.key});
@@ -171,6 +173,7 @@ class _AvailabilityCalendarScreenState
           ],
         ),
       ),
+      bottomNavigationBar: const ProviderBottomNavBar(currentIndex: 1),
     );
   }
 

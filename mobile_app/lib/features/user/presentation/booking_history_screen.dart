@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ease_home_service/core/constants/app_colors.dart';
+import 'package:ease_home_service/shared/widgets/user_bottom_nav_bar.dart';
+
 
 class BookingHistoryScreen extends ConsumerStatefulWidget {
   const BookingHistoryScreen({super.key});
@@ -92,6 +94,7 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: const UserBottomNavBar(currentIndex: 1),
     );
   }
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ease_home_service/core/constants/app_colors.dart';
+import 'package:ease_home_service/shared/widgets/provider_bottom_nav_bar.dart';
+
 
 class EarningsScreen extends ConsumerStatefulWidget {
   const EarningsScreen({super.key});
@@ -108,6 +110,7 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
           ],
         ),
       ),
+      bottomNavigationBar: const ProviderBottomNavBar(currentIndex: 2),
     );
   }
 
