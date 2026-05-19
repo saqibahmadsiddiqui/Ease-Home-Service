@@ -3,6 +3,104 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
+/// Wrapper class around Dio for features that specifically request [ApiClient]
+class ApiClient {
+  final Dio dio;
+  ApiClient(this.dio);
+
+  Future<Response<T>> get<T>(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    void Function(int, int)? onReceiveProgress,
+  }) {
+    return dio.get<T>(
+      path,
+      queryParameters: queryParameters,
+      options: options,
+      cancelToken: cancelToken,
+      onReceiveProgress: onReceiveProgress,
+    );
+  }
+
+  Future<Response<T>> post<T>(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    void Function(int, int)? onReceiveProgress,
+  }) {
+    return dio.post<T>(
+      path,
+      data: data,
+      queryParameters: queryParameters,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+  }
+
+  Future<Response<T>> patch<T>(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    void Function(int, int)? onReceiveProgress,
+  }) {
+    return dio.patch<T>(
+      path,
+      data: data,
+      queryParameters: queryParameters,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+  }
+
+  Future<Response<T>> put<T>(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    void Function(int, int)? onReceiveProgress,
+  }) {
+    return dio.put<T>(
+      path,
+      data: data,
+      queryParameters: queryParameters,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+  }
+
+  Future<Response<T>> delete<T>(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+  }) {
+    return dio.delete<T>(
+      path,
+      data: data,
+      queryParameters: queryParameters,
+      options: options,
+      cancelToken: cancelToken,
+    );
+  }
+}
+
 /// Provider for the Dio HTTP client
 final dioProvider = Provider<Dio>((ref) {
   final dio = Dio(BaseOptions(
@@ -16,7 +114,7 @@ final dioProvider = Provider<Dio>((ref) {
   // Attach JWT interceptor
   dio.interceptors.add(InterceptorsWrapper(
     onRequest: (options, handler) async {
-      final token = await ref.read(authTokenProvider.future);
+      final token = ref.read(authTokenProvider);
       if (token != null && token.isNotEmpty) {
         options.headers['Authorization'] = 'Bearer $token';
       }
@@ -29,13 +127,15 @@ final dioProvider = Provider<Dio>((ref) {
         if (refreshed != null) {
           // retry original request with new token
           err.requestOptions.headers['Authorization'] = 'Bearer $refreshed';
-          final cloneReq = await dio.request(err.requestOptions.path,
-              data: err.requestOptions.data,
-              queryParameters: err.requestOptions.queryParameters,
-              options: Options(
-                method: err.requestOptions.method,
-                headers: err.requestOptions.headers,
-              ));
+          final cloneReq = await dio.request(
+            err.requestOptions.path,
+            data: err.requestOptions.data,
+            queryParameters: err.requestOptions.queryParameters,
+            options: Options(
+              method: err.requestOptions.method,
+              headers: err.requestOptions.headers,
+            ),
+          );
           return handler.resolve(cloneReq);
         }
       }
@@ -49,20 +149,24 @@ final dioProvider = Provider<Dio>((ref) {
 /// Simple token holder – refreshed via AuthRepository
 final authTokenProvider = StateProvider<String?>((ref) => null);
 
+/// Provider exposing the [ApiClient] wrapper
+final apiClientProvider = Provider<ApiClient>((ref) {
+  return ApiClient(ref.watch(dioProvider));
+});
+
 /// Repository exposing auth‑related network calls
-final authRepositoryProvider =
-    Provider<AuthRepository>((ref) => AuthRepository(ref.read));
+final authRepositoryProvider = Provider<AuthRepository>((ref) => AuthRepository(ref));
 
 class AuthRepository {
-  final Reader _read;
-  AuthRepository(this._read);
+  final Ref _ref;
+  AuthRepository(this._ref);
 
   Future<String?> refreshToken() async {
     try {
-      final response = await _read(dioProvider).post('/auth/refresh');
+      final response = await _ref.read(dioProvider).post('/auth/refresh');
       final newToken = response.data['access_token'] as String?;
       if (newToken != null) {
-        _read(authTokenProvider.notifier).state = newToken;
+        _ref.read(authTokenProvider.notifier).state = newToken;
         return newToken;
       }
     } catch (e) {

@@ -148,12 +148,11 @@ class EarningsService {
   }
 
   // Firestore stream for active job (if needed for UI)
-  Stream<DocumentSnapshot<Map<String, dynamic>>> watchActiveJob(String providerId) {
+  Stream<QuerySnapshot<Map<String, dynamic>>> watchActiveJob(String providerId) {
     return FirebaseFirestore.instance
         .collection('providers')
         .doc(providerId)
         .collection('activeJob')
-        .snapshots()
-        .map((qs) => qs.docs.isNotEmpty ? qs.docs.first : DocumentSnapshot<Map<String, dynamic>>.empty);
+        .snapshots();
   }
 }

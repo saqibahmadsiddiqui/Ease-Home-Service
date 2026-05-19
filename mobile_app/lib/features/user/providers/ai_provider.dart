@@ -114,6 +114,6 @@ class AIRepository {
 
 // Riverpod provider exposing AIRepository
 final aiProvider = Provider<AIRepository>((ref) {
-  final dio = ref.watch(apiClientProvider);
+  final dio = ref.watch(dioProvider);
   return AIRepository(dio);
 });

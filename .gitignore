@@ -1,0 +1,59 @@
+# Python Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+pyvenv.cfg
+
+# Python Cache & Compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# IDEs & Text Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+
+# Flutter / Dart Specific (Root level forwarding if needed)
+# (Note: mobile_app/ has its own dedicated .gitignore)
+mobile_app/.dart_tool/
+mobile_app/.flutter-plugins
+mobile_app/.flutter-plugins-dependencies
+mobile_app/.packages
+mobile_app/build/
+mobile_app/ios/Flutter/.flutter-plugins
+mobile_app/ios/Flutter/.flutter-plugins-dependencies
+mobile_app/android/local.properties
+mobile_app/android/key.properties
+mobile_app/android/app/src/main/res/values/google-services.json
+mobile_app/ios/Runner/GoogleService-Info.plist

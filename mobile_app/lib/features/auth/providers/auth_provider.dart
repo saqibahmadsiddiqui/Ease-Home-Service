@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import '../../core/services/api_client.dart';
-import '../../core/constants/app_strings.dart'; // assume contains role strings
+import 'package:ease_home_service/core/services/api_client.dart';
+import 'package:ease_home_service/core/constants/app_strings.dart';
 
 /// Holds the current authenticated user information
 class AuthUser {
@@ -24,14 +24,14 @@ class AuthUser {
 
 /// StateNotifier for auth flow
 class AuthNotifier extends StateNotifier<AsyncValue<AuthUser?>> {
-  final Reader _read;
-  AuthNotifier(this._read) : super(const AsyncValue.loading()) {
+  final Ref _ref;
+  AuthNotifier(this._ref) : super(const AsyncValue.loading()) {
     // Attempt to load stored token/user on start
     _init();
   }
 
   Future<void> _init() async {
-    final token = _read(authTokenProvider).state;
+    final token = _ref.read(authTokenProvider);
     if (token != null && token.isNotEmpty) {
       await fetchCurrentUser();
     } else {
@@ -42,7 +42,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<AuthUser?>> {
   Future<void> register({required String phone, required String role, required String name}) async {
     state = const AsyncValue.loading();
     try {
-      final response = await _read(dioProvider).post('/auth/register', data: {
+      final response = await _ref.read(dioProvider).post('/auth/register', data: {
         'phone': phone,
         'role': role,
         'name': name,
@@ -50,7 +50,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<AuthUser?>> {
         'firebase_id_token': await _obtainFirebaseIdToken(),
       });
       final data = response.data as Map<String, dynamic>;
-      _read(authTokenProvider.notifier).state = data['access_token'] as String?;
+      _ref.read(authTokenProvider.notifier).state = data['access_token'] as String?;
       await fetchCurrentUser();
     } catch (e, st) {
       state = AsyncValue.error(e, st);
@@ -60,12 +60,12 @@ class AuthNotifier extends StateNotifier<AsyncValue<AuthUser?>> {
   Future<void> verifyOtp({required String phone}) async {
     state = const AsyncValue.loading();
     try {
-      final response = await _read(dioProvider).post('/auth/verify-otp', data: {
+      final response = await _ref.read(dioProvider).post('/auth/verify-otp', data: {
         'phone': phone,
         'firebase_id_token': await _obtainFirebaseIdToken(),
       });
       final data = response.data as Map<String, dynamic>;
-      _read(authTokenProvider.notifier).state = data['access_token'] as String?;
+      _ref.read(authTokenProvider.notifier).state = data['access_token'] as String?;
       await fetchCurrentUser();
     } catch (e, st) {
       state = AsyncValue.error(e, st);
@@ -74,7 +74,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<AuthUser?>> {
 
   Future<void> fetchCurrentUser() async {
     try {
-      final response = await _read(dioProvider).get('/auth/me');
+      final response = await _ref.read(dioProvider).get('/auth/me');
       final user = AuthUser.fromJson(response.data as Map<String, dynamic>);
       state = AsyncValue.data(user);
     } catch (e, st) {
@@ -83,7 +83,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<AuthUser?>> {
   }
 
   Future<void> signOut() async {
-    _read(authTokenProvider.notifier).state = null;
+    _ref.read(authTokenProvider.notifier).state = null;
     state = const AsyncValue.data(null);
     // Optionally clear any persisted token storage
   }
@@ -96,4 +96,4 @@ class AuthNotifier extends StateNotifier<AsyncValue<AuthUser?>> {
 }
 
 /// Riverpod provider for AuthNotifier
-final authProvider = StateNotifierProvider<AuthNotifier, AsyncValue<AuthUser?>>((ref) => AuthNotifier(ref.read));
+final authProvider = StateNotifierProvider<AuthNotifier, AsyncValue<AuthUser?>>((ref) => AuthNotifier(ref));

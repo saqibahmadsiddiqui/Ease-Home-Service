@@ -186,6 +186,6 @@ class BookingNotifier extends StateNotifier<BookingState> {
 
 // Provider declaration (adjust the provider name as needed)
 final bookingProvider = StateNotifierProvider<BookingNotifier, BookingState>((ref) {
-  final dio = ref.watch(apiClientProvider);
+  final dio = ref.watch(dioProvider);
   return BookingNotifier(dio);
 });

@@ -60,13 +60,12 @@ class JobProvider {
   }
 
   // Firestore stream for active job for a provider
-  Stream<DocumentSnapshot<Map<String, dynamic>>> watchActiveJob(String providerId) {
+  Stream<QuerySnapshot<Map<String, dynamic>>> watchActiveJob(String providerId) {
     return FirebaseFirestore.instance
         .collection('providers')
         .doc(providerId)
         .collection('activeJob')
-        .snapshots()
-        .map((qs) => qs.docs.isNotEmpty ? qs.docs.first : DocumentSnapshot<Map<String, dynamic>>.empty);
+        .snapshots();
   }
 
   // PATCH /provider/status to update online status

@@ -136,7 +136,7 @@ class EaseHomeServiceApp extends ConsumerWidget {
         GoRoute(path: AppRoutes.registerUser,      // ← fixed
             builder: (c, s) => const UserRegistrationScreen()),
         GoRoute(path: AppRoutes.verifyOtp,         // ← fixed
-            builder: (c, s) => const OtpScreen(phoneNumber: '',)),
+            builder: (c, s) => const OtpScreen()),
 
         // ── User ────────────────────────────────────────────────────────────
         GoRoute(path: AppRoutes.userProfileSetup,
