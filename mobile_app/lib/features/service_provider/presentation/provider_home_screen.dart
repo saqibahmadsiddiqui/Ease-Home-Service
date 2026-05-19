@@ -24,7 +24,7 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Header
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
@@ -36,7 +36,7 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
                   ),
                   CircleAvatar(
                     backgroundColor: AppColors.surface,
-                    child: const Icon(Icons.person, color: AppColors.inactive),
+                    child: Icon(Icons.person, color: AppColors.inactive),
                   )
                 ],
               ),
@@ -46,7 +46,7 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: _isOnline ? AppColors.primary.withOpacity(0.1) : AppColors.surface,
+                  color: _isOnline ? AppColors.primary.withValues(alpha: 0.1) : AppColors.surface,
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(color: _isOnline ? AppColors.primary : AppColors.border),
                 ),
@@ -72,7 +72,7 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
                     ),
                     Switch(
                       value: _isOnline,
-                      activeColor: AppColors.primary,
+                      activeThumbColor: AppColors.primary,
                       onChanged: (val) => setState(() => _isOnline = val),
                     )
                   ],
@@ -91,23 +91,23 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
                   ),
                   borderRadius: BorderRadius.circular(16),
                 ),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text("Today's Earnings", style: TextStyle(color: Colors.white, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        const Text('Rs 4,500', style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold)),
+                        Text("Today's Earnings", style: TextStyle(color: Colors.white, fontSize: 14)),
+                        SizedBox(height: 8),
+                        Text('Rs 4,500', style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold)),
                       ],
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        const Text('Jobs Completed', style: TextStyle(color: Colors.white, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        const Text('3', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+                        Text('Jobs Completed', style: TextStyle(color: Colors.white, fontSize: 14)),
+                        SizedBox(height: 8),
+                        Text('3', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
                       ],
                     )
                   ],
@@ -142,7 +142,7 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
-          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4))],
+          boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10, offset: const Offset(0, 4))],
           border: const Border(left: BorderSide(color: AppColors.primary, width: 6)),
         ),
         padding: const EdgeInsets.all(16),
@@ -154,26 +154,26 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
                 const Text('Plumbing Leak Repair', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                  decoration: BoxDecoration(color: AppColors.error.withOpacity(0.1), borderRadius: BorderRadius.circular(8)),
-                  child: Row(
+                  decoration: BoxDecoration(color: AppColors.error.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(8)),
+                  child: const Row(
                     children: [
-                      const Icon(Icons.timer, color: AppColors.error, size: 14),
-                      const SizedBox(width: 4),
-                      const Text('02:45', style: TextStyle(color: AppColors.error, fontWeight: FontWeight.bold, fontSize: 12)),
+                      Icon(Icons.timer, color: AppColors.error, size: 14),
+                      SizedBox(width: 4),
+                      Text('02:45', style: TextStyle(color: AppColors.error, fontWeight: FontWeight.bold, fontSize: 12)),
                     ],
                   ),
                 )
               ],
             ),
             const SizedBox(height: 12),
-            Row(
+            const Row(
               children: [
-                const Icon(Icons.location_on, color: AppColors.inactive, size: 16),
-                const SizedBox(width: 8),
+                Icon(Icons.location_on, color: AppColors.inactive, size: 16),
+                SizedBox(width: 8),
                 Text('2.5 km away', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
-                const SizedBox(width: 16),
-                const Icon(Icons.access_time, color: AppColors.inactive, size: 16),
-                const SizedBox(width: 8),
+                SizedBox(width: 16),
+                Icon(Icons.access_time, color: AppColors.inactive, size: 16),
+                SizedBox(width: 8),
                 Text('ASAP', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
               ],
             )

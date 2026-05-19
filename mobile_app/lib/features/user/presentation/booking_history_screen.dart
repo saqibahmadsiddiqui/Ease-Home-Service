@@ -114,10 +114,10 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
                       child: const Icon(Icons.plumbing, color: AppColors.primary),
                     ),
                     const SizedBox(width: 12),
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Plumbing Repair', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                        Text('Plumbing Repair', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                         Text('May 15, 2026', style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
                       ],
                     ),
@@ -126,7 +126,7 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: statusColor.withOpacity(0.1),
+                    color: statusColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Text(status, style: TextStyle(color: statusColor, fontWeight: FontWeight.bold, fontSize: 12)),
@@ -137,7 +137,7 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
               padding: EdgeInsets.symmetric(vertical: 12.0),
               child: Divider(),
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
@@ -145,13 +145,13 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
                     CircleAvatar(
                       radius: 12,
                       backgroundColor: AppColors.surface,
-                      child: const Icon(Icons.person, size: 12, color: AppColors.inactive),
+                      child: Icon(Icons.person, size: 12, color: AppColors.inactive),
                     ),
-                    const SizedBox(width: 8),
-                    const Text('Ali Khan', style: TextStyle(fontSize: 13)),
+                    SizedBox(width: 8),
+                    Text('Ali Khan', style: TextStyle(fontSize: 13)),
                   ],
                 ),
-                const Text('Rs 1500', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                Text('Rs 1500', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
               ],
             ),
             if (status == 'Completed') ...[

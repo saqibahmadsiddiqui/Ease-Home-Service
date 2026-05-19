@@ -25,15 +25,15 @@ class _LiveChatScreenState extends ConsumerState<LiveChatScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           children: [
             CircleAvatar(
               radius: 16,
               backgroundColor: AppColors.surface,
-              child: const Icon(Icons.person, size: 16, color: AppColors.inactive),
+              child: Icon(Icons.person, size: 16, color: AppColors.inactive),
             ),
-            const SizedBox(width: 12),
-            const Text('Ali Khan', style: TextStyle(color: AppColors.textPrimary)),
+            SizedBox(width: 12),
+            Text('Ali Khan', style: TextStyle(color: AppColors.textPrimary)),
           ],
         ),
         backgroundColor: AppColors.background,
@@ -47,7 +47,7 @@ class _LiveChatScreenState extends ConsumerState<LiveChatScreen> {
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             color: AppColors.surface,
-            child: Text(
+            child: const Text(
               'Plumbing Repair • Scheduled for Today 2:00 PM',
               style: TextStyle(color: AppColors.textSecondary, fontSize: 12),
               textAlign: TextAlign.center,
@@ -72,7 +72,7 @@ class _LiveChatScreenState extends ConsumerState<LiveChatScreen> {
           // Input Area
           Container(
             padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               border: Border(top: BorderSide(color: AppColors.border)),
             ),
@@ -143,7 +143,7 @@ class _LiveChatScreenState extends ConsumerState<LiveChatScreen> {
           color: AppColors.surface,
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Text(text, style: TextStyle(fontSize: 12, color: AppColors.textSecondary)),
+        child: Text(text, style: const TextStyle(fontSize: 12, color: AppColors.textSecondary)),
       ),
     );
   }
@@ -175,7 +175,7 @@ class _LiveChatScreenState extends ConsumerState<LiveChatScreen> {
             Text(
               time,
               style: TextStyle(
-                color: isSent ? Colors.white.withOpacity(0.7) : AppColors.textSecondary,
+                color: isSent ? Colors.white.withValues(alpha: 0.7) : AppColors.textSecondary,
                 fontSize: 10,
               ),
             ),

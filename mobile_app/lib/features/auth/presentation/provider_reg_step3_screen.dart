@@ -30,7 +30,7 @@ class ProviderRegStep3Screen extends ConsumerWidget {
               ],
             ),
             const SizedBox(height: 24),
-            Text('Document Upload', style: AppTextStyles.h2),
+            const Text('Document Upload', style: AppTextStyles.h2),
             const SizedBox(height: 16),
             _buildUploadBox('CNIC Front'),
             const SizedBox(height: 16),
@@ -38,7 +38,7 @@ class ProviderRegStep3Screen extends ConsumerWidget {
             const SizedBox(height: 16),
             _buildUploadBox('Certificates (Optional)'),
             const SizedBox(height: 24),
-            Text('Availability Schedule', style: AppTextStyles.h2),
+            const Text('Availability Schedule', style: AppTextStyles.h2),
             const SizedBox(height: 16),
             Wrap(
               spacing: 8,

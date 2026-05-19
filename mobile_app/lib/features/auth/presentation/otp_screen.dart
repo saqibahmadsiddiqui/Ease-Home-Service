@@ -68,9 +68,9 @@ class _OtpScreenState extends ConsumerState<OtpScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 24),
-            Text('Enter Code', style: AppTextStyles.h1),
+            const Text('Enter Code', style: AppTextStyles.h1),
             const SizedBox(height: 8),
-            Text('We have sent a 6-digit code to your phone.', style: AppTextStyles.body1),
+            const Text('We have sent a 6-digit code to your phone.', style: AppTextStyles.body1),
             const SizedBox(height: 48),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

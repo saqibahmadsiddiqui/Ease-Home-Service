@@ -63,7 +63,7 @@ class _BookingTrackerScreenState extends ConsumerState<BookingTrackerScreen> {
                         decoration: BoxDecoration(
                           color: AppColors.primary,
                           borderRadius: BorderRadius.circular(20),
-                          boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 8)],
+                          boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 8)],
                         ),
                         child: const Text('Arriving in 15 mins', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                       ),
@@ -96,21 +96,21 @@ class _BookingTrackerScreenState extends ConsumerState<BookingTrackerScreen> {
                   // Provider Info & Actions
                   Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 25,
                         backgroundColor: AppColors.surface,
-                        child: const Icon(Icons.person, color: AppColors.inactive),
+                        child: Icon(Icons.person, color: AppColors.inactive),
                       ),
                       const SizedBox(width: 12),
-                      Expanded(
+                      const Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Ali Khan', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                            Text('Ali Khan', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                             Row(
                               children: [
-                                const Icon(Icons.star, color: Colors.amber, size: 14),
-                                const Text(' 4.9', style: TextStyle(fontSize: 12)),
+                                Icon(Icons.star, color: Colors.amber, size: 14),
+                                Text(' 4.9', style: TextStyle(fontSize: 12)),
                               ],
                             ),
                           ],
@@ -118,13 +118,13 @@ class _BookingTrackerScreenState extends ConsumerState<BookingTrackerScreen> {
                       ),
                       IconButton(
                         icon: const Icon(Icons.call, color: AppColors.primary),
-                        style: IconButton.styleFrom(backgroundColor: AppColors.primary.withOpacity(0.1)),
+                        style: IconButton.styleFrom(backgroundColor: AppColors.primary.withValues(alpha: 0.1)),
                         onPressed: () {},
                       ),
                       const SizedBox(width: 8),
                       IconButton(
                         icon: const Icon(Icons.chat, color: AppColors.primary),
-                        style: IconButton.styleFrom(backgroundColor: AppColors.primary.withOpacity(0.1)),
+                        style: IconButton.styleFrom(backgroundColor: AppColors.primary.withValues(alpha: 0.1)),
                         onPressed: () {
                           Navigator.pushNamed(context, AppRoutes.userChat.replaceAll(':id', widget.bookingId));
                         },

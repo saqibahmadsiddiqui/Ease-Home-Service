@@ -88,30 +88,30 @@ class _ActiveJobScreenState extends ConsumerState<ActiveJobScreen> {
                   // Customer Card
                   Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 25,
                         backgroundColor: AppColors.surface,
-                        child: const Icon(Icons.person, color: AppColors.inactive),
+                        child: Icon(Icons.person, color: AppColors.inactive),
                       ),
                       const SizedBox(width: 12),
-                      Expanded(
+                      const Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('John Doe', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                            Text('John Doe', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                             Text('House 45, Street 2', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
                           ],
                         ),
                       ),
                       IconButton(
                         icon: const Icon(Icons.call, color: AppColors.primary),
-                        style: IconButton.styleFrom(backgroundColor: AppColors.primary.withOpacity(0.1)),
+                        style: IconButton.styleFrom(backgroundColor: AppColors.primary.withValues(alpha: 0.1)),
                         onPressed: () {},
                       ),
                       const SizedBox(width: 8),
                       IconButton(
                         icon: const Icon(Icons.chat, color: AppColors.primary),
-                        style: IconButton.styleFrom(backgroundColor: AppColors.primary.withOpacity(0.1)),
+                        style: IconButton.styleFrom(backgroundColor: AppColors.primary.withValues(alpha: 0.1)),
                         onPressed: () {}, // Navigate to chat
                       ),
                     ],

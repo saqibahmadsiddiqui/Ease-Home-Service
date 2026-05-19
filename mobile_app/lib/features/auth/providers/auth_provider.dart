@@ -1,9 +1,5 @@
-import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:ease_home_service/core/services/api_client.dart';
-import 'package:ease_home_service/core/constants/app_strings.dart';
 
 /// Holds the current authenticated user information
 class AuthUser {

@@ -23,7 +23,7 @@ class NoProviderScreen extends ConsumerWidget {
             Container(
               height: 150,
               width: 150,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: AppColors.surface,
                 shape: BoxShape.circle,
               ),
@@ -33,7 +33,7 @@ class NoProviderScreen extends ConsumerWidget {
             
             const Text('No Providers Available', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
-            Text(
+            const Text(
               'All our plumbing specialists in your area are currently busy.',
               style: TextStyle(color: AppColors.textSecondary, fontSize: 14),
               textAlign: TextAlign.center,
@@ -44,19 +44,19 @@ class NoProviderScreen extends ConsumerWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.primary.withOpacity(0.1),
+                color: AppColors.primary.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+                border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
               ),
-              child: Row(
+              child: const Row(
                 children: [
-                  const Icon(Icons.timer, color: AppColors.primary),
-                  const SizedBox(width: 12),
+                  Icon(Icons.timer, color: AppColors.primary),
+                  SizedBox(width: 12),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Estimated Wait Time', style: TextStyle(fontWeight: FontWeight.bold)),
+                        Text('Estimated Wait Time', style: TextStyle(fontWeight: FontWeight.bold)),
                         Text('~45 minutes', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 16)),
                       ],
                     ),
@@ -110,7 +110,7 @@ class NoProviderScreen extends ConsumerWidget {
             // Schedule for Later
             const Align(alignment: Alignment.centerLeft, child: Text('Schedule for Later', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
             const SizedBox(height: 8),
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Text('AI suggests these optimal slots:', style: TextStyle(color: AppColors.textSecondary, fontSize: 14)),
             ),
@@ -139,7 +139,7 @@ class NoProviderScreen extends ConsumerWidget {
       ),
       child: Column(
         children: [
-          Text(day, style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+          Text(day, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
           const SizedBox(height: 4),
           Text(time, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
         ],

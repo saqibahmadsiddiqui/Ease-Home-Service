@@ -29,7 +29,7 @@ class SignInScreen extends ConsumerWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.1),
+                  color: AppColors.primary.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
@@ -39,9 +39,9 @@ class SignInScreen extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              Text('Welcome Back', style: AppTextStyles.h1),
+              const Text('Welcome Back', style: AppTextStyles.h1),
               const SizedBox(height: 8),
-              Text('Sign in to continue', style: AppTextStyles.body1),
+              const Text('Sign in to continue', style: AppTextStyles.body1),
               const SizedBox(height: 32),
               const CustomInput(
                 hintText: 'Email or Phone Number',

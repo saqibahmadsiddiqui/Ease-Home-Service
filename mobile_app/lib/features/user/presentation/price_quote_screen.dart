@@ -32,9 +32,9 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: AppColors.success.withOpacity(0.1),
+                color: AppColors.success.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: AppColors.success.withOpacity(0.3)),
+                border: Border.all(color: AppColors.success.withValues(alpha: 0.3)),
               ),
               child: Row(
                 children: [
@@ -43,7 +43,7 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
                   Expanded(
                     child: Text(
                       'Flexible on time? Schedule for tomorrow to save Rs 200 on urgency fees.',
-                      style: TextStyle(color: AppColors.success.withOpacity(0.8), fontSize: 13),
+                      style: TextStyle(color: AppColors.success.withValues(alpha: 0.8), fontSize: 13),
                     ),
                   ),
                 ],
@@ -71,10 +71,10 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
                   const Divider(height: 24, thickness: 1),
                   _buildInvoiceRow('Loyalty Discount (Gold)', '- Rs 100', isDiscount: true),
                   const Divider(height: 24, thickness: 1),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Total Estimate', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                      Text('Total Estimate', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                       Text(
                         'Rs 900',
                         style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: AppColors.primary),
@@ -102,7 +102,7 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
-            BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, -5))
+            BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10, offset: const Offset(0, -5))
           ],
         ),
         child: SafeArea(
@@ -132,7 +132,7 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: TextStyle(color: AppColors.textSecondary, fontSize: 14)),
+          Text(label, style: const TextStyle(color: AppColors.textSecondary, fontSize: 14)),
           Text(
             amount,
             style: TextStyle(
@@ -154,7 +154,7 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.primary.withOpacity(0.05) : AppColors.surface,
+          color: isSelected ? AppColors.primary.withValues(alpha: 0.05) : AppColors.surface,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: isSelected ? AppColors.primary : AppColors.border),
         ),

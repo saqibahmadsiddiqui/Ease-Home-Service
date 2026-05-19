@@ -94,7 +94,7 @@ class _BlacklistScreenState extends ConsumerState<BlacklistScreen> {
                 Expanded(
                   child: Container(
                     padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(color: AppColors.error.withOpacity(0.1), borderRadius: BorderRadius.circular(12)),
+                    decoration: BoxDecoration(color: AppColors.error.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(12)),
                     child: const Column(
                       children: [
                         Text('14', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.error)),
@@ -107,7 +107,7 @@ class _BlacklistScreenState extends ConsumerState<BlacklistScreen> {
                 Expanded(
                   child: Container(
                     padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(color: AppColors.error.withOpacity(0.1), borderRadius: BorderRadius.circular(12)),
+                    decoration: BoxDecoration(color: AppColors.error.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(12)),
                     child: const Column(
                       children: [
                         Text('42', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.error)),
@@ -173,9 +173,9 @@ class _BlacklistScreenState extends ConsumerState<BlacklistScreen> {
             ),
             const Text('Trigger Reason:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
             const SizedBox(height: 4),
-            Text('Multiple extreme quality complaints and AI-detected aggressive chat behavior.', style: TextStyle(color: AppColors.error, fontSize: 12)),
+            const Text('Multiple extreme quality complaints and AI-detected aggressive chat behavior.', style: TextStyle(color: AppColors.error, fontSize: 12)),
             const SizedBox(height: 8),
-            Text('Banned on: May 01, 2026 by Admin System', style: TextStyle(color: AppColors.textSecondary, fontSize: 11)),
+            const Text('Banned on: May 01, 2026 by Admin System', style: TextStyle(color: AppColors.textSecondary, fontSize: 11)),
           ],
         ),
       ),

@@ -41,7 +41,7 @@ class DemandForecastScreen extends ConsumerWidget {
             // Heatmap Note
             const Text('Area Demand Heatmap', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
-            Text('Darker orange indicates higher expected job volume based on historical data and current trends.', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+            const Text('Darker orange indicates higher expected job volume based on historical data and current trends.', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
             const SizedBox(height: 16),
 
             // Heatmap Placeholder
@@ -52,7 +52,7 @@ class DemandForecastScreen extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(color: AppColors.border),
                 gradient: LinearGradient(
-                  colors: [AppColors.surface, AppColors.primary.withOpacity(0.5)],
+                  colors: [AppColors.surface, AppColors.primary.withValues(alpha: 0.5)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 )
@@ -90,9 +90,9 @@ class DemandForecastScreen extends ConsumerWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: isHighSurge ? AppColors.error.withOpacity(0.1) : AppColors.surface,
+        color: isHighSurge ? AppColors.error.withValues(alpha: 0.1) : AppColors.surface,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: isHighSurge ? AppColors.error.withOpacity(0.3) : AppColors.border),
+        border: Border.all(color: isHighSurge ? AppColors.error.withValues(alpha: 0.3) : AppColors.border),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -113,7 +113,7 @@ class DemandForecastScreen extends ConsumerWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.border),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 8)],
+        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.02), blurRadius: 8)],
       ),
       child: Row(
         children: [
@@ -123,7 +123,7 @@ class DemandForecastScreen extends ConsumerWidget {
               children: [
                 Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                 const SizedBox(height: 4),
-                Text(desc, style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+                Text(desc, style: const TextStyle(color: AppColors.textSecondary, fontSize: 13)),
                 const SizedBox(height: 8),
                 Text(potential, style: const TextStyle(color: AppColors.success, fontWeight: FontWeight.bold, fontSize: 13)),
               ],

@@ -40,7 +40,7 @@ class _ProviderRegStep2ScreenState extends ConsumerState<ProviderRegStep2Screen>
               ],
             ),
             const SizedBox(height: 24),
-            Text('Select your skills', style: AppTextStyles.h2),
+            const Text('Select your skills', style: AppTextStyles.h2),
             const SizedBox(height: 16),
             Wrap(
               spacing: 8,
@@ -59,7 +59,7 @@ class _ProviderRegStep2ScreenState extends ConsumerState<ProviderRegStep2Screen>
                       }
                     });
                   },
-                  selectedColor: AppColors.primary.withOpacity(0.2),
+                  selectedColor: AppColors.primary.withValues(alpha: 0.2),
                   checkmarkColor: AppColors.primary,
                   labelStyle: AppTextStyles.body2.copyWith(
                     color: isSelected ? AppColors.primary : AppColors.textPrimary,
@@ -69,7 +69,7 @@ class _ProviderRegStep2ScreenState extends ConsumerState<ProviderRegStep2Screen>
             ),
             const SizedBox(height: 24),
             if (_selectedSkills.isNotEmpty) ...[
-              Text('Set Rates (Rs. / hr)', style: AppTextStyles.h3),
+              const Text('Set Rates (Rs. / hr)', style: AppTextStyles.h3),
               const SizedBox(height: 8),
               ..._selectedSkills.map((skill) => Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),

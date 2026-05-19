@@ -28,14 +28,14 @@ class AdminSignInScreen extends ConsumerWidget {
                 child: Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: AppColors.secondary.withOpacity(0.1),
+                    color: AppColors.secondary.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(Icons.security, size: 60, color: AppColors.secondary),
                 ),
               ),
               const SizedBox(height: 32),
-              Text('Admin Access', style: AppTextStyles.h1, textAlign: TextAlign.center),
+              const Text('Admin Access', style: AppTextStyles.h1, textAlign: TextAlign.center),
               const SizedBox(height: 8),
               Text('Restricted Area', style: AppTextStyles.body1.copyWith(color: AppColors.error), textAlign: TextAlign.center),
               const SizedBox(height: 48),

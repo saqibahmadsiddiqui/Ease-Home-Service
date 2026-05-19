@@ -27,7 +27,7 @@ class ReceiptDetailScreen extends ConsumerWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
-                  BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 15, offset: const Offset(0, 5))
+                  BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 15, offset: const Offset(0, 5))
                 ],
                 border: Border.all(color: AppColors.border),
               ),
@@ -38,7 +38,7 @@ class ReceiptDetailScreen extends ConsumerWidget {
                   const SizedBox(height: 12),
                   const Text('Payment Successful!', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 4),
-                  Text('May 15, 2026 at 3:45 PM', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+                  const Text('May 15, 2026 at 3:45 PM', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
                   const SizedBox(height: 24),
                   const Divider(), // In a real app use a dashed divider package or custom painter
                   const SizedBox(height: 24),
@@ -64,10 +64,10 @@ class ReceiptDetailScreen extends ConsumerWidget {
                   const SizedBox(height: 16),
 
                   // Total
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Total Paid', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                      Text('Total Paid', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                       Text('Rs 900', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.primary)),
                     ],
                   ),
@@ -126,7 +126,7 @@ class ReceiptDetailScreen extends ConsumerWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+          Text(label, style: const TextStyle(color: AppColors.textSecondary, fontSize: 13)),
           Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
         ],
       ),
@@ -139,7 +139,7 @@ class ReceiptDetailScreen extends ConsumerWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: TextStyle(color: AppColors.textSecondary)),
+          Text(label, style: const TextStyle(color: AppColors.textSecondary)),
           Text(amount, style: TextStyle(fontWeight: FontWeight.w500, color: isDiscount ? AppColors.success : AppColors.textPrimary)),
         ],
       ),

@@ -109,10 +109,10 @@ class _SavedProvidersScreenState extends ConsumerState<SavedProvidersScreen> {
                     children: [
                       Stack(
                         children: [
-                          CircleAvatar(
+                          const CircleAvatar(
                             radius: 30,
                             backgroundColor: AppColors.surface,
-                            child: const Icon(Icons.person, color: AppColors.inactive),
+                            child: Icon(Icons.person, color: AppColors.inactive),
                           ),
                           if (provider['isAvailable'] == true)
                             Positioned(
@@ -136,7 +136,7 @@ class _SavedProvidersScreenState extends ConsumerState<SavedProvidersScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(provider['name'] as String, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-                            Text(provider['role'] as String, style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+                            Text(provider['role'] as String, style: const TextStyle(color: AppColors.textSecondary, fontSize: 13)),
                             const SizedBox(height: 4),
                             Row(
                               children: [
@@ -173,7 +173,7 @@ class _SavedProvidersScreenState extends ConsumerState<SavedProvidersScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Last Booked: ${provider['lastBooked']}', style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+                      Text('Last Booked: ${provider['lastBooked']}', style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
                       ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(

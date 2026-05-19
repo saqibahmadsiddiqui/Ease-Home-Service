@@ -65,7 +65,7 @@ class _JobCompletionScreenState extends ConsumerState<JobCompletionScreen> {
                 const SizedBox(width: 8),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  decoration: BoxDecoration(color: AppColors.error.withOpacity(0.1), borderRadius: BorderRadius.circular(4)),
+                  decoration: BoxDecoration(color: AppColors.error.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(4)),
                   child: const Text('Required', style: TextStyle(color: AppColors.error, fontSize: 10, fontWeight: FontWeight.bold)),
                 )
               ],

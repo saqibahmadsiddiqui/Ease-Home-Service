@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ease_home_service/core/constants/app_colors.dart';
-import 'package:ease_home_service/core/constants/app_routes.dart';
+
 
 class ProviderMapScreen extends ConsumerStatefulWidget {
   const ProviderMapScreen({super.key});
@@ -11,7 +11,12 @@ class ProviderMapScreen extends ConsumerStatefulWidget {
 }
 
 class _ProviderMapScreenState extends ConsumerState<ProviderMapScreen> {
-  final List<String> _filters = ['Top Rated', 'Nearest', 'Available Now', 'Under Rs 2000'];
+  final List<String> _filters = [
+    'Top Rated',
+    'Nearest',
+    'Available Now',
+    'Under Rs 2000'
+  ];
   int _selectedFilter = 0;
   bool _showMap = true;
 
@@ -20,7 +25,8 @@ class _ProviderMapScreenState extends ConsumerState<ProviderMapScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Nearby Providers', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Nearby Providers',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -81,7 +87,10 @@ class _ProviderMapScreenState extends ConsumerState<ProviderMapScreen> {
                       label: Text(_filters[index]),
                       selected: isSelected,
                       selectedColor: AppColors.primary,
-                      labelStyle: TextStyle(color: isSelected ? Colors.white : AppColors.textPrimary),
+                      labelStyle: TextStyle(
+                          color: isSelected
+                              ? Colors.white
+                              : AppColors.textPrimary),
                       onSelected: (val) {
                         if (val) setState(() => _selectedFilter = index);
                       },
@@ -105,7 +114,10 @@ class _ProviderMapScreenState extends ConsumerState<ProviderMapScreen> {
                   color: Colors.white,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
                   boxShadow: [
-                    BoxShadow(color: Colors.black12, blurRadius: 10, offset: Offset(0, -5))
+                    BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 10,
+                        offset: Offset(0, -5))
                   ],
                 ),
                 child: Column(
@@ -114,7 +126,9 @@ class _ProviderMapScreenState extends ConsumerState<ProviderMapScreen> {
                       width: 40,
                       height: 4,
                       margin: const EdgeInsets.only(bottom: 16),
-                      decoration: BoxDecoration(color: AppColors.border, borderRadius: BorderRadius.circular(2)),
+                      decoration: BoxDecoration(
+                          color: AppColors.border,
+                          borderRadius: BorderRadius.circular(2)),
                     ),
                     Expanded(
                       child: ListView.builder(
@@ -142,7 +156,9 @@ class _ProviderMapScreenState extends ConsumerState<ProviderMapScreen> {
         backgroundColor: AppColors.primary,
         child: Icon(_showMap ? Icons.list : Icons.map, color: Colors.white),
       ),
-      floatingActionButtonLocation: _showMap ? FloatingActionButtonLocation.endTop : FloatingActionButtonLocation.endFloat,
+      floatingActionButtonLocation: _showMap
+          ? FloatingActionButtonLocation.endTop
+          : FloatingActionButtonLocation.endFloat,
     );
   }
 
@@ -160,7 +176,11 @@ class _ProviderMapScreenState extends ConsumerState<ProviderMapScreen> {
             children: [
               const Icon(Icons.star, color: Colors.white, size: 12),
               const SizedBox(width: 4),
-              Text(rating, style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+              Text(rating,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold)),
             ],
           ),
         ),
@@ -178,24 +198,29 @@ class _ProviderMapScreenState extends ConsumerState<ProviderMapScreen> {
         padding: const EdgeInsets.all(12.0),
         child: Row(
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               radius: 30,
               backgroundColor: AppColors.surface,
-              child: const Icon(Icons.person, color: AppColors.inactive),
+              child: Icon(Icons.person, color: AppColors.inactive),
             ),
             const SizedBox(width: 12),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Ali Khan', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  const Text('Expert Plumber', style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
-                  const SizedBox(height: 4),
+                  Text('Ali Khan',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  Text('Expert Plumber',
+                      style: TextStyle(
+                          color: AppColors.textSecondary, fontSize: 12)),
+                  SizedBox(height: 4),
                   Row(
                     children: [
-                      const Icon(Icons.star, color: Colors.amber, size: 14),
-                      const Text(' 4.9 (120 reviews)', style: TextStyle(fontSize: 12)),
+                      Icon(Icons.star, color: Colors.amber, size: 14),
+                      Text(' 4.9 (120 reviews)',
+                          style: TextStyle(fontSize: 12)),
                     ],
                   ),
                 ],
@@ -204,7 +229,9 @@ class _ProviderMapScreenState extends ConsumerState<ProviderMapScreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('2.5 km', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.primary)),
+                const Text('2.5 km',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: AppColors.primary)),
                 const SizedBox(height: 8),
                 ElevatedButton(
                   onPressed: () {
@@ -215,9 +242,11 @@ class _ProviderMapScreenState extends ConsumerState<ProviderMapScreen> {
                     backgroundColor: AppColors.primary,
                     minimumSize: const Size(60, 30),
                     padding: const EdgeInsets.symmetric(horizontal: 12),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
                   ),
-                  child: const Text('View', style: TextStyle(fontSize: 12, color: Colors.white)),
+                  child: const Text('View',
+                      style: TextStyle(fontSize: 12, color: Colors.white)),
                 ),
               ],
             )

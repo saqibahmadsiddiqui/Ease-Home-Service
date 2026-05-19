@@ -32,7 +32,7 @@ class HomeDashboardScreen extends ConsumerWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Good Morning,', style: TextStyle(color: AppColors.textSecondary, fontSize: 16)),
@@ -61,7 +61,7 @@ class HomeDashboardScreen extends ConsumerWidget {
                     children: [
                       const Icon(Icons.search, color: AppColors.inactive),
                       const SizedBox(width: 12),
-                      Expanded(
+                      const Expanded(
                         child: Text(
                           'What do you need help with?',
                           style: TextStyle(color: AppColors.textSecondary, fontSize: 16),
@@ -70,7 +70,7 @@ class HomeDashboardScreen extends ConsumerWidget {
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: AppColors.primary.withOpacity(0.1),
+                          color: AppColors.primary.withValues(alpha: 0.1),
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(Icons.mic, color: AppColors.primary),
@@ -94,7 +94,7 @@ class HomeDashboardScreen extends ConsumerWidget {
                   children: [
                     Container(
                       padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(color: Colors.white.withOpacity(0.2), shape: BoxShape.circle),
+                      decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.2), shape: BoxShape.circle),
                       child: const Icon(Icons.plumbing, color: Colors.white),
                     ),
                     const SizedBox(width: 16),
@@ -104,7 +104,7 @@ class HomeDashboardScreen extends ConsumerWidget {
                         children: [
                           const Text('Plumbing Repair', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
                           const SizedBox(height: 4),
-                          Text('Provider is on the way', style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 14)),
+                          Text('Provider is on the way', style: TextStyle(color: Colors.white.withValues(alpha: 0.9), fontSize: 14)),
                         ],
                       ),
                     ),

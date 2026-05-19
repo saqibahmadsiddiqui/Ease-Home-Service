@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ease_home_service/core/constants/app_colors.dart';
 import 'package:ease_home_service/core/constants/app_text_styles.dart';
-import 'package:ease_home_service/core/constants/app_routes.dart';
 
 class RoleSelectionScreen extends ConsumerWidget {
   const RoleSelectionScreen({super.key});
@@ -18,9 +17,11 @@ class RoleSelectionScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: 40),
-              Text('Choose your role', style: AppTextStyles.h1, textAlign: TextAlign.center),
+              const Text('Choose your role',
+                  style: AppTextStyles.h1, textAlign: TextAlign.center),
               const SizedBox(height: 8),
-              Text('How would you like to use the app?', style: AppTextStyles.body1, textAlign: TextAlign.center),
+              const Text('How would you like to use the app?',
+                  style: AppTextStyles.body1, textAlign: TextAlign.center),
               const SizedBox(height: 48),
               _buildRoleCard(
                 context: context,
@@ -46,7 +47,9 @@ class RoleSelectionScreen extends ConsumerWidget {
                 onPressed: () {
                   // Navigator.pushNamed(context, AppRoutes.adminSignIn);
                 },
-                child: Text('Sign In as Admin', style: AppTextStyles.body1.copyWith(color: AppColors.primary)),
+                child: Text('Sign In as Admin',
+                    style:
+                        AppTextStyles.body1.copyWith(color: AppColors.primary)),
               ),
             ],
           ),
@@ -72,7 +75,7 @@ class RoleSelectionScreen extends ConsumerWidget {
           border: Border.all(color: AppColors.border),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.06),
+              color: Colors.black.withValues(alpha: 0.06),
               blurRadius: 12,
               offset: const Offset(0, 2),
             ),
@@ -83,7 +86,7 @@ class RoleSelectionScreen extends ConsumerWidget {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: AppColors.primary.withOpacity(0.1),
+                color: AppColors.primary.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: Icon(icon, color: AppColors.primary, size: 32),
@@ -99,7 +102,8 @@ class RoleSelectionScreen extends ConsumerWidget {
                 ],
               ),
             ),
-            const Icon(Icons.arrow_forward_ios, color: AppColors.textSecondary, size: 16),
+            const Icon(Icons.arrow_forward_ios,
+                color: AppColors.textSecondary, size: 16),
           ],
         ),
       ),

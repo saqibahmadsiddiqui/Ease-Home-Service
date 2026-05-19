@@ -96,20 +96,20 @@ class _CategoryManagementScreenState extends ConsumerState<CategoryManagementScr
               contentPadding: const EdgeInsets.all(16),
               leading: Container(
                 padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(color: AppColors.primary.withOpacity(0.1), borderRadius: BorderRadius.circular(12)),
+                decoration: BoxDecoration(color: AppColors.primary.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(12)),
                 child: Icon(cat['icon'] as IconData, color: AppColors.primary),
               ),
               title: Text(cat['name'] as String, style: const TextStyle(fontWeight: FontWeight.bold)),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 8.0),
-                child: Text('Providers: ${cat['providers']} • Bookings: ${cat['bookings']}\nBase Rate: Rs ${cat['baseRate']}', style: TextStyle(fontSize: 12, height: 1.4)),
+                child: Text('Providers: ${cat['providers']} • Bookings: ${cat['bookings']}\nBase Rate: Rs ${cat['baseRate']}', style: const TextStyle(fontSize: 12, height: 1.4)),
               ),
               trailing: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Switch(
                     value: cat['active'] as bool,
-                    activeColor: AppColors.primary,
+                    activeThumbColor: AppColors.primary,
                     onChanged: (val) {
                       setState(() => cat['active'] = val);
                     },

@@ -33,24 +33,24 @@ class _DisputeResponseScreenState extends ConsumerState<DisputeResponseScreen> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.error.withOpacity(0.05),
+                color: AppColors.error.withValues(alpha: 0.05),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.error.withOpacity(0.3)),
+                border: Border.all(color: AppColors.error.withValues(alpha: 0.3)),
               ),
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.warning_amber_rounded, color: AppColors.error),
-                      const SizedBox(width: 8),
-                      const Text('Dispute Summary', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.error)),
+                      Icon(Icons.warning_amber_rounded, color: AppColors.error),
+                      SizedBox(width: 8),
+                      Text('Dispute Summary', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.error)),
                     ],
                   ),
-                  const SizedBox(height: 8),
-                  const Text('Customer claims the pipe started leaking again 2 hours after completion. They are requesting a full refund of Rs 900.', style: TextStyle(fontSize: 13, height: 1.4)),
-                  const SizedBox(height: 12),
-                  const Text('AI Assessment:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                  SizedBox(height: 8),
+                  Text('Customer claims the pipe started leaking again 2 hours after completion. They are requesting a full refund of Rs 900.', style: TextStyle(fontSize: 13, height: 1.4)),
+                  SizedBox(height: 12),
+                  Text('AI Assessment:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
                   Text('Images provided by customer show a minor leak at the joint.', style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
                 ],
               ),
@@ -167,7 +167,7 @@ class _DisputeResponseScreenState extends ConsumerState<DisputeResponseScreen> {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.primary.withOpacity(0.05) : Colors.white,
+          color: isSelected ? AppColors.primary.withValues(alpha: 0.05) : Colors.white,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: isSelected ? AppColors.primary : AppColors.border),
         ),
@@ -181,7 +181,7 @@ class _DisputeResponseScreenState extends ConsumerState<DisputeResponseScreen> {
                 children: [
                   Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
                   const SizedBox(height: 4),
-                  Text(desc, style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+                  Text(desc, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
                 ],
               ),
             )

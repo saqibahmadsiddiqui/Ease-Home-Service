@@ -43,7 +43,7 @@ class _ProviderPendingScreenState extends ConsumerState<ProviderPendingScreen> w
                 height: 120,
                 width: 120,
                 decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.1),
+                  color: AppColors.primary.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: const Center(child: Icon(Icons.watch_later_outlined, size: 60, color: AppColors.primary)),
@@ -56,9 +56,9 @@ class _ProviderPendingScreenState extends ConsumerState<ProviderPendingScreen> w
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   decoration: BoxDecoration(
-                    color: AppColors.primary.withOpacity(0.1),
+                    color: AppColors.primary.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+                    border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
                   ),
                   child: const Text('STATUS: UNDER REVIEW', style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, letterSpacing: 1.2)),
                 ),
@@ -67,7 +67,7 @@ class _ProviderPendingScreenState extends ConsumerState<ProviderPendingScreen> w
 
               const Text('Application Received!', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
               const SizedBox(height: 8),
-              Text(
+              const Text(
                 'Thank you for applying to be a provider on Ease Home Service. Your application is currently being reviewed by our team.',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: AppColors.textSecondary, fontSize: 14, height: 1.5),
@@ -146,7 +146,7 @@ class _ProviderPendingScreenState extends ConsumerState<ProviderPendingScreen> w
               children: [
                 Text(title, style: TextStyle(fontWeight: isCurrent ? FontWeight.bold : FontWeight.normal, color: isCurrent ? AppColors.textPrimary : AppColors.textSecondary)),
                 const SizedBox(height: 4),
-                Text(desc, style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+                Text(desc, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
               ],
             ),
           )

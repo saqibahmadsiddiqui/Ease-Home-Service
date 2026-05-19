@@ -43,16 +43,16 @@ class _ServiceCompletionScreenState extends ConsumerState<ServiceCompletionScree
               width: double.infinity,
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
-                color: AppColors.success.withOpacity(0.1),
+                color: AppColors.success.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(24),
-                border: Border.all(color: AppColors.success.withOpacity(0.5)),
+                border: Border.all(color: AppColors.success.withValues(alpha: 0.5)),
               ),
-              child: Column(
+              child: const Column(
                 children: [
-                  const Icon(Icons.check_circle, color: AppColors.success, size: 60),
-                  const SizedBox(height: 16),
-                  const Text('Service Completed Successfully!', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.success)),
-                  const SizedBox(height: 8),
+                  Icon(Icons.check_circle, color: AppColors.success, size: 60),
+                  SizedBox(height: 16),
+                  Text('Service Completed Successfully!', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.success)),
+                  SizedBox(height: 8),
                   Text('Plumbing Repair by Ali Khan', style: TextStyle(color: AppColors.textSecondary)),
                 ],
               ),
@@ -118,7 +118,7 @@ class _ServiceCompletionScreenState extends ConsumerState<ServiceCompletionScree
                 return FilterChip(
                   label: Text(chip),
                   selected: isSelected,
-                  selectedColor: AppColors.primary.withOpacity(0.2),
+                  selectedColor: AppColors.primary.withValues(alpha: 0.2),
                   onSelected: (selected) {
                     setState(() {
                       selected ? _selectedChips.add(chip) : _selectedChips.remove(chip);
@@ -183,7 +183,7 @@ class _ServiceCompletionScreenState extends ConsumerState<ServiceCompletionScree
         children: [
           const Icon(Icons.check_circle, color: AppColors.success, size: 20),
           const SizedBox(width: 12),
-          Text(text, style: TextStyle(color: AppColors.textPrimary)),
+          Text(text, style: const TextStyle(color: AppColors.textPrimary)),
         ],
       ),
     );

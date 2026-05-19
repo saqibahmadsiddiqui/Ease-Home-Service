@@ -31,7 +31,7 @@ class ProviderRegStep1Screen extends ConsumerWidget {
               ],
             ),
             const SizedBox(height: 24),
-            Text('Personal Details', style: AppTextStyles.h2),
+            const Text('Personal Details', style: AppTextStyles.h2),
             const SizedBox(height: 24),
             const CustomInput(hintText: 'Full Name', prefixIcon: Icon(Icons.person_outline)),
             const SizedBox(height: 16),

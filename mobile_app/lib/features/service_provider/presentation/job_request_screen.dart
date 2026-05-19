@@ -26,9 +26,9 @@ class JobRequestScreen extends ConsumerWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.primary.withOpacity(0.1),
+                color: AppColors.primary.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+                border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +43,7 @@ class JobRequestScreen extends ConsumerWidget {
                         const SizedBox(height: 4),
                         Text(
                           'Customer reported a severe kitchen sink leak. Requires immediate attention. Estimated time to fix is 45 mins.',
-                          style: TextStyle(color: AppColors.textPrimary.withOpacity(0.8), fontSize: 13, height: 1.4),
+                          style: TextStyle(color: AppColors.textPrimary.withValues(alpha: 0.8), fontSize: 13, height: 1.4),
                         ),
                       ],
                     ),
@@ -109,11 +109,11 @@ class JobRequestScreen extends ConsumerWidget {
                   const Divider(height: 24),
                   _buildPriceRow('Platform Fee (10%)', '- Rs 75', isDiscount: true),
                   const Divider(height: 24),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Your Net Earning', style: TextStyle(fontWeight: FontWeight.bold)),
-                      const Text('Rs 675', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.success, fontSize: 18)),
+                      Text('Your Net Earning', style: TextStyle(fontWeight: FontWeight.bold)),
+                      Text('Rs 675', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.success, fontSize: 18)),
                     ],
                   ),
                 ],
@@ -167,7 +167,7 @@ class JobRequestScreen extends ConsumerWidget {
         children: [
           Icon(icon, color: AppColors.inactive, size: 20),
           const SizedBox(width: 12),
-          Text(label, style: TextStyle(color: AppColors.textSecondary, fontSize: 14)),
+          Text(label, style: const TextStyle(color: AppColors.textSecondary, fontSize: 14)),
           const Spacer(),
           Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
         ],
@@ -181,7 +181,7 @@ class JobRequestScreen extends ConsumerWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: TextStyle(color: AppColors.textSecondary)),
+          Text(label, style: const TextStyle(color: AppColors.textSecondary)),
           Text(amount, style: TextStyle(fontWeight: FontWeight.w500, color: isDiscount ? AppColors.error : AppColors.textPrimary)),
         ],
       ),

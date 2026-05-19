@@ -115,7 +115,7 @@ class _AiRequestScreenState extends ConsumerState<AiRequestScreen> {
                 child: Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: AppColors.primary.withOpacity(0.1),
+                    color: AppColors.primary.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(Icons.mic, color: AppColors.primary, size: 32),
@@ -151,7 +151,7 @@ class _AiRequestScreenState extends ConsumerState<AiRequestScreen> {
                 runSpacing: 8,
                 children: _chips.map((chip) => Chip(
                   label: Text(chip, style: const TextStyle(color: AppColors.primary, fontSize: 12)),
-                  backgroundColor: AppColors.primary.withOpacity(0.1),
+                  backgroundColor: AppColors.primary.withValues(alpha: 0.1),
                   side: BorderSide.none,
                 )).toList(),
               ),
@@ -160,9 +160,9 @@ class _AiRequestScreenState extends ConsumerState<AiRequestScreen> {
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: AppColors.error.withOpacity(0.1),
+                    color: AppColors.error.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: AppColors.error.withOpacity(0.5)),
+                    border: Border.all(color: AppColors.error.withValues(alpha: 0.5)),
                   ),
                   child: Row(
                     children: [

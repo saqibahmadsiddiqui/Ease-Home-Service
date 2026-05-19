@@ -33,10 +33,10 @@ class _UserSettingsScreenState extends ConsumerState<UserSettingsScreen> {
                 children: [
                   Stack(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 40,
                         backgroundColor: AppColors.surface,
-                        child: const Icon(Icons.person, size: 40, color: AppColors.inactive),
+                        child: Icon(Icons.person, size: 40, color: AppColors.inactive),
                       ),
                       Positioned(
                         bottom: 0,
@@ -51,7 +51,7 @@ class _UserSettingsScreenState extends ConsumerState<UserSettingsScreen> {
                   ),
                   const SizedBox(height: 12),
                   const Text('Saqib Ali', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                  Text('+92 300 1234567', style: TextStyle(color: AppColors.textSecondary)),
+                  const Text('+92 300 1234567', style: TextStyle(color: AppColors.textSecondary)),
                 ],
               ),
             ),
@@ -142,7 +142,7 @@ class _UserSettingsScreenState extends ConsumerState<UserSettingsScreen> {
       title: Text(title, style: const TextStyle(fontSize: 15)),
       trailing: Switch(
         value: value,
-        activeColor: AppColors.primary,
+        activeThumbColor: AppColors.primary,
         onChanged: onChanged,
       ),
     );

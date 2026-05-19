@@ -24,24 +24,24 @@ class PerformanceScreen extends ConsumerWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.primary.withOpacity(0.1),
+                color: AppColors.primary.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+                border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  const Row(
                     children: [
-                      const Icon(Icons.auto_awesome, color: AppColors.primary),
-                      const SizedBox(width: 8),
-                      const Text('Antigravity Insights', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.primary)),
+                      Icon(Icons.auto_awesome, color: AppColors.primary),
+                      SizedBox(width: 8),
+                      Text('Antigravity Insights', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.primary)),
                     ],
                   ),
                   const SizedBox(height: 8),
                   Text(
                     'Your on-time rate is excellent. To boost your score to 90+, consider improving your response time to job requests (currently avg 15 mins).',
-                    style: TextStyle(color: AppColors.textPrimary.withOpacity(0.8), fontSize: 13, height: 1.4),
+                    style: TextStyle(color: AppColors.textPrimary.withValues(alpha: 0.8), fontSize: 13, height: 1.4),
                   ),
                 ],
               ),
@@ -49,7 +49,7 @@ class PerformanceScreen extends ConsumerWidget {
             const SizedBox(height: 24),
 
             // Overall Score
-            Center(
+            const Center(
               child: Column(
                 children: [
                   Stack(
@@ -65,7 +65,7 @@ class PerformanceScreen extends ConsumerWidget {
                           color: AppColors.primary,
                         ),
                       ),
-                      const Column(
+                      Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text('87', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
@@ -74,8 +74,8 @@ class PerformanceScreen extends ConsumerWidget {
                       )
                     ],
                   ),
-                  const SizedBox(height: 16),
-                  const Text('Top 15% of Providers', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.success)),
+                  SizedBox(height: 16),
+                  Text('Top 15% of Providers', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.success)),
                 ],
               ),
             ),

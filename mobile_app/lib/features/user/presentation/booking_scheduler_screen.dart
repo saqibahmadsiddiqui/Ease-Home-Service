@@ -49,18 +49,18 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
               decoration: BoxDecoration(
                 color: AppColors.surface,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.primary.withOpacity(0.5)),
+                border: Border.all(color: AppColors.primary.withValues(alpha: 0.5)),
               ),
               child: Row(
                 children: [
                   const Icon(Icons.auto_awesome, color: AppColors.primary),
                   const SizedBox(width: 12),
-                  Expanded(
+                  const Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('AI Suggested Slot', style: TextStyle(fontWeight: FontWeight.bold)),
-                        const SizedBox(height: 4),
+                        Text('AI Suggested Slot', style: TextStyle(fontWeight: FontWeight.bold)),
+                        SizedBox(height: 4),
                         Text('Provider is in your area today at 2:00 PM. Book this slot for a waived distance fee.', style: TextStyle(fontSize: 12, color: AppColors.textSecondary)),
                       ],
                     ),
@@ -154,7 +154,7 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
                 } else {
                   bgColor = Colors.white;
                   textColor = AppColors.success;
-                  borderColor = AppColors.success.withOpacity(0.5);
+                  borderColor = AppColors.success.withValues(alpha: 0.5);
                 }
 
                 return GestureDetector(
@@ -188,7 +188,7 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
-            BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, -5))
+            BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10, offset: const Offset(0, -5))
           ],
         ),
         child: SafeArea(

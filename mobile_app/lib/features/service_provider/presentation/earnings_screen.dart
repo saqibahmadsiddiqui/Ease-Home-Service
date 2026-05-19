@@ -54,7 +54,7 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
               ],
             ),
             const SizedBox(height: 8),
-            Center(
+            const Center(
               child: Text('Platform fee is automatically deducted (10%)', style: TextStyle(color: AppColors.textSecondary, fontSize: 11)),
             ),
             const SizedBox(height: 32),
@@ -108,7 +108,7 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
           decoration: BoxDecoration(
             color: isSelected ? Colors.white : Colors.transparent,
             borderRadius: BorderRadius.circular(10),
-            boxShadow: isSelected ? [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 4)] : null,
+            boxShadow: isSelected ? [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 4)] : null,
           ),
           alignment: Alignment.center,
           child: Text(
@@ -127,13 +127,13 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
       decoration: BoxDecoration(
-        color: isHighlight ? AppColors.primary.withOpacity(0.1) : Colors.white,
+        color: isHighlight ? AppColors.primary.withValues(alpha: 0.1) : Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: isHighlight ? AppColors.primary : AppColors.border),
       ),
       child: Column(
         children: [
-          Text(title, style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+          Text(title, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
           const SizedBox(height: 8),
           Text(amount, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: amountColor)),
         ],
@@ -149,7 +149,7 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
           width: 24,
           height: 150 * heightFactor,
           decoration: BoxDecoration(
-            color: isToday ? AppColors.primary : AppColors.primary.withOpacity(0.3),
+            color: isToday ? AppColors.primary : AppColors.primary.withValues(alpha: 0.3),
             borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
           ),
         ),
@@ -176,7 +176,7 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
             children: [
               Text(date, style: const TextStyle(fontWeight: FontWeight.bold)),
               const SizedBox(height: 4),
-              Text(method, style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+              Text(method, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
             ],
           ),
           Text(amount, style: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.success, fontSize: 16)),

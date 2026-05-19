@@ -25,10 +25,10 @@ class ProviderSettingsScreen extends ConsumerWidget {
               children: [
                 Stack(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 35,
                       backgroundColor: AppColors.surface,
-                      child: const Icon(Icons.person, size: 35, color: AppColors.inactive),
+                      child: Icon(Icons.person, size: 35, color: AppColors.inactive),
                     ),
                     Positioned(
                       bottom: 0,
@@ -42,18 +42,18 @@ class ProviderSettingsScreen extends ConsumerWidget {
                   ],
                 ),
                 const SizedBox(width: 16),
-                Expanded(
+                const Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Ali Khan', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                      Text('Ali Khan', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                       Text('Master Plumber', style: TextStyle(color: AppColors.textSecondary)),
                     ],
                   ),
                 ),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                  decoration: BoxDecoration(color: AppColors.success.withOpacity(0.1), borderRadius: BorderRadius.circular(20)),
+                  decoration: BoxDecoration(color: AppColors.success.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(20)),
                   child: const Text('Verified', style: TextStyle(color: AppColors.success, fontWeight: FontWeight.bold, fontSize: 12)),
                 )
               ],
@@ -120,14 +120,14 @@ class ProviderSettingsScreen extends ConsumerWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(color: AppColors.border),
-          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 4)],
+          boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.02), blurRadius: 4)],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Icon(icon, color: AppColors.primary),
             const SizedBox(height: 12),
-            Text(title, style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+            Text(title, style: const TextStyle(color: AppColors.textSecondary, fontSize: 13)),
             const SizedBox(height: 4),
             Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
           ],

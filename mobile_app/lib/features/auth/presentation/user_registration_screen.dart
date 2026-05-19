@@ -30,10 +30,10 @@ class _UserRegistrationScreenState extends ConsumerState<UserRegistrationScreen>
             Center(
               child: Stack(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 50,
                     backgroundColor: AppColors.surface,
-                    child: const Icon(Icons.person, size: 50, color: AppColors.textSecondary),
+                    child: Icon(Icons.person, size: 50, color: AppColors.textSecondary),
                   ),
                   Positioned(
                     bottom: 0,
@@ -63,7 +63,7 @@ class _UserRegistrationScreenState extends ConsumerState<UserRegistrationScreen>
             const SizedBox(height: 24),
             Row(
               children: [
-                Text('Language Preference:', style: AppTextStyles.body1),
+                const Text('Language Preference:', style: AppTextStyles.body1),
                 const SizedBox(width: 16),
                 ToggleButtons(
                   isSelected: [_selectedLanguageIndex == 0, _selectedLanguageIndex == 1],

@@ -90,7 +90,7 @@ class _JobHistoryScreenState extends ConsumerState<JobHistoryScreen> {
     return Column(
       children: [
         Text(value, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        Text(label, style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+        Text(label, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
       ],
     );
   }
@@ -100,7 +100,7 @@ class _JobHistoryScreenState extends ConsumerState<JobHistoryScreen> {
     return Card(
       margin: const EdgeInsets.only(bottom: 16),
       elevation: 0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16), side: BorderSide(color: AppColors.border)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16), side: const BorderSide(color: AppColors.border)),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -109,7 +109,7 @@ class _JobHistoryScreenState extends ConsumerState<JobHistoryScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(isCancelled ? 'Cancelled' : 'Completed', style: TextStyle(fontWeight: FontWeight.bold, color: isCancelled ? AppColors.error : AppColors.success)),
-                Text('May 15, 2026', style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+                const Text('May 15, 2026', style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
               ],
             ),
             const Padding(
@@ -118,13 +118,13 @@ class _JobHistoryScreenState extends ConsumerState<JobHistoryScreen> {
             ),
             Row(
               children: [
-                CircleAvatar(radius: 20, backgroundColor: AppColors.surface, child: const Icon(Icons.person, color: AppColors.inactive)),
+                const CircleAvatar(radius: 20, backgroundColor: AppColors.surface, child: Icon(Icons.person, color: AppColors.inactive)),
                 const SizedBox(width: 12),
-                Expanded(
+                const Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Sarah Khan', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                      Text('Sarah Khan', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                       Text('Plumbing Repair', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
                     ],
                   ),

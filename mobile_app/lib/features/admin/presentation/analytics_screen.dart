@@ -129,7 +129,7 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+          Text(title, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
           const SizedBox(height: 8),
           Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
           const Spacer(),
@@ -153,7 +153,7 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
         children: [
           Container(
             width: 24, height: 24,
-            decoration: BoxDecoration(color: medalColor.withOpacity(0.2), shape: BoxShape.circle),
+            decoration: BoxDecoration(color: medalColor.withValues(alpha: 0.2), shape: BoxShape.circle),
             child: Center(child: Text(rank.toString(), style: TextStyle(color: medalColor, fontWeight: FontWeight.bold, fontSize: 12))),
           ),
           const SizedBox(width: 12),

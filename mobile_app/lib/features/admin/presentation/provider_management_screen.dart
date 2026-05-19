@@ -27,7 +27,7 @@ class _ProviderManagementScreenState extends ConsumerState<ProviderManagementScr
               const Text('Leaderboard', style: TextStyle(color: AppColors.textPrimary, fontSize: 14)),
               Switch(
                 value: _showLeaderboard,
-                activeColor: AppColors.primary,
+                activeThumbColor: AppColors.primary,
                 onChanged: (val) => setState(() => _showLeaderboard = val),
               ),
             ],
@@ -99,13 +99,13 @@ class _ProviderManagementScreenState extends ConsumerState<ProviderManagementScr
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text('Ali Khan', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  Text('Plumbing • Lahore', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+                  const Text('Plumbing • Lahore', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
                   const SizedBox(height: 8),
                   Row(
                     children: [
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                        decoration: BoxDecoration(color: AppColors.primary.withOpacity(0.1), borderRadius: BorderRadius.circular(4)),
+                        decoration: BoxDecoration(color: AppColors.primary.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(4)),
                         child: const Row(
                           children: [
                             Icon(Icons.auto_awesome, color: AppColors.primary, size: 10),

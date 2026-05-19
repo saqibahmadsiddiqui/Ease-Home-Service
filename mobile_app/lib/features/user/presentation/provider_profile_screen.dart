@@ -23,7 +23,7 @@ class ProviderProfileScreen extends ConsumerWidget {
               background: Container(
                 color: AppColors.surface,
                 child: Center(
-                  child: Icon(Icons.person, size: 100, color: AppColors.inactive.withOpacity(0.3)),
+                  child: Icon(Icons.person, size: 100, color: AppColors.inactive.withValues(alpha: 0.3)),
                 ),
               ),
             ),
@@ -39,14 +39,14 @@ class ProviderProfileScreen extends ConsumerWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
+                      const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
                             children: [
-                              const Text('Ali Khan', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-                              const SizedBox(width: 8),
-                              const Icon(Icons.verified, color: AppColors.primary, size: 20),
+                              Text('Ali Khan', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                              SizedBox(width: 8),
+                              Icon(Icons.verified, color: AppColors.primary, size: 20),
                             ],
                           ),
                           Text('Master Plumber', style: TextStyle(color: AppColors.textSecondary, fontSize: 16)),
@@ -55,14 +55,14 @@ class ProviderProfileScreen extends ConsumerWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                         decoration: BoxDecoration(
-                          color: Colors.amber.withOpacity(0.1),
+                          color: Colors.amber.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        child: Row(
+                        child: const Row(
                           children: [
-                            const Icon(Icons.star, color: Colors.amber, size: 20),
-                            const SizedBox(width: 4),
-                            const Text('4.9', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                            Icon(Icons.star, color: Colors.amber, size: 20),
+                            SizedBox(width: 4),
+                            Text('4.9', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                           ],
                         ),
                       )
@@ -74,14 +74,14 @@ class ProviderProfileScreen extends ConsumerWidget {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: AppColors.success.withOpacity(0.1),
+                      color: AppColors.success.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Row(
+                    child: const Row(
                       children: [
-                        const Icon(Icons.check_circle, color: AppColors.success, size: 20),
-                        const SizedBox(width: 12),
-                        const Text('Available today from 2:00 PM', style: TextStyle(color: AppColors.success, fontWeight: FontWeight.w500)),
+                        Icon(Icons.check_circle, color: AppColors.success, size: 20),
+                        SizedBox(width: 12),
+                        Text('Available today from 2:00 PM', style: TextStyle(color: AppColors.success, fontWeight: FontWeight.w500)),
                       ],
                     ),
                   ),
@@ -118,7 +118,7 @@ class ProviderProfileScreen extends ConsumerWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
-            BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, -5))
+            BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10, offset: const Offset(0, -5))
           ],
         ),
         child: SafeArea(
@@ -175,7 +175,7 @@ class ProviderProfileScreen extends ConsumerWidget {
             ],
           ),
           const SizedBox(height: 8),
-          Text(
+          const Text(
             'Very professional and fixed the leak in under 30 minutes. Highly recommended!',
             style: TextStyle(color: AppColors.textSecondary, fontSize: 13, height: 1.4),
           ),

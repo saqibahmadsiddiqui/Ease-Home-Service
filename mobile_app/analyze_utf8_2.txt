@@ -1,0 +1,5 @@
+﻿Analyzing mobile_app...                                         
+
+warning - The value of the field '_ref' isn't used. Try removing the field, or using it - lib\features\user\providers\chat_provider.dart:52:13 - unused_field
+warning - The value of the field '_bookingId' isn't used. Try removing the field, or using it - lib\features\user\providers\chat_provider.dart:53:16 - unused_field
+

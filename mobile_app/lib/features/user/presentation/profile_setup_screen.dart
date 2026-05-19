@@ -41,10 +41,10 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
             Center(
               child: Stack(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 50,
                     backgroundColor: AppColors.surface,
-                    child: const Icon(Icons.person, size: 50, color: AppColors.inactive),
+                    child: Icon(Icons.person, size: 50, color: AppColors.inactive),
                   ),
                   Positioned(
                     bottom: 0,
@@ -103,7 +103,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
             const Text('Preferred Language', style: TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             DropdownButtonFormField<String>(
-              value: _selectedLanguage,
+              initialValue: _selectedLanguage,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: AppColors.surface,
@@ -126,7 +126,7 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                 const Text('Enable Notifications', style: TextStyle(fontWeight: FontWeight.bold)),
                 Switch(
                   value: _notificationsEnabled,
-                  activeColor: AppColors.primary,
+                  activeThumbColor: AppColors.primary,
                   onChanged: (val) => setState(() => _notificationsEnabled = val),
                 ),
               ],

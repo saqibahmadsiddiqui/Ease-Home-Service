@@ -49,12 +49,10 @@ class ChatMessage {
 
 /// Service handling chat operations for a specific booking.
 class ChatService {
-  final Ref _ref;
-  final String _bookingId;
   final DatabaseReference _chatRef;
 
-  ChatService(this._ref, this._bookingId)
-      : _chatRef = FirebaseDatabase.instance.ref('chat/$_bookingId/messages');
+  ChatService(Ref ref, String bookingId)
+      : _chatRef = FirebaseDatabase.instance.ref('chat/$bookingId/messages');
 
   /// Returns a stream of ordered messages for the booking.
   Stream<List<ChatMessage>> messagesStream() {

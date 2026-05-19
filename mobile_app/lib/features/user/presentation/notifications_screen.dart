@@ -127,7 +127,7 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                       children: [
                         Container(
                           padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: AppColors.surface,
                             shape: BoxShape.circle,
                           ),
@@ -142,11 +142,11 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(notif['title'] as String, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                                  Text(notif['time'] as String, style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+                                  Text(notif['time'] as String, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
                                 ],
                               ),
                               const SizedBox(height: 4),
-                              Text(notif['body'] as String, style: TextStyle(color: AppColors.textPrimary.withOpacity(0.8), fontSize: 13, height: 1.4)),
+                              Text(notif['body'] as String, style: TextStyle(color: AppColors.textPrimary.withValues(alpha: 0.8), fontSize: 13, height: 1.4)),
                             ],
                           ),
                         ),

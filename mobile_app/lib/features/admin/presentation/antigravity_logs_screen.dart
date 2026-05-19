@@ -91,7 +91,7 @@ class _AntigravityLogsScreenState extends ConsumerState<AntigravityLogsScreen> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: isError ? AppColors.error.withOpacity(0.1) : AppColors.primary.withOpacity(0.1),
+                color: isError ? AppColors.error.withValues(alpha: 0.1) : AppColors.primary.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(6),
               ),
               child: Text(
@@ -100,7 +100,7 @@ class _AntigravityLogsScreenState extends ConsumerState<AntigravityLogsScreen> {
               ),
             ),
             const SizedBox(width: 8),
-            Text('Trace ID: a7f89${index}b...', style: TextStyle(fontSize: 12, color: AppColors.textSecondary)),
+            Text('Trace ID: a7f89${index}b...', style: const TextStyle(fontSize: 12, color: AppColors.textSecondary)),
             const Spacer(),
             if (isError)
                const Icon(Icons.error, color: AppColors.error, size: 16)

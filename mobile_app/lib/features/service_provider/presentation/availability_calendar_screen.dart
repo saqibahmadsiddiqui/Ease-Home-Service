@@ -81,7 +81,7 @@ class _AvailabilityCalendarScreenState extends ConsumerState<AvailabilityCalenda
                   ),
                   Switch(
                     value: _acceptingRequests,
-                    activeColor: AppColors.primary,
+                    activeThumbColor: AppColors.primary,
                     onChanged: (val) => setState(() => _acceptingRequests = val),
                   )
                 ],
