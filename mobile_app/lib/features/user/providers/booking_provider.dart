@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dio/dio.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:your_project_name/core/services/api_client.dart'; // adjust import path if needed
+import 'package:ease_home_service/core/services/api_client.dart'; // adjust import path if needed
 
 // Model for Booking (simplified)
 class Booking {

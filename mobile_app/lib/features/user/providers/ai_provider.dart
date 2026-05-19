@@ -1,7 +1,7 @@
 // lib/features/user/providers/ai_provider.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dio/dio.dart';
-import 'package:your_project_name/core/services/api_client.dart'; // adjust import if needed
+import 'package:ease_home_service/core/services/api_client.dart'; // adjust import if needed
 
 // Simple model classes (can be expanded as needed)
 class IntentResponse {

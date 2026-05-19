@@ -22,7 +22,7 @@ final dioProvider = Provider<Dio>((ref) {
       }
       return handler.next(options);
     },
-    onError: (DioError err, handler) async {
+    onError: (DioException err, handler) async {
       // If 401, attempt token refresh
       if (err.response?.statusCode == 401) {
         final refreshed = await ref.read(authRepositoryProvider).refreshToken();
@@ -50,7 +50,8 @@ final dioProvider = Provider<Dio>((ref) {
 final authTokenProvider = StateProvider<String?>((ref) => null);
 
 /// Repository exposing auth‑related network calls
-final authRepositoryProvider = Provider<AuthRepository>((ref) => AuthRepository(ref.read));
+final authRepositoryProvider =
+    Provider<AuthRepository>((ref) => AuthRepository(ref.read));
 
 class AuthRepository {
   final Reader _read;

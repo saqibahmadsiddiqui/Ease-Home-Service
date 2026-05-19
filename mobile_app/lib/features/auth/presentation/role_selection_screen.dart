@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../../core/constants/app_colors.dart';
-import '../../../../core/constants/app_text_styles.dart';
-import '../../../../core/constants/app_routes.dart';
+import 'package:ease_home_service/core/constants/app_colors.dart';
+import 'package:ease_home_service/core/constants/app_text_styles.dart';
+import 'package:ease_home_service/core/constants/app_routes.dart';
 
-class RoleSelectScreen extends ConsumerWidget {
-  const RoleSelectScreen({super.key});
+class RoleSelectionScreen extends ConsumerWidget {
+  const RoleSelectionScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,7 +28,7 @@ class RoleSelectScreen extends ConsumerWidget {
                 description: 'I want to book home services',
                 icon: Icons.person,
                 onTap: () {
-                  Navigator.pushNamed(context, AppRoutes.signIn, arguments: 'user');
+                  // Navigator.pushNamed(context, AppRoutes.signIn, arguments: 'user');
                 },
               ),
               const SizedBox(height: 24),
@@ -38,13 +38,13 @@ class RoleSelectScreen extends ConsumerWidget {
                 description: 'I want to offer my services',
                 icon: Icons.work,
                 onTap: () {
-                  Navigator.pushNamed(context, AppRoutes.signIn, arguments: 'provider');
+                  // Navigator.pushNamed(context, AppRoutes.signIn, arguments: 'provider');
                 },
               ),
               const Spacer(),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, AppRoutes.adminSignIn);
+                  // Navigator.pushNamed(context, AppRoutes.adminSignIn);
                 },
                 child: Text('Sign In as Admin', style: AppTextStyles.body1.copyWith(color: AppColors.primary)),
               ),

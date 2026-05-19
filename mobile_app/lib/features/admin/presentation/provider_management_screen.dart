@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:your_project_name/core/constants/app_colors.dart';
+import 'package:ease_home_service/core/constants/app_colors.dart';
 
 class ProviderManagementScreen extends ConsumerStatefulWidget {
   const ProviderManagementScreen({super.key});

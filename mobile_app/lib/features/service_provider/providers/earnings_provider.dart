@@ -2,7 +2,7 @@
 // Uses the shared ApiClient (Dio) from core/services/api_client.dart
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:your_project_name/core/services/api_client.dart'; // Adjust import path if needed
+import 'package:ease_home_service/core/services/api_client.dart'; // Adjust import path if needed
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 // Models

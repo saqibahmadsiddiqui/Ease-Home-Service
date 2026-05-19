@@ -1,7 +1,7 @@
 // lib/features/service_provider/providers/job_provider.dart
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:your_project_name/core/services/api_client.dart'; // adjust import path as needed
+import 'package:ease_home_service/core/services/api_client.dart'; // adjust import path as needed
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 // Model for a Job Request (simplified)

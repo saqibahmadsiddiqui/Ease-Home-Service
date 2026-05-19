@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:your_project_name/core/constants/app_colors.dart';
+import 'package:ease_home_service/core/constants/app_colors.dart';
 
 class ReceiptDetailScreen extends ConsumerWidget {
   final String bookingId;
@@ -40,7 +40,7 @@ class ReceiptDetailScreen extends ConsumerWidget {
                   const SizedBox(height: 4),
                   Text('May 15, 2026 at 3:45 PM', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
                   const SizedBox(height: 24),
-                  const Divider(style: BorderStyle.solid), // In a real app use a dashed divider package or custom painter
+                  const Divider(), // In a real app use a dashed divider package or custom painter
                   const SizedBox(height: 24),
 
                   // Info
