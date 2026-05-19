@@ -42,8 +42,10 @@ class ProviderRegStep3Screen extends ConsumerWidget {
             const SizedBox(height: 16),
             Wrap(
               spacing: 8,
-              children: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) {
-                return Chip(label: Text(day), backgroundColor: AppColors.surface);
+              children:
+                  ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) {
+                return Chip(
+                    label: Text(day), backgroundColor: AppColors.surface);
               }).toList(),
             ),
             const SizedBox(height: 16),
@@ -77,7 +79,8 @@ class ProviderRegStep3Screen extends ConsumerWidget {
       ),
       child: Column(
         children: [
-          const Icon(Icons.cloud_upload_outlined, color: AppColors.primary, size: 32),
+          const Icon(Icons.cloud_upload_outlined,
+              color: AppColors.primary, size: 32),
           const SizedBox(height: 8),
           Text('Upload $title', style: AppTextStyles.body1),
         ],
@@ -101,7 +104,8 @@ class ProviderRegStep3Screen extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(time, style: AppTextStyles.body1),
-              const Icon(Icons.access_time, size: 16, color: AppColors.textSecondary),
+              const Icon(Icons.access_time,
+                  size: 16, color: AppColors.textSecondary),
             ],
           ),
         ),

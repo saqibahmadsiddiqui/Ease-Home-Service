@@ -6,7 +6,8 @@ class NotificationsScreen extends ConsumerStatefulWidget {
   const NotificationsScreen({super.key});
 
   @override
-  ConsumerState<NotificationsScreen> createState() => _NotificationsScreenState();
+  ConsumerState<NotificationsScreen> createState() =>
+      _NotificationsScreenState();
 }
 
 class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
@@ -48,7 +49,8 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Notifications', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Notifications',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -61,7 +63,8 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                 }
               });
             },
-            child: const Text('Mark All Read', style: TextStyle(color: AppColors.primary)),
+            child: const Text('Mark All Read',
+                style: TextStyle(color: AppColors.primary)),
           )
         ],
       ),
@@ -82,7 +85,9 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                     label: Text(_tabs[index]),
                     selected: isSelected,
                     selectedColor: AppColors.primary,
-                    labelStyle: TextStyle(color: isSelected ? Colors.white : AppColors.textPrimary),
+                    labelStyle: TextStyle(
+                        color:
+                            isSelected ? Colors.white : AppColors.textPrimary),
                     onSelected: (val) {
                       if (val) setState(() => _selectedTab = index);
                     },
@@ -99,7 +104,7 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
               itemCount: _notifications.length,
               itemBuilder: (context, index) {
                 final notif = _notifications[index];
-                
+
                 // Simple filter logic
                 if (_selectedTab != 0 && notif['type'] != _tabs[_selectedTab]) {
                   return const SizedBox.shrink();
@@ -120,7 +125,9 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                     });
                   },
                   child: Container(
-                    color: notif['isRead'] == true ? Colors.white : const Color(0xFFFFF5EE), // Orange tint
+                    color: notif['isRead'] == true
+                        ? Colors.white
+                        : const Color(0xFFFFF5EE), // Orange tint
                     padding: const EdgeInsets.all(16),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,7 +138,8 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                             color: AppColors.surface,
                             shape: BoxShape.circle,
                           ),
-                          child: Icon(notif['icon'] as IconData, color: AppColors.primary, size: 20),
+                          child: Icon(notif['icon'] as IconData,
+                              color: AppColors.primary, size: 20),
                         ),
                         const SizedBox(width: 16),
                         Expanded(
@@ -139,14 +147,26 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(notif['title'] as String, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                                  Text(notif['time'] as String, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+                                  Text(notif['title'] as String,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15)),
+                                  Text(notif['time'] as String,
+                                      style: const TextStyle(
+                                          color: AppColors.textSecondary,
+                                          fontSize: 12)),
                                 ],
                               ),
                               const SizedBox(height: 4),
-                              Text(notif['body'] as String, style: TextStyle(color: AppColors.textPrimary.withValues(alpha: 0.8), fontSize: 13, height: 1.4)),
+                              Text(notif['body'] as String,
+                                  style: TextStyle(
+                                      color: AppColors.textPrimary
+                                          .withValues(alpha: 0.8),
+                                      fontSize: 13,
+                                      height: 1.4)),
                             ],
                           ),
                         ),

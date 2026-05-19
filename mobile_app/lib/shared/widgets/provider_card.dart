@@ -43,9 +43,11 @@ class ProviderCard extends StatelessWidget {
             CircleAvatar(
               radius: 30,
               backgroundColor: AppColors.surface,
-              backgroundImage: imageUrl.isNotEmpty ? NetworkImage(imageUrl) : null,
+              backgroundImage:
+                  imageUrl.isNotEmpty ? NetworkImage(imageUrl) : null,
               child: imageUrl.isEmpty
-                  ? const Icon(Icons.person, color: AppColors.textSecondary, size: 30)
+                  ? const Icon(Icons.person,
+                      color: AppColors.textSecondary, size: 30)
                   : null,
             ),
             const SizedBox(width: 16),
@@ -68,7 +70,8 @@ class ProviderCard extends StatelessWidget {
                       const SizedBox(width: 4),
                       Text(
                         rating.toStringAsFixed(1),
-                        style: AppTextStyles.body2.copyWith(fontWeight: FontWeight.bold),
+                        style: AppTextStyles.body2
+                            .copyWith(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(width: 4),
                       Text(

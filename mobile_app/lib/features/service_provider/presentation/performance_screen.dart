@@ -10,7 +10,8 @@ class PerformanceScreen extends ConsumerWidget {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Performance', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Performance',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         automaticallyImplyLeading: false, // likely bottom nav tab
@@ -26,7 +27,8 @@ class PerformanceScreen extends ConsumerWidget {
               decoration: BoxDecoration(
                 color: AppColors.primary.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
+                border:
+                    Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,13 +37,19 @@ class PerformanceScreen extends ConsumerWidget {
                     children: [
                       Icon(Icons.auto_awesome, color: AppColors.primary),
                       SizedBox(width: 8),
-                      Text('Antigravity Insights', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.primary)),
+                      Text('Antigravity Insights',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.primary)),
                     ],
                   ),
                   const SizedBox(height: 8),
                   Text(
                     'Your on-time rate is excellent. To boost your score to 90+, consider improving your response time to job requests (currently avg 15 mins).',
-                    style: TextStyle(color: AppColors.textPrimary.withValues(alpha: 0.8), fontSize: 13, height: 1.4),
+                    style: TextStyle(
+                        color: AppColors.textPrimary.withValues(alpha: 0.8),
+                        fontSize: 13,
+                        height: 1.4),
                   ),
                 ],
               ),
@@ -68,30 +76,41 @@ class PerformanceScreen extends ConsumerWidget {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('87', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
-                          Text('/ 100', style: TextStyle(fontSize: 12, color: AppColors.textSecondary)),
+                          Text('87',
+                              style: TextStyle(
+                                  fontSize: 32, fontWeight: FontWeight.bold)),
+                          Text('/ 100',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: AppColors.textSecondary)),
                         ],
                       )
                     ],
                   ),
                   SizedBox(height: 16),
-                  Text('Top 15% of Providers', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.success)),
+                  Text('Top 15% of Providers',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.success)),
                 ],
               ),
             ),
             const SizedBox(height: 32),
 
             // Breakdown
-            const Text('Factor Breakdown', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Factor Breakdown',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),
             _buildFactorBar('Customer Rating (4.9)', 0.98),
             _buildFactorBar('Job Completion Rate', 0.95),
             _buildFactorBar('On-Time Arrival', 0.90),
-            _buildFactorBar('Response Rate', 0.75, color: Colors.amber), // Highlights area for improvement
+            _buildFactorBar('Response Rate', 0.75,
+                color: Colors.amber), // Highlights area for improvement
             const SizedBox(height: 32),
 
             // Trend Placeholder
-            const Text('Rating Trend', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Rating Trend',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),
             Container(
               height: 150,
@@ -102,7 +121,8 @@ class PerformanceScreen extends ConsumerWidget {
                 border: Border.all(color: AppColors.border),
               ),
               child: const Center(
-                child: Icon(Icons.show_chart, size: 60, color: AppColors.inactive),
+                child:
+                    Icon(Icons.show_chart, size: 60, color: AppColors.inactive),
               ), // In a real app use a line chart package
             ),
           ],
@@ -111,7 +131,8 @@ class PerformanceScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildFactorBar(String label, double value, {Color color = AppColors.primary}) {
+  Widget _buildFactorBar(String label, double value,
+      {Color color = AppColors.primary}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Column(
@@ -121,7 +142,9 @@ class PerformanceScreen extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(label, style: const TextStyle(fontSize: 14)),
-              Text('${(value * 100).toInt()}%', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+              Text('${(value * 100).toInt()}%',
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 12)),
             ],
           ),
           const SizedBox(height: 8),

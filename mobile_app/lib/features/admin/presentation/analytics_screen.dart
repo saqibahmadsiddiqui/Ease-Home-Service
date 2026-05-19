@@ -18,7 +18,8 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Analytics', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Analytics',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         automaticallyImplyLeading: false,
@@ -41,7 +42,10 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
                       label: Text(_tabs[index]),
                       selected: _selectedPeriod == index,
                       selectedColor: AppColors.primary,
-                      labelStyle: TextStyle(color: _selectedPeriod == index ? Colors.white : AppColors.textPrimary),
+                      labelStyle: TextStyle(
+                          color: _selectedPeriod == index
+                              ? Colors.white
+                              : AppColors.textPrimary),
                       onSelected: (val) {
                         if (val) setState(() => _selectedPeriod = index);
                       },
@@ -71,7 +75,8 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
             // Revenue Chart
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Text('Revenue Trend', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              child: Text('Revenue Trend',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ),
             const SizedBox(height: 12),
             Container(
@@ -82,14 +87,17 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(color: AppColors.border),
               ),
-              child: const Center(child: Icon(Icons.show_chart, size: 60, color: AppColors.inactive)),
+              child: const Center(
+                  child: Icon(Icons.show_chart,
+                      size: 60, color: AppColors.inactive)),
             ),
             const SizedBox(height: 32),
 
             // Top Providers Leaderboard
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Text('Top Providers (By Earnings)', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              child: Text('Top Providers (By Earnings)',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ),
             const SizedBox(height: 12),
             Container(
@@ -129,15 +137,23 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+          Text(title,
+              style: const TextStyle(
+                  color: AppColors.textSecondary, fontSize: 12)),
           const SizedBox(height: 8),
-          Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+          Text(value,
+              style:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
           const Spacer(),
           Row(
             children: [
               const Icon(Icons.trending_up, color: AppColors.success, size: 14),
               const SizedBox(width: 4),
-              Text(trend, style: const TextStyle(color: AppColors.success, fontSize: 12, fontWeight: FontWeight.bold)),
+              Text(trend,
+                  style: const TextStyle(
+                      color: AppColors.success,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold)),
             ],
           )
         ],
@@ -146,20 +162,32 @@ class _AnalyticsScreenState extends ConsumerState<AnalyticsScreen> {
   }
 
   Widget _buildLeaderboardRow(int rank, String name, String value) {
-    Color medalColor = rank == 1 ? Colors.amber : (rank == 2 ? Colors.grey[400]! : Colors.brown[300]!);
+    Color medalColor = rank == 1
+        ? Colors.amber
+        : (rank == 2 ? Colors.grey[400]! : Colors.brown[300]!);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Row(
         children: [
           Container(
-            width: 24, height: 24,
-            decoration: BoxDecoration(color: medalColor.withValues(alpha: 0.2), shape: BoxShape.circle),
-            child: Center(child: Text(rank.toString(), style: TextStyle(color: medalColor, fontWeight: FontWeight.bold, fontSize: 12))),
+            width: 24,
+            height: 24,
+            decoration: BoxDecoration(
+                color: medalColor.withValues(alpha: 0.2),
+                shape: BoxShape.circle),
+            child: Center(
+                child: Text(rank.toString(),
+                    style: TextStyle(
+                        color: medalColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12))),
           ),
           const SizedBox(width: 12),
           Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
           const Spacer(),
-          Text(value, style: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.primary)),
+          Text(value,
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold, color: AppColors.primary)),
         ],
       ),
     );

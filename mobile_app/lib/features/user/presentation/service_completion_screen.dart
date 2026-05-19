@@ -8,12 +8,20 @@ class ServiceCompletionScreen extends ConsumerStatefulWidget {
   const ServiceCompletionScreen({super.key, required this.bookingId});
 
   @override
-  ConsumerState<ServiceCompletionScreen> createState() => _ServiceCompletionScreenState();
+  ConsumerState<ServiceCompletionScreen> createState() =>
+      _ServiceCompletionScreenState();
 }
 
-class _ServiceCompletionScreenState extends ConsumerState<ServiceCompletionScreen> {
+class _ServiceCompletionScreenState
+    extends ConsumerState<ServiceCompletionScreen> {
   int _rating = 0;
-  final List<String> _chips = ['Professional', 'On Time', 'Clean Work', 'Good Value', 'Friendly'];
+  final List<String> _chips = [
+    'Professional',
+    'On Time',
+    'Clean Work',
+    'Good Value',
+    'Friendly'
+  ];
   final Set<String> _selectedChips = {};
   final _reviewController = TextEditingController();
 
@@ -28,7 +36,8 @@ class _ServiceCompletionScreenState extends ConsumerState<ServiceCompletionScree
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Job Completed', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Job Completed',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -45,22 +54,32 @@ class _ServiceCompletionScreenState extends ConsumerState<ServiceCompletionScree
               decoration: BoxDecoration(
                 color: AppColors.success.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(24),
-                border: Border.all(color: AppColors.success.withValues(alpha: 0.5)),
+                border:
+                    Border.all(color: AppColors.success.withValues(alpha: 0.5)),
               ),
               child: const Column(
                 children: [
                   Icon(Icons.check_circle, color: AppColors.success, size: 60),
                   SizedBox(height: 16),
-                  Text('Service Completed Successfully!', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.success)),
+                  Text('Service Completed Successfully!',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.success)),
                   SizedBox(height: 8),
-                  Text('Plumbing Repair by Ali Khan', style: TextStyle(color: AppColors.textSecondary)),
+                  Text('Plumbing Repair by Ali Khan',
+                      style: TextStyle(color: AppColors.textSecondary)),
                 ],
               ),
             ),
             const SizedBox(height: 32),
 
             // Work Photos
-            const Align(alignment: Alignment.centerLeft, child: Text('Work Photos', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
+            const Align(
+                alignment: Alignment.centerLeft,
+                child: Text('Work Photos',
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
             const SizedBox(height: 12),
             SizedBox(
               height: 100,
@@ -83,7 +102,11 @@ class _ServiceCompletionScreenState extends ConsumerState<ServiceCompletionScree
             const SizedBox(height: 24),
 
             // Checklist
-            const Align(alignment: Alignment.centerLeft, child: Text('Completion Checklist', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
+            const Align(
+                alignment: Alignment.centerLeft,
+                child: Text('Completion Checklist',
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
             const SizedBox(height: 8),
             _buildChecklistItem('Area cleaned up'),
             _buildChecklistItem('System tested and working'),
@@ -91,7 +114,8 @@ class _ServiceCompletionScreenState extends ConsumerState<ServiceCompletionScree
             const Divider(height: 32),
 
             // Rating
-            const Text('Rate your experience', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Rate your experience',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -121,7 +145,9 @@ class _ServiceCompletionScreenState extends ConsumerState<ServiceCompletionScree
                   selectedColor: AppColors.primary.withValues(alpha: 0.2),
                   onSelected: (selected) {
                     setState(() {
-                      selected ? _selectedChips.add(chip) : _selectedChips.remove(chip);
+                      selected
+                          ? _selectedChips.add(chip)
+                          : _selectedChips.remove(chip);
                     });
                   },
                 );
@@ -154,21 +180,31 @@ class _ServiceCompletionScreenState extends ConsumerState<ServiceCompletionScree
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, AppRoutes.userReceipt.replaceAll(':id', widget.bookingId));
+                  Navigator.pushReplacementNamed(
+                      context,
+                      AppRoutes.userReceipt
+                          .replaceAll(':id', widget.bookingId));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
                 ),
-                child: const Text('Submit Review', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white)),
+                child: const Text('Submit Review',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
               ),
             ),
             const SizedBox(height: 12),
             TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.userDispute.replaceAll(':id', widget.bookingId));
+                Navigator.pushNamed(context,
+                    AppRoutes.userDispute.replaceAll(':id', widget.bookingId));
               },
-              child: const Text('Report an Issue', style: TextStyle(color: AppColors.error)),
+              child: const Text('Report an Issue',
+                  style: TextStyle(color: AppColors.error)),
             )
           ],
         ),

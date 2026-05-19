@@ -18,7 +18,8 @@ class _JobHistoryScreenState extends ConsumerState<JobHistoryScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Job History', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Job History',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         automaticallyImplyLeading: false, // likely bottom nav tab
@@ -60,7 +61,9 @@ class _JobHistoryScreenState extends ConsumerState<JobHistoryScreen> {
                     label: Text(_tabs[index]),
                     selected: isSelected,
                     selectedColor: AppColors.primary,
-                    labelStyle: TextStyle(color: isSelected ? Colors.white : AppColors.textPrimary),
+                    labelStyle: TextStyle(
+                        color:
+                            isSelected ? Colors.white : AppColors.textPrimary),
                     onSelected: (val) {
                       if (val) setState(() => _selectedTab = index);
                     },
@@ -89,8 +92,11 @@ class _JobHistoryScreenState extends ConsumerState<JobHistoryScreen> {
   Widget _buildStat(String label, String value) {
     return Column(
       children: [
-        Text(value, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        Text(label, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+        Text(value,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        Text(label,
+            style:
+                const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
       ],
     );
   }
@@ -100,7 +106,9 @@ class _JobHistoryScreenState extends ConsumerState<JobHistoryScreen> {
     return Card(
       margin: const EdgeInsets.only(bottom: 16),
       elevation: 0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16), side: const BorderSide(color: AppColors.border)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+          side: const BorderSide(color: AppColors.border)),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -108,8 +116,14 @@ class _JobHistoryScreenState extends ConsumerState<JobHistoryScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(isCancelled ? 'Cancelled' : 'Completed', style: TextStyle(fontWeight: FontWeight.bold, color: isCancelled ? AppColors.error : AppColors.success)),
-                const Text('May 15, 2026', style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+                Text(isCancelled ? 'Cancelled' : 'Completed',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color:
+                            isCancelled ? AppColors.error : AppColors.success)),
+                const Text('May 15, 2026',
+                    style: TextStyle(
+                        color: AppColors.textSecondary, fontSize: 12)),
               ],
             ),
             const Padding(
@@ -118,28 +132,39 @@ class _JobHistoryScreenState extends ConsumerState<JobHistoryScreen> {
             ),
             Row(
               children: [
-                const CircleAvatar(radius: 20, backgroundColor: AppColors.surface, child: Icon(Icons.person, color: AppColors.inactive)),
+                const CircleAvatar(
+                    radius: 20,
+                    backgroundColor: AppColors.surface,
+                    child: Icon(Icons.person, color: AppColors.inactive)),
                 const SizedBox(width: 12),
                 const Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Sarah Khan', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                      Text('Plumbing Repair', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+                      Text('Sarah Khan',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16)),
+                      Text('Plumbing Repair',
+                          style: TextStyle(
+                              color: AppColors.textSecondary, fontSize: 13)),
                     ],
                   ),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(isCancelled ? 'Rs 0' : 'Rs 900', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                    Text(isCancelled ? 'Rs 0' : 'Rs 900',
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16)),
                     const SizedBox(height: 4),
                     if (!isCancelled)
                       const Row(
                         children: [
                           Icon(Icons.star, color: Colors.amber, size: 14),
                           SizedBox(width: 4),
-                          Text('5.0', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                          Text('5.0',
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.bold)),
                         ],
                       )
                   ],

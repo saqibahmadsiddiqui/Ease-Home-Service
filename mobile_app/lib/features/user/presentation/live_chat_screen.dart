@@ -16,7 +16,11 @@ class _LiveChatScreenState extends ConsumerState<LiveChatScreen> {
   final List<Map<String, dynamic>> _messages = [
     {'text': 'Booking #12345 Confirmed.', 'isSystem': true},
     {'text': 'Hi, I am on my way.', 'isSent': false, 'time': '2:30 PM'},
-    {'text': 'Great, please use the side gate.', 'isSent': true, 'time': '2:32 PM'},
+    {
+      'text': 'Great, please use the side gate.',
+      'isSent': true,
+      'time': '2:32 PM'
+    },
     {'text': 'Noted.', 'isSent': false, 'time': '2:33 PM'},
   ];
 
@@ -64,7 +68,8 @@ class _LiveChatScreenState extends ConsumerState<LiveChatScreen> {
                 if (msg['isSystem'] == true) {
                   return _buildSystemMessage(msg['text']);
                 }
-                return _buildChatBubble(msg['text'], msg['isSent'], msg['time']);
+                return _buildChatBubble(
+                    msg['text'], msg['isSent'], msg['time']);
               },
             ),
           ),
@@ -84,7 +89,8 @@ class _LiveChatScreenState extends ConsumerState<LiveChatScreen> {
                     onPressed: () {}, // attachment
                   ),
                   IconButton(
-                    icon: const Icon(Icons.camera_alt, color: AppColors.inactive),
+                    icon:
+                        const Icon(Icons.camera_alt, color: AppColors.inactive),
                     onPressed: () {}, // camera
                   ),
                   Expanded(
@@ -110,7 +116,8 @@ class _LiveChatScreenState extends ConsumerState<LiveChatScreen> {
                       shape: BoxShape.circle,
                     ),
                     child: IconButton(
-                      icon: const Icon(Icons.send, color: Colors.white, size: 20),
+                      icon:
+                          const Icon(Icons.send, color: Colors.white, size: 20),
                       onPressed: () {
                         if (_textController.text.isNotEmpty) {
                           setState(() {
@@ -143,7 +150,9 @@ class _LiveChatScreenState extends ConsumerState<LiveChatScreen> {
           color: AppColors.surface,
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Text(text, style: const TextStyle(fontSize: 12, color: AppColors.textSecondary)),
+        child: Text(text,
+            style:
+                const TextStyle(fontSize: 12, color: AppColors.textSecondary)),
       ),
     );
   }
@@ -153,7 +162,8 @@ class _LiveChatScreenState extends ConsumerState<LiveChatScreen> {
       alignment: isSent ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
-        constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.75),
+        constraints:
+            BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.75),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: isSent ? AppColors.primary : AppColors.surface,
@@ -169,13 +179,17 @@ class _LiveChatScreenState extends ConsumerState<LiveChatScreen> {
           children: [
             Text(
               text,
-              style: TextStyle(color: isSent ? Colors.white : AppColors.textPrimary, fontSize: 14),
+              style: TextStyle(
+                  color: isSent ? Colors.white : AppColors.textPrimary,
+                  fontSize: 14),
             ),
             const SizedBox(height: 4),
             Text(
               time,
               style: TextStyle(
-                color: isSent ? Colors.white.withValues(alpha: 0.7) : AppColors.textSecondary,
+                color: isSent
+                    ? Colors.white.withValues(alpha: 0.7)
+                    : AppColors.textSecondary,
                 fontSize: 10,
               ),
             ),

@@ -15,47 +15,54 @@ class _KycQueueScreenState extends ConsumerState<KycQueueScreen> {
 
   void _showRejectSheet() {
     showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
-      builder: (ctx) {
-        return Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(ctx).viewInsets.bottom + 24,
-            top: 24, left: 24, right: 24,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text('Reject Application', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 16),
-              TextField(
-                maxLines: 3,
-                decoration: InputDecoration(
-                  hintText: 'Enter reason for rejection...',
-                  filled: true,
-                  fillColor: AppColors.surface,
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
-                ),
-              ),
-              const SizedBox(height: 24),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () => Navigator.pop(ctx),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.error,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
+        context: context,
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
+        builder: (ctx) {
+          return Padding(
+            padding: EdgeInsets.only(
+              bottom: MediaQuery.of(ctx).viewInsets.bottom + 24,
+              top: 24,
+              left: 24,
+              right: 24,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Reject Application',
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                const SizedBox(height: 16),
+                TextField(
+                  maxLines: 3,
+                  decoration: InputDecoration(
+                    hintText: 'Enter reason for rejection...',
+                    filled: true,
+                    fillColor: AppColors.surface,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide.none),
                   ),
-                  child: const Text('Confirm Rejection', style: TextStyle(color: Colors.white)),
                 ),
-              )
-            ],
-          ),
-        );
-      }
-    );
+                const SizedBox(height: 24),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () => Navigator.pop(ctx),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.error,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                    ),
+                    child: const Text('Confirm Rejection',
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                )
+              ],
+            ),
+          );
+        });
   }
 
   @override
@@ -63,7 +70,8 @@ class _KycQueueScreenState extends ConsumerState<KycQueueScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('KYC Queue', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('KYC Queue',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -84,7 +92,10 @@ class _KycQueueScreenState extends ConsumerState<KycQueueScreen> {
                     label: Text(_tabs[index]),
                     selected: _selectedTab == index,
                     selectedColor: AppColors.primary,
-                    labelStyle: TextStyle(color: _selectedTab == index ? Colors.white : AppColors.textPrimary),
+                    labelStyle: TextStyle(
+                        color: _selectedTab == index
+                            ? Colors.white
+                            : AppColors.textPrimary),
                     onSelected: (val) {
                       if (val) setState(() => _selectedTab = index);
                     },
@@ -118,27 +129,42 @@ class _KycQueueScreenState extends ConsumerState<KycQueueScreen> {
       child: ExpansionTile(
         title: Row(
           children: [
-            const CircleAvatar(backgroundColor: AppColors.surface, child: Icon(Icons.person, color: AppColors.inactive)),
+            const CircleAvatar(
+                backgroundColor: AppColors.surface,
+                child: Icon(Icons.person, color: AppColors.inactive)),
             const SizedBox(width: 12),
             const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Usman Tariq', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  Text('Electrician • Lahore', style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+                  Text('Usman Tariq',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  Text('Electrician • Lahore',
+                      style: TextStyle(
+                          color: AppColors.textSecondary, fontSize: 12)),
                 ],
               ),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(color: Colors.orange.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(8)),
-              child: const Text('Pending', style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold, fontSize: 10)),
+              decoration: BoxDecoration(
+                  color: Colors.orange.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(8)),
+              child: const Text('Pending',
+                  style: TextStyle(
+                      color: Colors.orange,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10)),
             )
           ],
         ),
         childrenPadding: const EdgeInsets.all(16),
         children: [
-          const Align(alignment: Alignment.centerLeft, child: Text('Documents Submitted', style: TextStyle(fontWeight: FontWeight.bold))),
+          const Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Documents Submitted',
+                  style: TextStyle(fontWeight: FontWeight.bold))),
           const SizedBox(height: 12),
           Row(
             children: [
@@ -155,7 +181,9 @@ class _KycQueueScreenState extends ConsumerState<KycQueueScreen> {
               Expanded(
                 child: OutlinedButton(
                   onPressed: _showRejectSheet,
-                  style: OutlinedButton.styleFrom(foregroundColor: AppColors.error, side: const BorderSide(color: AppColors.error)),
+                  style: OutlinedButton.styleFrom(
+                      foregroundColor: AppColors.error,
+                      side: const BorderSide(color: AppColors.error)),
                   child: const Text('Reject'),
                 ),
               ),
@@ -163,8 +191,10 @@ class _KycQueueScreenState extends ConsumerState<KycQueueScreen> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {},
-                  style: ElevatedButton.styleFrom(backgroundColor: AppColors.success),
-                  child: const Text('Approve', style: TextStyle(color: Colors.white)),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.success),
+                  child: const Text('Approve',
+                      style: TextStyle(color: Colors.white)),
                 ),
               ),
             ],
@@ -172,7 +202,8 @@ class _KycQueueScreenState extends ConsumerState<KycQueueScreen> {
           const SizedBox(height: 8),
           TextButton(
             onPressed: () {},
-            child: const Text('Request More Info', style: TextStyle(color: AppColors.primary)),
+            child: const Text('Request More Info',
+                style: TextStyle(color: AppColors.primary)),
           )
         ],
       ),
@@ -185,7 +216,8 @@ class _KycQueueScreenState extends ConsumerState<KycQueueScreen> {
         Container(
           height: 60,
           width: 80,
-          decoration: BoxDecoration(color: AppColors.surface, borderRadius: BorderRadius.circular(8)),
+          decoration: BoxDecoration(
+              color: AppColors.surface, borderRadius: BorderRadius.circular(8)),
           child: const Icon(Icons.image, color: AppColors.inactive),
         ),
         const SizedBox(height: 4),

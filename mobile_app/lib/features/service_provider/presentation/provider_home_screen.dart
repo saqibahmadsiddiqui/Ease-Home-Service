@@ -30,8 +30,14 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Hello,', style: TextStyle(color: AppColors.textSecondary, fontSize: 16)),
-                      Text('Ali Khan', style: TextStyle(color: AppColors.textPrimary, fontSize: 24, fontWeight: FontWeight.bold)),
+                      Text('Hello,',
+                          style: TextStyle(
+                              color: AppColors.textSecondary, fontSize: 16)),
+                      Text('Ali Khan',
+                          style: TextStyle(
+                              color: AppColors.textPrimary,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold)),
                     ],
                   ),
                   CircleAvatar(
@@ -46,9 +52,12 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: _isOnline ? AppColors.primary.withValues(alpha: 0.1) : AppColors.surface,
+                  color: _isOnline
+                      ? AppColors.primary.withValues(alpha: 0.1)
+                      : AppColors.surface,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: _isOnline ? AppColors.primary : AppColors.border),
+                  border: Border.all(
+                      color: _isOnline ? AppColors.primary : AppColors.border),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,14 +68,21 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
                           width: 12,
                           height: 12,
                           decoration: BoxDecoration(
-                            color: _isOnline ? AppColors.primary : AppColors.inactive,
+                            color: _isOnline
+                                ? AppColors.primary
+                                : AppColors.inactive,
                             shape: BoxShape.circle,
                           ),
                         ),
                         const SizedBox(width: 12),
                         Text(
                           _isOnline ? 'You are Online' : 'You are Offline',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: _isOnline ? AppColors.primary : AppColors.inactive),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: _isOnline
+                                  ? AppColors.primary
+                                  : AppColors.inactive),
                         ),
                       ],
                     ),
@@ -97,17 +113,29 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Today's Earnings", style: TextStyle(color: Colors.white, fontSize: 14)),
+                        Text("Today's Earnings",
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 14)),
                         SizedBox(height: 8),
-                        Text('Rs 4,500', style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold)),
+                        Text('Rs 4,500',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold)),
                       ],
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text('Jobs Completed', style: TextStyle(color: Colors.white, fontSize: 14)),
+                        Text('Jobs Completed',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 14)),
                         SizedBox(height: 8),
-                        Text('3', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+                        Text('3',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold)),
                       ],
                     )
                   ],
@@ -116,18 +144,24 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
               const SizedBox(height: 32),
 
               // Incoming Requests
-              const Text('Incoming Requests', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const Text('Incoming Requests',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 12),
               _buildJobRequestCard(context),
               const SizedBox(height: 32),
 
               // Today's Schedule Timeline
-              const Text("Today's Schedule", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const Text("Today's Schedule",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 12),
-              _buildTimelineItem('10:00 AM', 'AC Repair - Complete', isPast: true),
-              _buildTimelineItem('12:30 PM', 'Plumbing - Complete', isPast: true),
-              _buildTimelineItem('03:00 PM', 'Electrical Fix - Upcoming', isPast: false, isNext: true),
-              _buildTimelineItem('05:00 PM', 'Available Slot', isPast: false, isAvailable: true),
+              _buildTimelineItem('10:00 AM', 'AC Repair - Complete',
+                  isPast: true),
+              _buildTimelineItem('12:30 PM', 'Plumbing - Complete',
+                  isPast: true),
+              _buildTimelineItem('03:00 PM', 'Electrical Fix - Upcoming',
+                  isPast: false, isNext: true),
+              _buildTimelineItem('05:00 PM', 'Available Slot',
+                  isPast: false, isAvailable: true),
             ],
           ),
         ),
@@ -137,13 +171,20 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
 
   Widget _buildJobRequestCard(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, AppRoutes.providerJob.replaceAll(':id', 'req-123')),
+      onTap: () => Navigator.pushNamed(
+          context, AppRoutes.providerJob.replaceAll(':id', 'req-123')),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
-          boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10, offset: const Offset(0, 4))],
-          border: const Border(left: BorderSide(color: AppColors.primary, width: 6)),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 4))
+          ],
+          border: const Border(
+              left: BorderSide(color: AppColors.primary, width: 6)),
         ),
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -151,15 +192,24 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Plumbing Leak Repair', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                const Text('Plumbing Leak Repair',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                  decoration: BoxDecoration(color: AppColors.error.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(8)),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                      color: AppColors.error.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(8)),
                   child: const Row(
                     children: [
                       Icon(Icons.timer, color: AppColors.error, size: 14),
                       SizedBox(width: 4),
-                      Text('02:45', style: TextStyle(color: AppColors.error, fontWeight: FontWeight.bold, fontSize: 12)),
+                      Text('02:45',
+                          style: TextStyle(
+                              color: AppColors.error,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12)),
                     ],
                   ),
                 )
@@ -170,11 +220,15 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
               children: [
                 Icon(Icons.location_on, color: AppColors.inactive, size: 16),
                 SizedBox(width: 8),
-                Text('2.5 km away', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+                Text('2.5 km away',
+                    style: TextStyle(
+                        color: AppColors.textSecondary, fontSize: 13)),
                 SizedBox(width: 16),
                 Icon(Icons.access_time, color: AppColors.inactive, size: 16),
                 SizedBox(width: 8),
-                Text('ASAP', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+                Text('ASAP',
+                    style: TextStyle(
+                        color: AppColors.textSecondary, fontSize: 13)),
               ],
             )
           ],
@@ -183,15 +237,21 @@ class _ProviderHomeScreenState extends ConsumerState<ProviderHomeScreen> {
     );
   }
 
-  Widget _buildTimelineItem(String time, String title, {bool isPast = false, bool isNext = false, bool isAvailable = false}) {
-    Color dotColor = isPast ? AppColors.inactive : (isNext ? AppColors.primary : AppColors.success);
-    
+  Widget _buildTimelineItem(String time, String title,
+      {bool isPast = false, bool isNext = false, bool isAvailable = false}) {
+    Color dotColor = isPast
+        ? AppColors.inactive
+        : (isNext ? AppColors.primary : AppColors.success);
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
           width: 70,
-          child: Text(time, style: TextStyle(fontWeight: FontWeight.bold, color: isPast ? AppColors.inactive : AppColors.textPrimary)),
+          child: Text(time,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: isPast ? AppColors.inactive : AppColors.textPrimary)),
         ),
         Column(
           children: [

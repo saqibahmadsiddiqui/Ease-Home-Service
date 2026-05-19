@@ -10,7 +10,8 @@ class DemandForecastScreen extends ConsumerWidget {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Demand Forecast', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Demand Forecast',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -32,16 +33,23 @@ class DemandForecastScreen extends ConsumerWidget {
                 children: [
                   Icon(Icons.auto_awesome, color: Colors.amber, size: 16),
                   SizedBox(width: 8),
-                  Text('Powered by Antigravity AI', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)),
+                  Text('Powered by Antigravity AI',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12)),
                 ],
               ),
             ),
             const SizedBox(height: 24),
 
             // Heatmap Note
-            const Text('Area Demand Heatmap', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Area Demand Heatmap',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
-            const Text('Darker orange indicates higher expected job volume based on historical data and current trends.', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+            const Text(
+                'Darker orange indicates higher expected job volume based on historical data and current trends.',
+                style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
             const SizedBox(height: 16),
 
             // Heatmap Placeholder
@@ -49,20 +57,25 @@ class DemandForecastScreen extends ConsumerWidget {
               height: 200,
               width: double.infinity,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.border),
-                gradient: LinearGradient(
-                  colors: [AppColors.surface, AppColors.primary.withValues(alpha: 0.5)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                )
-              ),
-              child: const Center(child: Text('Heatmap Grid Placeholder (Mon-Sun x Hours)', style: TextStyle(color: AppColors.textSecondary))),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: AppColors.border),
+                  gradient: LinearGradient(
+                    colors: [
+                      AppColors.surface,
+                      AppColors.primary.withValues(alpha: 0.5)
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  )),
+              child: const Center(
+                  child: Text('Heatmap Grid Placeholder (Mon-Sun x Hours)',
+                      style: TextStyle(color: AppColors.textSecondary))),
             ),
             const SizedBox(height: 32),
 
             // Peak Hours
-            const Text('Upcoming Peak Hours', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Upcoming Peak Hours',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
             Wrap(
               spacing: 8,
@@ -76,10 +89,13 @@ class DemandForecastScreen extends ConsumerWidget {
             const SizedBox(height: 32),
 
             // Recommended Slots
-            const Text('Recommended Actions', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Recommended Actions',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),
-            _buildRecommendationCard('Open Evening Slots', 'High demand for plumbing tonight.', '+ Rs 3,000 potential'),
-            _buildRecommendationCard('Work this Weekend', 'Surge pricing expected on Saturday.', '+ Rs 8,000 potential'),
+            _buildRecommendationCard('Open Evening Slots',
+                'High demand for plumbing tonight.', '+ Rs 3,000 potential'),
+            _buildRecommendationCard('Work this Weekend',
+                'Surge pricing expected on Saturday.', '+ Rs 8,000 potential'),
           ],
         ),
       ),
@@ -90,16 +106,27 @@ class DemandForecastScreen extends ConsumerWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: isHighSurge ? AppColors.error.withValues(alpha: 0.1) : AppColors.surface,
+        color: isHighSurge
+            ? AppColors.error.withValues(alpha: 0.1)
+            : AppColors.surface,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: isHighSurge ? AppColors.error.withValues(alpha: 0.3) : AppColors.border),
+        border: Border.all(
+            color: isHighSurge
+                ? AppColors.error.withValues(alpha: 0.3)
+                : AppColors.border),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (isHighSurge) const Icon(Icons.local_fire_department, color: AppColors.error, size: 14),
+          if (isHighSurge)
+            const Icon(Icons.local_fire_department,
+                color: AppColors.error, size: 14),
           if (isHighSurge) const SizedBox(width: 4),
-          Text(text, style: TextStyle(color: isHighSurge ? AppColors.error : AppColors.textPrimary, fontWeight: FontWeight.bold, fontSize: 13)),
+          Text(text,
+              style: TextStyle(
+                  color: isHighSurge ? AppColors.error : AppColors.textPrimary,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13)),
         ],
       ),
     );
@@ -113,7 +140,9 @@ class DemandForecastScreen extends ConsumerWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.border),
-        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.02), blurRadius: 8)],
+        boxShadow: [
+          BoxShadow(color: Colors.black.withValues(alpha: 0.02), blurRadius: 8)
+        ],
       ),
       child: Row(
         children: [
@@ -121,11 +150,19 @@ class DemandForecastScreen extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                Text(title,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 16)),
                 const SizedBox(height: 4),
-                Text(desc, style: const TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+                Text(desc,
+                    style: const TextStyle(
+                        color: AppColors.textSecondary, fontSize: 13)),
                 const SizedBox(height: 8),
-                Text(potential, style: const TextStyle(color: AppColors.success, fontWeight: FontWeight.bold, fontSize: 13)),
+                Text(potential,
+                    style: const TextStyle(
+                        color: AppColors.success,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13)),
               ],
             ),
           ),
@@ -133,7 +170,8 @@ class DemandForecastScreen extends ConsumerWidget {
             onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primary,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8)),
             ),
             child: const Text('Update', style: TextStyle(color: Colors.white)),
           )

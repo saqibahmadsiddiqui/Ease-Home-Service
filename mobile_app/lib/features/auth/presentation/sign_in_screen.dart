@@ -11,8 +11,9 @@ class SignInScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final String role = ModalRoute.of(context)?.settings.arguments as String? ?? 'user';
-    
+    final String role =
+        ModalRoute.of(context)?.settings.arguments as String? ?? 'user';
+
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
@@ -27,14 +28,16 @@ class SignInScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
                   color: AppColors.primary.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
                   role == 'user' ? 'User Login' : 'Provider Login',
-                  style: AppTextStyles.caption.copyWith(color: AppColors.primary, fontWeight: FontWeight.bold),
+                  style: AppTextStyles.caption.copyWith(
+                      color: AppColors.primary, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -45,20 +48,24 @@ class SignInScreen extends ConsumerWidget {
               const SizedBox(height: 32),
               const CustomInput(
                 hintText: 'Email or Phone Number',
-                prefixIcon: Icon(Icons.person_outline, color: AppColors.textSecondary),
+                prefixIcon:
+                    Icon(Icons.person_outline, color: AppColors.textSecondary),
               ),
               const SizedBox(height: 16),
               const CustomInput(
                 hintText: 'Password',
                 obscureText: true,
-                prefixIcon: Icon(Icons.lock_outline, color: AppColors.textSecondary),
+                prefixIcon:
+                    Icon(Icons.lock_outline, color: AppColors.textSecondary),
               ),
               const SizedBox(height: 8),
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {},
-                  child: Text('Forgot Password?', style: AppTextStyles.body1.copyWith(color: AppColors.primary)),
+                  child: Text('Forgot Password?',
+                      style: AppTextStyles.body1
+                          .copyWith(color: AppColors.primary)),
                 ),
               ),
               const SizedBox(height: 24),
@@ -72,16 +79,21 @@ class SignInScreen extends ConsumerWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Don\'t have an account?', style: AppTextStyles.body1),
+                  const Text('Don\'t have an account?',
+                      style: AppTextStyles.body1),
                   TextButton(
                     onPressed: () {
                       if (role == 'user') {
                         Navigator.pushNamed(context, AppRoutes.registerUser);
                       } else {
-                        Navigator.pushNamed(context, AppRoutes.registerProvider1);
+                        Navigator.pushNamed(
+                            context, AppRoutes.registerProvider1);
                       }
                     },
-                    child: Text('Register', style: AppTextStyles.body1.copyWith(color: AppColors.primary, fontWeight: FontWeight.bold)),
+                    child: Text('Register',
+                        style: AppTextStyles.body1.copyWith(
+                            color: AppColors.primary,
+                            fontWeight: FontWeight.bold)),
                   ),
                 ],
               ),

@@ -31,23 +31,29 @@ class AdminSignInScreen extends ConsumerWidget {
                     color: AppColors.secondary.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(Icons.security, size: 60, color: AppColors.secondary),
+                  child: const Icon(Icons.security,
+                      size: 60, color: AppColors.secondary),
                 ),
               ),
               const SizedBox(height: 32),
-              const Text('Admin Access', style: AppTextStyles.h1, textAlign: TextAlign.center),
+              const Text('Admin Access',
+                  style: AppTextStyles.h1, textAlign: TextAlign.center),
               const SizedBox(height: 8),
-              Text('Restricted Area', style: AppTextStyles.body1.copyWith(color: AppColors.error), textAlign: TextAlign.center),
+              Text('Restricted Area',
+                  style: AppTextStyles.body1.copyWith(color: AppColors.error),
+                  textAlign: TextAlign.center),
               const SizedBox(height: 48),
               const CustomInput(
                 hintText: 'Admin Email',
-                prefixIcon: Icon(Icons.admin_panel_settings_outlined, color: AppColors.textSecondary),
+                prefixIcon: Icon(Icons.admin_panel_settings_outlined,
+                    color: AppColors.textSecondary),
               ),
               const SizedBox(height: 16),
               const CustomInput(
                 hintText: 'Password',
                 obscureText: true,
-                prefixIcon: Icon(Icons.lock_outline, color: AppColors.textSecondary),
+                prefixIcon:
+                    Icon(Icons.lock_outline, color: AppColors.textSecondary),
               ),
               const SizedBox(height: 16),
               const CustomInput(
@@ -59,7 +65,8 @@ class AdminSignInScreen extends ConsumerWidget {
               const SizedBox(height: 48),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(context, AppRoutes.adminDashboard, (route) => false);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, AppRoutes.adminDashboard, (route) => false);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.secondary,
@@ -69,7 +76,9 @@ class AdminSignInScreen extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: const Text('Authenticate', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                child: const Text('Authenticate',
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               ),
             ],
           ),

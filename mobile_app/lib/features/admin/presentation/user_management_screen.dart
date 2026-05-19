@@ -6,7 +6,8 @@ class UserManagementScreen extends ConsumerStatefulWidget {
   const UserManagementScreen({super.key});
 
   @override
-  ConsumerState<UserManagementScreen> createState() => _UserManagementScreenState();
+  ConsumerState<UserManagementScreen> createState() =>
+      _UserManagementScreenState();
 }
 
 class _UserManagementScreenState extends ConsumerState<UserManagementScreen> {
@@ -18,7 +19,8 @@ class _UserManagementScreenState extends ConsumerState<UserManagementScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('User Management', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('User Management',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -35,8 +37,12 @@ class _UserManagementScreenState extends ConsumerState<UserManagementScreen> {
                 filled: true,
                 fillColor: Colors.white,
                 contentPadding: const EdgeInsets.symmetric(vertical: 0),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: AppColors.border)),
-                enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: AppColors.border)),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(color: AppColors.border)),
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(color: AppColors.border)),
               ),
             ),
           ),
@@ -55,7 +61,10 @@ class _UserManagementScreenState extends ConsumerState<UserManagementScreen> {
                     label: Text(_tabs[index]),
                     selected: _selectedTab == index,
                     selectedColor: AppColors.primary,
-                    labelStyle: TextStyle(color: _selectedTab == index ? Colors.white : AppColors.textPrimary),
+                    labelStyle: TextStyle(
+                        color: _selectedTab == index
+                            ? Colors.white
+                            : AppColors.textPrimary),
                     onSelected: (val) {
                       if (val) setState(() => _selectedTab = index);
                     },
@@ -98,21 +107,32 @@ class _UserManagementScreenState extends ConsumerState<UserManagementScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Saqib Ali', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                  Text('+92 300 1234567', style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+                  Text('Saqib Ali',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                  Text('+92 300 1234567',
+                      style: TextStyle(
+                          color: AppColors.textSecondary, fontSize: 12)),
                 ],
               ),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(color: AppColors.success.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(8)),
-              child: const Text('Active', style: TextStyle(color: AppColors.success, fontWeight: FontWeight.bold, fontSize: 10)),
+              decoration: BoxDecoration(
+                  color: AppColors.success.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(8)),
+              child: const Text('Active',
+                  style: TextStyle(
+                      color: AppColors.success,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10)),
             )
           ],
         ),
         subtitle: const Padding(
           padding: EdgeInsets.only(top: 8.0),
-          child: Text('Bookings: 14 • Joined: Jan 2026', style: TextStyle(fontSize: 12)),
+          child: Text('Bookings: 14 • Joined: Jan 2026',
+              style: TextStyle(fontSize: 12)),
         ),
         childrenPadding: const EdgeInsets.all(16),
         children: [
@@ -134,7 +154,9 @@ class _UserManagementScreenState extends ConsumerState<UserManagementScreen> {
                 onPressed: () {},
                 icon: const Icon(Icons.block, size: 16),
                 label: const Text('Ban'),
-                style: OutlinedButton.styleFrom(foregroundColor: AppColors.error, side: const BorderSide(color: AppColors.error)),
+                style: OutlinedButton.styleFrom(
+                    foregroundColor: AppColors.error,
+                    side: const BorderSide(color: AppColors.error)),
               ),
             ],
           )

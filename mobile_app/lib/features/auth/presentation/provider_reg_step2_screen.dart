@@ -9,11 +9,19 @@ class ProviderRegStep2Screen extends ConsumerStatefulWidget {
   const ProviderRegStep2Screen({super.key});
 
   @override
-  ConsumerState<ProviderRegStep2Screen> createState() => _ProviderRegStep2ScreenState();
+  ConsumerState<ProviderRegStep2Screen> createState() =>
+      _ProviderRegStep2ScreenState();
 }
 
-class _ProviderRegStep2ScreenState extends ConsumerState<ProviderRegStep2Screen> {
-  final List<String> _skills = ['Plumbing', 'Electrical', 'Cleaning', 'Carpentry', 'Painting'];
+class _ProviderRegStep2ScreenState
+    extends ConsumerState<ProviderRegStep2Screen> {
+  final List<String> _skills = [
+    'Plumbing',
+    'Electrical',
+    'Cleaning',
+    'Carpentry',
+    'Painting'
+  ];
   final List<String> _selectedSkills = [];
   double _radius = 10;
   int _experience = 0;
@@ -62,7 +70,8 @@ class _ProviderRegStep2ScreenState extends ConsumerState<ProviderRegStep2Screen>
                   selectedColor: AppColors.primary.withValues(alpha: 0.2),
                   checkmarkColor: AppColors.primary,
                   labelStyle: AppTextStyles.body2.copyWith(
-                    color: isSelected ? AppColors.primary : AppColors.textPrimary,
+                    color:
+                        isSelected ? AppColors.primary : AppColors.textPrimary,
                   ),
                 );
               }).toList(),
@@ -71,25 +80,29 @@ class _ProviderRegStep2ScreenState extends ConsumerState<ProviderRegStep2Screen>
             if (_selectedSkills.isNotEmpty) ...[
               const Text('Set Rates (Rs. / hr)', style: AppTextStyles.h3),
               const SizedBox(height: 8),
-              ..._selectedSkills.map((skill) => Padding(
-                padding: const EdgeInsets.only(bottom: 8.0),
-                child: Row(
-                  children: [
-                    Expanded(child: Text(skill, style: AppTextStyles.body1)),
-                    SizedBox(
-                      width: 100,
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          hintText: 'Rate',
-                          isDense: true,
-                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+              ..._selectedSkills
+                  .map((skill) => Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Row(
+                          children: [
+                            Expanded(
+                                child: Text(skill, style: AppTextStyles.body1)),
+                            SizedBox(
+                              width: 100,
+                              child: TextField(
+                                keyboardType: TextInputType.number,
+                                decoration: InputDecoration(
+                                  hintText: 'Rate',
+                                  isDense: true,
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8)),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ),
-                  ],
-                ),
-              )).toList(),
+                      ))
+                  .toList(),
               const SizedBox(height: 24),
             ],
             Text('Years of Experience: $_experience', style: AppTextStyles.h3),
@@ -107,7 +120,8 @@ class _ProviderRegStep2ScreenState extends ConsumerState<ProviderRegStep2Screen>
               },
             ),
             const SizedBox(height: 24),
-            Text('Coverage Radius: ${_radius.toInt()} km', style: AppTextStyles.h3),
+            Text('Coverage Radius: ${_radius.toInt()} km',
+                style: AppTextStyles.h3),
             Slider(
               value: _radius,
               min: 1,

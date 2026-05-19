@@ -11,7 +11,8 @@ class ReceiptDetailScreen extends ConsumerWidget {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('E-Receipt', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('E-Receipt',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -27,18 +28,26 @@ class ReceiptDetailScreen extends ConsumerWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
-                  BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 15, offset: const Offset(0, 5))
+                  BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.05),
+                      blurRadius: 15,
+                      offset: const Offset(0, 5))
                 ],
                 border: Border.all(color: AppColors.border),
               ),
               child: Column(
                 children: [
                   // Header
-                  const Icon(Icons.check_circle, color: AppColors.success, size: 48),
+                  const Icon(Icons.check_circle,
+                      color: AppColors.success, size: 48),
                   const SizedBox(height: 12),
-                  const Text('Payment Successful!', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  const Text('Payment Successful!',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 4),
-                  const Text('May 15, 2026 at 3:45 PM', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+                  const Text('May 15, 2026 at 3:45 PM',
+                      style: TextStyle(
+                          color: AppColors.textSecondary, fontSize: 13)),
                   const SizedBox(height: 24),
                   const Divider(), // In a real app use a dashed divider package or custom painter
                   const SizedBox(height: 24),
@@ -67,18 +76,28 @@ class ReceiptDetailScreen extends ConsumerWidget {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Total Paid', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                      Text('Rs 900', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.primary)),
+                      Text('Total Paid',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold)),
+                      Text('Rs 900',
+                          style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.primary)),
                     ],
                   ),
                   const SizedBox(height: 32),
 
                   // Rating Shown
-                  const Text('Your Rating', style: TextStyle(fontWeight: FontWeight.bold)),
+                  const Text('Your Rating',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(5, (index) => const Icon(Icons.star, color: Colors.amber, size: 24)),
+                    children: List.generate(
+                        5,
+                        (index) => const Icon(Icons.star,
+                            color: Colors.amber, size: 24)),
                   ),
                 ],
               ),
@@ -94,10 +113,12 @@ class ReceiptDetailScreen extends ConsumerWidget {
                     style: OutlinedButton.styleFrom(
                       foregroundColor: AppColors.primary,
                       side: const BorderSide(color: AppColors.primary),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
                       padding: const EdgeInsets.symmetric(vertical: 16),
                     ),
-                    child: const Text('Download PDF', style: TextStyle(fontWeight: FontWeight.bold)),
+                    child: const Text('Download PDF',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                 ),
                 const SizedBox(width: 16),
@@ -106,10 +127,13 @@ class ReceiptDetailScreen extends ConsumerWidget {
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
                       padding: const EdgeInsets.symmetric(vertical: 16),
                     ),
-                    child: const Text('Book Again', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                    child: const Text('Book Again',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold)),
                   ),
                 ),
               ],
@@ -126,21 +150,30 @@ class ReceiptDetailScreen extends ConsumerWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: const TextStyle(color: AppColors.textSecondary, fontSize: 13)),
-          Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+          Text(label,
+              style: const TextStyle(
+                  color: AppColors.textSecondary, fontSize: 13)),
+          Text(value,
+              style:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
         ],
       ),
     );
   }
 
-  Widget _buildPriceRow(String label, String amount, {bool isDiscount = false}) {
+  Widget _buildPriceRow(String label, String amount,
+      {bool isDiscount = false}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(label, style: const TextStyle(color: AppColors.textSecondary)),
-          Text(amount, style: TextStyle(fontWeight: FontWeight.w500, color: isDiscount ? AppColors.success : AppColors.textPrimary)),
+          Text(amount,
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color:
+                      isDiscount ? AppColors.success : AppColors.textPrimary)),
         ],
       ),
     );

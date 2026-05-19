@@ -14,7 +14,8 @@ class OtpScreen extends ConsumerStatefulWidget {
 }
 
 class _OtpScreenState extends ConsumerState<OtpScreen> {
-  final List<TextEditingController> _controllers = List.generate(6, (_) => TextEditingController());
+  final List<TextEditingController> _controllers =
+      List.generate(6, (_) => TextEditingController());
   final List<FocusNode> _focusNodes = List.generate(6, (_) => FocusNode());
   Timer? _timer;
   int _secondsRemaining = 120; // 2 minutes
@@ -70,7 +71,8 @@ class _OtpScreenState extends ConsumerState<OtpScreen> {
             const SizedBox(height: 24),
             const Text('Enter Code', style: AppTextStyles.h1),
             const SizedBox(height: 8),
-            const Text('We have sent a 6-digit code to your phone.', style: AppTextStyles.body1),
+            const Text('We have sent a 6-digit code to your phone.',
+                style: AppTextStyles.body1),
             const SizedBox(height: 48),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -94,7 +96,8 @@ class _OtpScreenState extends ConsumerState<OtpScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: AppColors.primary, width: 2),
+                        borderSide: const BorderSide(
+                            color: AppColors.primary, width: 2),
                       ),
                     ),
                     onChanged: (value) {
@@ -129,7 +132,9 @@ class _OtpScreenState extends ConsumerState<OtpScreen> {
                 child: Text(
                   'Resend OTP',
                   style: AppTextStyles.body1.copyWith(
-                    color: _secondsRemaining == 0 ? AppColors.primary : AppColors.textSecondary,
+                    color: _secondsRemaining == 0
+                        ? AppColors.primary
+                        : AppColors.textSecondary,
                   ),
                 ),
               ),
@@ -138,7 +143,8 @@ class _OtpScreenState extends ConsumerState<OtpScreen> {
             CustomButton(
               text: 'Verify',
               onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(context, AppRoutes.userHome, (route) => false);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, AppRoutes.userHome, (route) => false);
               },
             ),
           ],

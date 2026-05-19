@@ -56,7 +56,8 @@ class _AiRequestScreenState extends ConsumerState<AiRequestScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Describe your problem', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Describe your problem',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -76,7 +77,9 @@ class _AiRequestScreenState extends ConsumerState<AiRequestScreen> {
                     label: Text(_languages[index]),
                     selected: isSelected,
                     selectedColor: AppColors.primary,
-                    labelStyle: TextStyle(color: isSelected ? Colors.white : AppColors.textPrimary),
+                    labelStyle: TextStyle(
+                        color:
+                            isSelected ? Colors.white : AppColors.textPrimary),
                     onSelected: (selected) {
                       if (selected) setState(() => _selectedLangIndex = index);
                     },
@@ -97,7 +100,8 @@ class _AiRequestScreenState extends ConsumerState<AiRequestScreen> {
                 controller: _textController,
                 maxLines: 6,
                 decoration: const InputDecoration(
-                  hintText: 'e.g. My kitchen sink is leaking continuously and I need someone to fix it ASAP.',
+                  hintText:
+                      'e.g. My kitchen sink is leaking continuously and I need someone to fix it ASAP.',
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.all(16),
                 ),
@@ -118,7 +122,8 @@ class _AiRequestScreenState extends ConsumerState<AiRequestScreen> {
                     color: AppColors.primary.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(Icons.mic, color: AppColors.primary, size: 32),
+                  child:
+                      const Icon(Icons.mic, color: AppColors.primary, size: 32),
                 ),
               ),
             ),
@@ -126,9 +131,11 @@ class _AiRequestScreenState extends ConsumerState<AiRequestScreen> {
 
             // AI Processing Results
             if (_isAnalyzing)
-              const Center(child: CircularProgressIndicator(color: AppColors.primary))
+              const Center(
+                  child: CircularProgressIndicator(color: AppColors.primary))
             else if (_confidence > 0) ...[
-              const Text('AI Understanding', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              const Text('AI Understanding',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               const SizedBox(height: 8),
               Row(
                 children: [
@@ -136,24 +143,32 @@ class _AiRequestScreenState extends ConsumerState<AiRequestScreen> {
                     child: LinearProgressIndicator(
                       value: _confidence,
                       backgroundColor: AppColors.surface,
-                      color: _confidence > 0.75 ? AppColors.success : AppColors.error,
+                      color: _confidence > 0.75
+                          ? AppColors.success
+                          : AppColors.error,
                       minHeight: 8,
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
                   const SizedBox(width: 12),
-                  Text('${(_confidence * 100).toInt()}%', style: const TextStyle(fontWeight: FontWeight.bold)),
+                  Text('${(_confidence * 100).toInt()}%',
+                      style: const TextStyle(fontWeight: FontWeight.bold)),
                 ],
               ),
               const SizedBox(height: 16),
               Wrap(
                 spacing: 8,
                 runSpacing: 8,
-                children: _chips.map((chip) => Chip(
-                  label: Text(chip, style: const TextStyle(color: AppColors.primary, fontSize: 12)),
-                  backgroundColor: AppColors.primary.withValues(alpha: 0.1),
-                  side: BorderSide.none,
-                )).toList(),
+                children: _chips
+                    .map((chip) => Chip(
+                          label: Text(chip,
+                              style: const TextStyle(
+                                  color: AppColors.primary, fontSize: 12)),
+                          backgroundColor:
+                              AppColors.primary.withValues(alpha: 0.1),
+                          side: BorderSide.none,
+                        ))
+                    .toList(),
               ),
               if (_clarificationPrompt != null) ...[
                 const SizedBox(height: 16),
@@ -162,13 +177,16 @@ class _AiRequestScreenState extends ConsumerState<AiRequestScreen> {
                   decoration: BoxDecoration(
                     color: AppColors.error.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: AppColors.error.withValues(alpha: 0.5)),
+                    border: Border.all(
+                        color: AppColors.error.withValues(alpha: 0.5)),
                   ),
                   child: Row(
                     children: [
                       const Icon(Icons.info_outline, color: AppColors.error),
                       const SizedBox(width: 12),
-                      Expanded(child: Text(_clarificationPrompt!, style: const TextStyle(color: AppColors.error))),
+                      Expanded(
+                          child: Text(_clarificationPrompt!,
+                              style: const TextStyle(color: AppColors.error))),
                     ],
                   ),
                 ),
@@ -181,15 +199,22 @@ class _AiRequestScreenState extends ConsumerState<AiRequestScreen> {
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onPressed: _confidence > 0.75 ? () {
-                  Navigator.pushNamed(context, AppRoutes.userRanking);
-                } : null,
+                onPressed: _confidence > 0.75
+                    ? () {
+                        Navigator.pushNamed(context, AppRoutes.userRanking);
+                      }
+                    : null,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   disabledBackgroundColor: AppColors.border,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
                 ),
-                child: const Text('Find Best Providers', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white)),
+                child: const Text('Find Best Providers',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
               ),
             ),
           ],

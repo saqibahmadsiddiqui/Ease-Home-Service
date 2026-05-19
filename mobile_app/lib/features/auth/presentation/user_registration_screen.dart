@@ -10,10 +10,12 @@ class UserRegistrationScreen extends ConsumerStatefulWidget {
   const UserRegistrationScreen({super.key});
 
   @override
-  ConsumerState<UserRegistrationScreen> createState() => _UserRegistrationScreenState();
+  ConsumerState<UserRegistrationScreen> createState() =>
+      _UserRegistrationScreenState();
 }
 
-class _UserRegistrationScreenState extends ConsumerState<UserRegistrationScreen> {
+class _UserRegistrationScreenState
+    extends ConsumerState<UserRegistrationScreen> {
   int _selectedLanguageIndex = 0; // 0 for English, 1 for Urdu
 
   @override
@@ -33,7 +35,8 @@ class _UserRegistrationScreenState extends ConsumerState<UserRegistrationScreen>
                   const CircleAvatar(
                     radius: 50,
                     backgroundColor: AppColors.surface,
-                    child: Icon(Icons.person, size: 50, color: AppColors.textSecondary),
+                    child: Icon(Icons.person,
+                        size: 50, color: AppColors.textSecondary),
                   ),
                   Positioned(
                     bottom: 0,
@@ -44,29 +47,46 @@ class _UserRegistrationScreenState extends ConsumerState<UserRegistrationScreen>
                         color: AppColors.primary,
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(Icons.camera_alt, color: Colors.white, size: 20),
+                      child: const Icon(Icons.camera_alt,
+                          color: Colors.white, size: 20),
                     ),
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 32),
-            const CustomInput(hintText: 'Full Name', prefixIcon: Icon(Icons.person_outline)),
+            const CustomInput(
+                hintText: 'Full Name', prefixIcon: Icon(Icons.person_outline)),
             const SizedBox(height: 16),
-            const CustomInput(hintText: 'Phone (+92)', prefixIcon: Icon(Icons.phone_outlined), keyboardType: TextInputType.phone),
+            const CustomInput(
+                hintText: 'Phone (+92)',
+                prefixIcon: Icon(Icons.phone_outlined),
+                keyboardType: TextInputType.phone),
             const SizedBox(height: 16),
-            const CustomInput(hintText: 'Email (Optional)', prefixIcon: Icon(Icons.email_outlined), keyboardType: TextInputType.emailAddress),
+            const CustomInput(
+                hintText: 'Email (Optional)',
+                prefixIcon: Icon(Icons.email_outlined),
+                keyboardType: TextInputType.emailAddress),
             const SizedBox(height: 16),
-            const CustomInput(hintText: 'Password', prefixIcon: Icon(Icons.lock_outline), obscureText: true),
+            const CustomInput(
+                hintText: 'Password',
+                prefixIcon: Icon(Icons.lock_outline),
+                obscureText: true),
             const SizedBox(height: 16),
-            const CustomInput(hintText: 'Confirm Password', prefixIcon: Icon(Icons.lock_outline), obscureText: true),
+            const CustomInput(
+                hintText: 'Confirm Password',
+                prefixIcon: Icon(Icons.lock_outline),
+                obscureText: true),
             const SizedBox(height: 24),
             Row(
               children: [
                 const Text('Language Preference:', style: AppTextStyles.body1),
                 const SizedBox(width: 16),
                 ToggleButtons(
-                  isSelected: [_selectedLanguageIndex == 0, _selectedLanguageIndex == 1],
+                  isSelected: [
+                    _selectedLanguageIndex == 0,
+                    _selectedLanguageIndex == 1
+                  ],
                   onPressed: (index) {
                     setState(() {
                       _selectedLanguageIndex = index;
@@ -76,8 +96,12 @@ class _UserRegistrationScreenState extends ConsumerState<UserRegistrationScreen>
                   selectedColor: Colors.white,
                   fillColor: AppColors.primary,
                   children: const [
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 16), child: Text('EN')),
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 16), child: Text('UR')),
+                    Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        child: Text('EN')),
+                    Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        child: Text('UR')),
                   ],
                 ),
               ],

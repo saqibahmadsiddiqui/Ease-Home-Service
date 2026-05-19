@@ -7,7 +7,8 @@ class JobCompletionScreen extends ConsumerStatefulWidget {
   const JobCompletionScreen({super.key, required this.jobId});
 
   @override
-  ConsumerState<JobCompletionScreen> createState() => _JobCompletionScreenState();
+  ConsumerState<JobCompletionScreen> createState() =>
+      _JobCompletionScreenState();
 }
 
 class _JobCompletionScreenState extends ConsumerState<JobCompletionScreen> {
@@ -16,9 +17,10 @@ class _JobCompletionScreenState extends ConsumerState<JobCompletionScreen> {
     {'text': 'System tested and working', 'done': false},
     {'text': 'Customer briefed', 'done': false},
   ];
-  
+
   bool _photoUploaded = false;
-  final _amountController = TextEditingController(text: '900'); // Estimated amount
+  final _amountController =
+      TextEditingController(text: '900'); // Estimated amount
 
   @override
   void dispose() {
@@ -31,7 +33,8 @@ class _JobCompletionScreenState extends ConsumerState<JobCompletionScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Complete Job', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Complete Job',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -42,7 +45,8 @@ class _JobCompletionScreenState extends ConsumerState<JobCompletionScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Checklist
-            const Text('Completion Checklist', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Completion Checklist',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
             ..._checklist.map((item) {
               return CheckboxListTile(
@@ -61,12 +65,21 @@ class _JobCompletionScreenState extends ConsumerState<JobCompletionScreen> {
             // Mandatory Photo
             Row(
               children: [
-                const Text('Proof of Work', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                const Text('Proof of Work',
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 const SizedBox(width: 8),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  decoration: BoxDecoration(color: AppColors.error.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(4)),
-                  child: const Text('Required', style: TextStyle(color: AppColors.error, fontSize: 10, fontWeight: FontWeight.bold)),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  decoration: BoxDecoration(
+                      color: AppColors.error.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(4)),
+                  child: const Text('Required',
+                      style: TextStyle(
+                          color: AppColors.error,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold)),
                 )
               ],
             ),
@@ -81,24 +94,30 @@ class _JobCompletionScreenState extends ConsumerState<JobCompletionScreen> {
                 decoration: BoxDecoration(
                   color: AppColors.surface,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: AppColors.border, style: BorderStyle.solid),
+                  border: Border.all(
+                      color: AppColors.border, style: BorderStyle.solid),
                 ),
-                child: _photoUploaded 
-                  ? const Center(child: Icon(Icons.check_circle, color: AppColors.success, size: 40))
-                  : const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.camera_alt, color: AppColors.inactive, size: 40),
-                        SizedBox(height: 8),
-                        Text('Tap to take photo', style: TextStyle(color: AppColors.textSecondary)),
-                      ],
-                    ),
+                child: _photoUploaded
+                    ? const Center(
+                        child: Icon(Icons.check_circle,
+                            color: AppColors.success, size: 40))
+                    : const Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.camera_alt,
+                              color: AppColors.inactive, size: 40),
+                          SizedBox(height: 8),
+                          Text('Tap to take photo',
+                              style: TextStyle(color: AppColors.textSecondary)),
+                        ],
+                      ),
               ),
             ),
             const SizedBox(height: 24),
 
             // Final Amount
-            const Text('Final Net Amount (Rs)', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Final Net Amount (Rs)',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             Container(
               decoration: BoxDecoration(
@@ -109,7 +128,8 @@ class _JobCompletionScreenState extends ConsumerState<JobCompletionScreen> {
               child: TextField(
                 controller: _amountController,
                 keyboardType: TextInputType.number,
-                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 decoration: const InputDecoration(
                   prefixText: 'Rs ',
                   border: InputBorder.none,
@@ -124,16 +144,23 @@ class _JobCompletionScreenState extends ConsumerState<JobCompletionScreen> {
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onPressed: _photoUploaded ? () {
-                  // Complete logic
-                  Navigator.pop(context);
-                } : null,
+                onPressed: _photoUploaded
+                    ? () {
+                        // Complete logic
+                        Navigator.pop(context);
+                      }
+                    : null,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   disabledBackgroundColor: AppColors.border,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
                 ),
-                child: const Text('Mark Job Completed', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white)),
+                child: const Text('Mark Job Completed',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
               ),
             ),
           ],

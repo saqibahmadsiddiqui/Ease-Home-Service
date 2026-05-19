@@ -6,10 +6,12 @@ class ProviderManagementScreen extends ConsumerStatefulWidget {
   const ProviderManagementScreen({super.key});
 
   @override
-  ConsumerState<ProviderManagementScreen> createState() => _ProviderManagementScreenState();
+  ConsumerState<ProviderManagementScreen> createState() =>
+      _ProviderManagementScreenState();
 }
 
-class _ProviderManagementScreenState extends ConsumerState<ProviderManagementScreen> {
+class _ProviderManagementScreenState
+    extends ConsumerState<ProviderManagementScreen> {
   bool _showLeaderboard = false;
 
   @override
@@ -17,14 +19,16 @@ class _ProviderManagementScreenState extends ConsumerState<ProviderManagementScr
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Providers', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Providers',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         automaticallyImplyLeading: false,
         actions: [
           Row(
             children: [
-              const Text('Leaderboard', style: TextStyle(color: AppColors.textPrimary, fontSize: 14)),
+              const Text('Leaderboard',
+                  style: TextStyle(color: AppColors.textPrimary, fontSize: 14)),
               Switch(
                 value: _showLeaderboard,
                 activeThumbColor: AppColors.primary,
@@ -46,8 +50,12 @@ class _ProviderManagementScreenState extends ConsumerState<ProviderManagementScr
                 filled: true,
                 fillColor: Colors.white,
                 contentPadding: const EdgeInsets.symmetric(vertical: 0),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: AppColors.border)),
-                enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: AppColors.border)),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(color: AppColors.border)),
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: const BorderSide(color: AppColors.border)),
               ),
             ),
           ),
@@ -85,10 +93,15 @@ class _ProviderManagementScreenState extends ConsumerState<ProviderManagementScr
                 ),
                 if (isOnline)
                   Positioned(
-                    bottom: 0, right: 0,
+                    bottom: 0,
+                    right: 0,
                     child: Container(
-                      width: 12, height: 12,
-                      decoration: BoxDecoration(color: AppColors.success, shape: BoxShape.circle, border: Border.all(color: Colors.white, width: 2)),
+                      width: 12,
+                      height: 12,
+                      decoration: BoxDecoration(
+                          color: AppColors.success,
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Colors.white, width: 2)),
                     ),
                   )
               ],
@@ -98,24 +111,38 @@ class _ProviderManagementScreenState extends ConsumerState<ProviderManagementScr
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Ali Khan', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  const Text('Plumbing • Lahore', style: TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+                  const Text('Ali Khan',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  const Text('Plumbing • Lahore',
+                      style: TextStyle(
+                          color: AppColors.textSecondary, fontSize: 13)),
                   const SizedBox(height: 8),
                   Row(
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                        decoration: BoxDecoration(color: AppColors.primary.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(4)),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                            color: AppColors.primary.withValues(alpha: 0.1),
+                            borderRadius: BorderRadius.circular(4)),
                         child: const Row(
                           children: [
-                            Icon(Icons.auto_awesome, color: AppColors.primary, size: 10),
+                            Icon(Icons.auto_awesome,
+                                color: AppColors.primary, size: 10),
                             SizedBox(width: 4),
-                            Text('AI Score: 87', style: TextStyle(color: AppColors.primary, fontSize: 10, fontWeight: FontWeight.bold)),
+                            Text('AI Score: 87',
+                                style: TextStyle(
+                                    color: AppColors.primary,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold)),
                           ],
                         ),
                       ),
                       const SizedBox(width: 8),
-                      const Text('★ 4.9 (142)', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                      const Text('★ 4.9 (142)',
+                          style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.bold)),
                     ],
                   )
                 ],
@@ -128,7 +155,10 @@ class _ProviderManagementScreenState extends ConsumerState<ProviderManagementScr
                 const PopupMenuItem(value: 'view', child: Text('View Profile')),
                 const PopupMenuItem(value: 'kyc', child: Text('KYC Docs')),
                 const PopupMenuItem(value: 'suspend', child: Text('Suspend')),
-                const PopupMenuItem(value: 'ban', child: Text('Ban Provider', style: TextStyle(color: AppColors.error))),
+                const PopupMenuItem(
+                    value: 'ban',
+                    child: Text('Ban Provider',
+                        style: TextStyle(color: AppColors.error))),
               ],
             )
           ],

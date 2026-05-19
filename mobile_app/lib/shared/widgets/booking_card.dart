@@ -59,7 +59,8 @@ class BookingCard extends StatelessWidget {
             const SizedBox(height: 12),
             Row(
               children: [
-                const Icon(Icons.calendar_today, size: 16, color: AppColors.textSecondary),
+                const Icon(Icons.calendar_today,
+                    size: 16, color: AppColors.textSecondary),
                 const SizedBox(width: 8),
                 Text(date, style: AppTextStyles.body2),
               ],
@@ -67,7 +68,8 @@ class BookingCard extends StatelessWidget {
             const SizedBox(height: 8),
             Row(
               children: [
-                const Icon(Icons.person_outline, size: 16, color: AppColors.textSecondary),
+                const Icon(Icons.person_outline,
+                    size: 16, color: AppColors.textSecondary),
                 const SizedBox(width: 8),
                 Text(providerName, style: AppTextStyles.body2),
               ],

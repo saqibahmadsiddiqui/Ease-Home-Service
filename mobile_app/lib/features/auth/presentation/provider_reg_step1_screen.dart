@@ -33,11 +33,18 @@ class ProviderRegStep1Screen extends ConsumerWidget {
             const SizedBox(height: 24),
             const Text('Personal Details', style: AppTextStyles.h2),
             const SizedBox(height: 24),
-            const CustomInput(hintText: 'Full Name', prefixIcon: Icon(Icons.person_outline)),
+            const CustomInput(
+                hintText: 'Full Name', prefixIcon: Icon(Icons.person_outline)),
             const SizedBox(height: 16),
-            const CustomInput(hintText: 'Phone (+92)', prefixIcon: Icon(Icons.phone_outlined), keyboardType: TextInputType.phone),
+            const CustomInput(
+                hintText: 'Phone (+92)',
+                prefixIcon: Icon(Icons.phone_outlined),
+                keyboardType: TextInputType.phone),
             const SizedBox(height: 16),
-            const CustomInput(hintText: 'CNIC Number', prefixIcon: Icon(Icons.badge_outlined), keyboardType: TextInputType.number),
+            const CustomInput(
+                hintText: 'CNIC Number',
+                prefixIcon: Icon(Icons.badge_outlined),
+                keyboardType: TextInputType.number),
             const SizedBox(height: 16),
             DropdownButtonFormField<String>(
               decoration: InputDecoration(
@@ -60,7 +67,10 @@ class ProviderRegStep1Screen extends ConsumerWidget {
               onChanged: (value) {},
             ),
             const SizedBox(height: 16),
-            const CustomInput(hintText: 'Password', prefixIcon: Icon(Icons.lock_outline), obscureText: true),
+            const CustomInput(
+                hintText: 'Password',
+                prefixIcon: Icon(Icons.lock_outline),
+                obscureText: true),
             const SizedBox(height: 32),
             CustomButton(
               text: 'Next',

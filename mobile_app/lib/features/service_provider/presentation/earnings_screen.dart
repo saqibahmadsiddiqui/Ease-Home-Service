@@ -17,7 +17,8 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Earnings', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Earnings',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         automaticallyImplyLeading: false, // likely bottom nav tab
@@ -46,21 +47,30 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
             // Stat Cards
             Row(
               children: [
-                Expanded(child: _buildStatCard('Gross', 'Rs 5k', AppColors.textPrimary, false)),
+                Expanded(
+                    child: _buildStatCard(
+                        'Gross', 'Rs 5k', AppColors.textPrimary, false)),
                 const SizedBox(width: 12),
-                Expanded(child: _buildStatCard('Fee (10%)', 'Rs 500', AppColors.error, false)),
+                Expanded(
+                    child: _buildStatCard(
+                        'Fee (10%)', 'Rs 500', AppColors.error, false)),
                 const SizedBox(width: 12),
-                Expanded(child: _buildStatCard('Net Earned', 'Rs 4.5k', AppColors.success, true)),
+                Expanded(
+                    child: _buildStatCard(
+                        'Net Earned', 'Rs 4.5k', AppColors.success, true)),
               ],
             ),
             const SizedBox(height: 8),
             const Center(
-              child: Text('Platform fee is automatically deducted (10%)', style: TextStyle(color: AppColors.textSecondary, fontSize: 11)),
+              child: Text('Platform fee is automatically deducted (10%)',
+                  style:
+                      TextStyle(color: AppColors.textSecondary, fontSize: 11)),
             ),
             const SizedBox(height: 32),
 
             // Chart Placeholder
-            const Text('Earnings Trend', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Earnings Trend',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),
             Container(
               height: 200,
@@ -88,10 +98,13 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
             const SizedBox(height: 32),
 
             // Payout History
-            const Text('Recent Payouts', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Recent Payouts',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
-            _buildPayoutRow('May 15, 2026', 'Bank Transfer (****1234)', 'Rs 12,500'),
-            _buildPayoutRow('May 08, 2026', 'Bank Transfer (****1234)', 'Rs 9,200'),
+            _buildPayoutRow(
+                'May 15, 2026', 'Bank Transfer (****1234)', 'Rs 12,500'),
+            _buildPayoutRow(
+                'May 08, 2026', 'Bank Transfer (****1234)', 'Rs 9,200'),
           ],
         ),
       ),
@@ -108,7 +121,13 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
           decoration: BoxDecoration(
             color: isSelected ? Colors.white : Colors.transparent,
             borderRadius: BorderRadius.circular(10),
-            boxShadow: isSelected ? [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 4)] : null,
+            boxShadow: isSelected
+                ? [
+                    BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.05),
+                        blurRadius: 4)
+                  ]
+                : null,
           ),
           alignment: Alignment.center,
           child: Text(
@@ -123,19 +142,29 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
     );
   }
 
-  Widget _buildStatCard(String title, String amount, Color amountColor, bool isHighlight) {
+  Widget _buildStatCard(
+      String title, String amount, Color amountColor, bool isHighlight) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
       decoration: BoxDecoration(
-        color: isHighlight ? AppColors.primary.withValues(alpha: 0.1) : Colors.white,
+        color: isHighlight
+            ? AppColors.primary.withValues(alpha: 0.1)
+            : Colors.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: isHighlight ? AppColors.primary : AppColors.border),
+        border: Border.all(
+            color: isHighlight ? AppColors.primary : AppColors.border),
       ),
       child: Column(
         children: [
-          Text(title, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+          Text(title,
+              style: const TextStyle(
+                  color: AppColors.textSecondary, fontSize: 12)),
           const SizedBox(height: 8),
-          Text(amount, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: amountColor)),
+          Text(amount,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: amountColor)),
         ],
       ),
     );
@@ -149,12 +178,17 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
           width: 24,
           height: 150 * heightFactor,
           decoration: BoxDecoration(
-            color: isToday ? AppColors.primary : AppColors.primary.withValues(alpha: 0.3),
+            color: isToday
+                ? AppColors.primary
+                : AppColors.primary.withValues(alpha: 0.3),
             borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
           ),
         ),
         const SizedBox(height: 8),
-        Text(label, style: TextStyle(color: isToday ? AppColors.primary : AppColors.textSecondary, fontWeight: isToday ? FontWeight.bold : FontWeight.normal)),
+        Text(label,
+            style: TextStyle(
+                color: isToday ? AppColors.primary : AppColors.textSecondary,
+                fontWeight: isToday ? FontWeight.bold : FontWeight.normal)),
       ],
     );
   }
@@ -176,10 +210,16 @@ class _EarningsScreenState extends ConsumerState<EarningsScreen> {
             children: [
               Text(date, style: const TextStyle(fontWeight: FontWeight.bold)),
               const SizedBox(height: 4),
-              Text(method, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+              Text(method,
+                  style: const TextStyle(
+                      color: AppColors.textSecondary, fontSize: 12)),
             ],
           ),
-          Text(amount, style: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.success, fontSize: 16)),
+          Text(amount,
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.success,
+                  fontSize: 16)),
         ],
       ),
     );

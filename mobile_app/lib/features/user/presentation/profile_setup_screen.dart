@@ -28,7 +28,8 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Complete Profile', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Complete Profile',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -44,7 +45,8 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                   const CircleAvatar(
                     radius: 50,
                     backgroundColor: AppColors.surface,
-                    child: Icon(Icons.person, size: 50, color: AppColors.inactive),
+                    child:
+                        Icon(Icons.person, size: 50, color: AppColors.inactive),
                   ),
                   Positioned(
                     bottom: 0,
@@ -53,7 +55,8 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                       radius: 18,
                       backgroundColor: AppColors.primary,
                       child: IconButton(
-                        icon: const Icon(Icons.camera_alt, size: 16, color: Colors.white),
+                        icon: const Icon(Icons.camera_alt,
+                            size: 16, color: Colors.white),
                         onPressed: () {
                           // TODO: Implement image picker
                         },
@@ -64,7 +67,8 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
               ),
             ),
             const SizedBox(height: 32),
-            const Text('Full Name', style: TextStyle(fontWeight: FontWeight.bold)),
+            const Text('Full Name',
+                style: TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             TextField(
               controller: _nameController,
@@ -79,7 +83,8 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
               ),
             ),
             const SizedBox(height: 24),
-            const Text('Home Address', style: TextStyle(fontWeight: FontWeight.bold)),
+            const Text('Home Address',
+                style: TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             TextField(
               controller: _addressController,
@@ -100,7 +105,8 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
               ),
             ),
             const SizedBox(height: 24),
-            const Text('Preferred Language', style: TextStyle(fontWeight: FontWeight.bold)),
+            const Text('Preferred Language',
+                style: TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             DropdownButtonFormField<String>(
               initialValue: _selectedLanguage,
@@ -123,11 +129,13 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Enable Notifications', style: TextStyle(fontWeight: FontWeight.bold)),
+                const Text('Enable Notifications',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
                 Switch(
                   value: _notificationsEnabled,
                   activeThumbColor: AppColors.primary,
-                  onChanged: (val) => setState(() => _notificationsEnabled = val),
+                  onChanged: (val) =>
+                      setState(() => _notificationsEnabled = val),
                 ),
               ],
             ),
@@ -141,9 +149,12 @@ class _ProfileSetupScreenState extends ConsumerState<ProfileSetupScreen> {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
                 ),
-                child: const Text('Save Profile', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                child: const Text('Save Profile',
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               ),
             ),
           ],

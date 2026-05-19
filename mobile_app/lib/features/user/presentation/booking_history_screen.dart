@@ -6,11 +6,18 @@ class BookingHistoryScreen extends ConsumerStatefulWidget {
   const BookingHistoryScreen({super.key});
 
   @override
-  ConsumerState<BookingHistoryScreen> createState() => _BookingHistoryScreenState();
+  ConsumerState<BookingHistoryScreen> createState() =>
+      _BookingHistoryScreenState();
 }
 
 class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
-  final List<String> _tabs = ['All', 'Active', 'Completed', 'Disputed', 'Cancelled'];
+  final List<String> _tabs = [
+    'All',
+    'Active',
+    'Completed',
+    'Disputed',
+    'Cancelled'
+  ];
   int _selectedTab = 0;
 
   @override
@@ -18,7 +25,8 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('My Bookings', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('My Bookings',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         automaticallyImplyLeading: false, // likely root tab
@@ -27,7 +35,8 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
         children: [
           // Search Bar
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
@@ -59,7 +68,9 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
                     label: Text(_tabs[index]),
                     selected: isSelected,
                     selectedColor: AppColors.primary,
-                    labelStyle: TextStyle(color: isSelected ? Colors.white : AppColors.textPrimary),
+                    labelStyle: TextStyle(
+                        color:
+                            isSelected ? Colors.white : AppColors.textPrimary),
                     onSelected: (val) {
                       if (val) setState(() => _selectedTab = index);
                     },
@@ -68,7 +79,7 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
               },
             ),
           ),
-          
+
           // Booking List
           Expanded(
             child: ListView.builder(
@@ -110,26 +121,38 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
                   children: [
                     Container(
                       padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(color: AppColors.surface, borderRadius: BorderRadius.circular(8)),
-                      child: const Icon(Icons.plumbing, color: AppColors.primary),
+                      decoration: BoxDecoration(
+                          color: AppColors.surface,
+                          borderRadius: BorderRadius.circular(8)),
+                      child:
+                          const Icon(Icons.plumbing, color: AppColors.primary),
                     ),
                     const SizedBox(width: 12),
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Plumbing Repair', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                        Text('May 15, 2026', style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+                        Text('Plumbing Repair',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16)),
+                        Text('May 15, 2026',
+                            style: TextStyle(
+                                color: AppColors.textSecondary, fontSize: 12)),
                       ],
                     ),
                   ],
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
                     color: statusColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Text(status, style: TextStyle(color: statusColor, fontWeight: FontWeight.bold, fontSize: 12)),
+                  child: Text(status,
+                      style: TextStyle(
+                          color: statusColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12)),
                 )
               ],
             ),
@@ -145,13 +168,16 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
                     CircleAvatar(
                       radius: 12,
                       backgroundColor: AppColors.surface,
-                      child: Icon(Icons.person, size: 12, color: AppColors.inactive),
+                      child: Icon(Icons.person,
+                          size: 12, color: AppColors.inactive),
                     ),
                     SizedBox(width: 8),
                     Text('Ali Khan', style: TextStyle(fontSize: 13)),
                   ],
                 ),
-                Text('Rs 1500', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                Text('Rs 1500',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
               ],
             ),
             if (status == 'Completed') ...[
@@ -163,7 +189,8 @@ class _BookingHistoryScreenState extends ConsumerState<BookingHistoryScreen> {
                   style: OutlinedButton.styleFrom(
                     foregroundColor: AppColors.primary,
                     side: const BorderSide(color: AppColors.primary),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
                   ),
                   child: const Text('Repeat Booking'),
                 ),

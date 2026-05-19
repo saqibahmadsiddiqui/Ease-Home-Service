@@ -6,7 +6,8 @@ class DisputeCenterScreen extends ConsumerStatefulWidget {
   const DisputeCenterScreen({super.key});
 
   @override
-  ConsumerState<DisputeCenterScreen> createState() => _DisputeCenterScreenState();
+  ConsumerState<DisputeCenterScreen> createState() =>
+      _DisputeCenterScreenState();
 }
 
 class _DisputeCenterScreenState extends ConsumerState<DisputeCenterScreen> {
@@ -18,7 +19,8 @@ class _DisputeCenterScreenState extends ConsumerState<DisputeCenterScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Dispute Center', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Dispute Center',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -39,7 +41,10 @@ class _DisputeCenterScreenState extends ConsumerState<DisputeCenterScreen> {
                     label: Text(_tabs[index]),
                     selected: _selectedTab == index,
                     selectedColor: AppColors.primary,
-                    labelStyle: TextStyle(color: _selectedTab == index ? Colors.white : AppColors.textPrimary),
+                    labelStyle: TextStyle(
+                        color: _selectedTab == index
+                            ? Colors.white
+                            : AppColors.textPrimary),
                     onSelected: (val) {
                       if (val) setState(() => _selectedTab = index);
                     },
@@ -77,12 +82,19 @@ class _DisputeCenterScreenState extends ConsumerState<DisputeCenterScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Booking #B-9812', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
-                Text('High Priority', style: TextStyle(color: AppColors.error, fontSize: 12, fontWeight: FontWeight.bold)),
+                Text('Booking #B-9812',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                Text('High Priority',
+                    style: TextStyle(
+                        color: AppColors.error,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold)),
               ],
             ),
             SizedBox(height: 4),
-            Text('Quality Issue vs. Master Plumber', style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+            Text('Quality Issue vs. Master Plumber',
+                style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
           ],
         ),
         childrenPadding: const EdgeInsets.all(16),
@@ -93,33 +105,52 @@ class _DisputeCenterScreenState extends ConsumerState<DisputeCenterScreen> {
             decoration: BoxDecoration(
               color: AppColors.primary.withValues(alpha: 0.05),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
+              border:
+                  Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
             ),
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    Icon(Icons.auto_awesome, color: AppColors.primary, size: 16),
+                    Icon(Icons.auto_awesome,
+                        color: AppColors.primary, size: 16),
                     SizedBox(width: 8),
-                    Text('Antigravity Analysis', style: TextStyle(fontWeight: FontWeight.bold, color: AppColors.primary, fontSize: 13)),
+                    Text('Antigravity Analysis',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.primary,
+                            fontSize: 13)),
                   ],
                 ),
                 SizedBox(height: 8),
-                Text('Provider history shows 3 similar disputes in past month. Customer evidence clearly shows incomplete seal. Recommended Action: 50% Refund to customer.', style: TextStyle(fontSize: 12, height: 1.4)),
+                Text(
+                    'Provider history shows 3 similar disputes in past month. Customer evidence clearly shows incomplete seal. Recommended Action: 50% Refund to customer.',
+                    style: TextStyle(fontSize: 12, height: 1.4)),
               ],
             ),
           ),
           const SizedBox(height: 16),
-          
+
           // Evidence viewer placeholder
-          const Align(alignment: Alignment.centerLeft, child: Text('Evidence (4)', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13))),
+          const Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Evidence (4)',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13))),
           const SizedBox(height: 8),
           Row(
             children: [
-              Container(height: 50, width: 50, color: AppColors.surface, child: const Icon(Icons.image, size: 20)),
+              Container(
+                  height: 50,
+                  width: 50,
+                  color: AppColors.surface,
+                  child: const Icon(Icons.image, size: 20)),
               const SizedBox(width: 8),
-              Container(height: 50, width: 50, color: AppColors.surface, child: const Icon(Icons.image, size: 20)),
+              Container(
+                  height: 50,
+                  width: 50,
+                  color: AppColors.surface,
+                  child: const Icon(Icons.image, size: 20)),
             ],
           ),
           const SizedBox(height: 16),
@@ -131,7 +162,9 @@ class _DisputeCenterScreenState extends ConsumerState<DisputeCenterScreen> {
               filled: true,
               fillColor: AppColors.surface,
               isDense: true,
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide.none),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide.none),
             ),
           ),
           const SizedBox(height: 16),
@@ -141,10 +174,26 @@ class _DisputeCenterScreenState extends ConsumerState<DisputeCenterScreen> {
             spacing: 8,
             runSpacing: 8,
             children: [
-              ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary), child: const Text('Refund 50%', style: TextStyle(color: Colors.white, fontSize: 12))),
-              OutlinedButton(onPressed: () {}, child: const Text('Full Refund', style: TextStyle(fontSize: 12))),
-              OutlinedButton(onPressed: () {}, style: OutlinedButton.styleFrom(foregroundColor: AppColors.error), child: const Text('Warn Provider', style: TextStyle(fontSize: 12))),
-              OutlinedButton(onPressed: () {}, child: const Text('Reject Claim', style: TextStyle(fontSize: 12))),
+              ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.primary),
+                  child: const Text('Refund 50%',
+                      style: TextStyle(color: Colors.white, fontSize: 12))),
+              OutlinedButton(
+                  onPressed: () {},
+                  child: const Text('Full Refund',
+                      style: TextStyle(fontSize: 12))),
+              OutlinedButton(
+                  onPressed: () {},
+                  style: OutlinedButton.styleFrom(
+                      foregroundColor: AppColors.error),
+                  child: const Text('Warn Provider',
+                      style: TextStyle(fontSize: 12))),
+              OutlinedButton(
+                  onPressed: () {},
+                  child: const Text('Reject Claim',
+                      style: TextStyle(fontSize: 12))),
             ],
           )
         ],

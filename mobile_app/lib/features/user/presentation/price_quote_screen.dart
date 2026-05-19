@@ -18,7 +18,8 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Price Quote', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Price Quote',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -34,7 +35,8 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
               decoration: BoxDecoration(
                 color: AppColors.success.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: AppColors.success.withValues(alpha: 0.3)),
+                border:
+                    Border.all(color: AppColors.success.withValues(alpha: 0.3)),
               ),
               child: Row(
                 children: [
@@ -43,7 +45,9 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
                   Expanded(
                     child: Text(
                       'Flexible on time? Schedule for tomorrow to save Rs 200 on urgency fees.',
-                      style: TextStyle(color: AppColors.success.withValues(alpha: 0.8), fontSize: 13),
+                      style: TextStyle(
+                          color: AppColors.success.withValues(alpha: 0.8),
+                          fontSize: 13),
                     ),
                   ),
                 ],
@@ -52,7 +56,8 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
             const SizedBox(height: 32),
 
             // Itemized Breakdown Table
-            const Text('Invoice Breakdown', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Invoice Breakdown',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),
             Container(
               padding: const EdgeInsets.all(16),
@@ -69,15 +74,21 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
                   _buildInvoiceRow('Urgency Premium', 'Rs 200'),
                   _buildInvoiceRow('Peak Hours Surge', 'Rs 150'),
                   const Divider(height: 24, thickness: 1),
-                  _buildInvoiceRow('Loyalty Discount (Gold)', '- Rs 100', isDiscount: true),
+                  _buildInvoiceRow('Loyalty Discount (Gold)', '- Rs 100',
+                      isDiscount: true),
                   const Divider(height: 24, thickness: 1),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Total Estimate', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                      Text('Total Estimate',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold)),
                       Text(
                         'Rs 900',
-                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: AppColors.primary),
+                        style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.primary),
                       ),
                     ],
                   ),
@@ -87,12 +98,15 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
             const SizedBox(height: 32),
 
             // Payment Methods
-            const Text('Payment Method', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Payment Method',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),
             _buildPaymentOption(0, Icons.money, 'Cash on Completion'),
-            _buildPaymentOption(1, Icons.credit_card, 'Credit/Debit Card (Stripe)'),
-            _buildPaymentOption(2, Icons.account_balance_wallet, 'JazzCash / EasyPaisa'),
-            
+            _buildPaymentOption(
+                1, Icons.credit_card, 'Credit/Debit Card (Stripe)'),
+            _buildPaymentOption(
+                2, Icons.account_balance_wallet, 'JazzCash / EasyPaisa'),
+
             const SizedBox(height: 100), // spacing for CTA
           ],
         ),
@@ -102,7 +116,10 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
-            BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10, offset: const Offset(0, -5))
+            BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, -5))
           ],
         ),
         child: SafeArea(
@@ -112,13 +129,19 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
             child: ElevatedButton(
               onPressed: () {
                 // Navigate to tracker and pass a dummy ID
-                Navigator.pushReplacementNamed(context, AppRoutes.userTracker.replaceAll(':id', '12345'));
+                Navigator.pushReplacementNamed(
+                    context, AppRoutes.userTracker.replaceAll(':id', '12345'));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
               ),
-              child: const Text('Confirm & Book', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white)),
+              child: const Text('Confirm & Book',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white)),
             ),
           ),
         ),
@@ -126,13 +149,16 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
     );
   }
 
-  Widget _buildInvoiceRow(String label, String amount, {bool isDiscount = false}) {
+  Widget _buildInvoiceRow(String label, String amount,
+      {bool isDiscount = false}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: const TextStyle(color: AppColors.textSecondary, fontSize: 14)),
+          Text(label,
+              style: const TextStyle(
+                  color: AppColors.textSecondary, fontSize: 14)),
           Text(
             amount,
             style: TextStyle(
@@ -154,16 +180,23 @@ class _PriceQuoteScreenState extends ConsumerState<PriceQuoteScreen> {
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.primary.withValues(alpha: 0.05) : AppColors.surface,
+          color: isSelected
+              ? AppColors.primary.withValues(alpha: 0.05)
+              : AppColors.surface,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: isSelected ? AppColors.primary : AppColors.border),
+          border: Border.all(
+              color: isSelected ? AppColors.primary : AppColors.border),
         ),
         child: Row(
           children: [
-            Icon(icon, color: isSelected ? AppColors.primary : AppColors.inactive),
+            Icon(icon,
+                color: isSelected ? AppColors.primary : AppColors.inactive),
             const SizedBox(width: 16),
             Expanded(
-              child: Text(title, style: TextStyle(fontWeight: isSelected ? FontWeight.bold : FontWeight.normal)),
+              child: Text(title,
+                  style: TextStyle(
+                      fontWeight:
+                          isSelected ? FontWeight.bold : FontWeight.normal)),
             ),
             if (isSelected)
               const Icon(Icons.check_circle, color: AppColors.primary),

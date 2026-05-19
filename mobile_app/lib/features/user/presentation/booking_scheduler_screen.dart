@@ -7,16 +7,18 @@ class BookingSchedulerScreen extends ConsumerStatefulWidget {
   const BookingSchedulerScreen({super.key});
 
   @override
-  ConsumerState<BookingSchedulerScreen> createState() => _BookingSchedulerScreenState();
+  ConsumerState<BookingSchedulerScreen> createState() =>
+      _BookingSchedulerScreenState();
 }
 
-class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen> {
+class _BookingSchedulerScreenState
+    extends ConsumerState<BookingSchedulerScreen> {
   int _selectedDay = 0;
   int _selectedSlot = -1;
 
   final List<String> _days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   final List<String> _dates = ['15', '16', '17', '18', '19', '20', '21'];
-  
+
   final List<Map<String, dynamic>> _slots = [
     {'time': '09:00 AM', 'available': true},
     {'time': '10:00 AM', 'available': false},
@@ -33,7 +35,8 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Schedule Booking', style: TextStyle(color: AppColors.textPrimary)),
+        title: const Text('Schedule Booking',
+            style: TextStyle(color: AppColors.textPrimary)),
         backgroundColor: AppColors.background,
         elevation: 0,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
@@ -49,7 +52,8 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
               decoration: BoxDecoration(
                 color: AppColors.surface,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.primary.withValues(alpha: 0.5)),
+                border:
+                    Border.all(color: AppColors.primary.withValues(alpha: 0.5)),
               ),
               child: Row(
                 children: [
@@ -59,9 +63,13 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('AI Suggested Slot', style: TextStyle(fontWeight: FontWeight.bold)),
+                        Text('AI Suggested Slot',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
                         SizedBox(height: 4),
-                        Text('Provider is in your area today at 2:00 PM. Book this slot for a waived distance fee.', style: TextStyle(fontSize: 12, color: AppColors.textSecondary)),
+                        Text(
+                            'Provider is in your area today at 2:00 PM. Book this slot for a waived distance fee.',
+                            style: TextStyle(
+                                fontSize: 12, color: AppColors.textSecondary)),
                       ],
                     ),
                   ),
@@ -84,7 +92,8 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
             const SizedBox(height: 32),
 
             // Week View Calendar Strip
-            const Text('Select Date', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Select Date',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),
             SizedBox(
               height: 80,
@@ -102,16 +111,31 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
                       width: 60,
                       margin: const EdgeInsets.only(right: 12),
                       decoration: BoxDecoration(
-                        color: isSelected ? AppColors.primary : AppColors.surface,
+                        color:
+                            isSelected ? AppColors.primary : AppColors.surface,
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: isSelected ? AppColors.primary : AppColors.border),
+                        border: Border.all(
+                            color: isSelected
+                                ? AppColors.primary
+                                : AppColors.border),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(_days[index], style: TextStyle(color: isSelected ? Colors.white : AppColors.textSecondary, fontSize: 12)),
+                          Text(_days[index],
+                              style: TextStyle(
+                                  color: isSelected
+                                      ? Colors.white
+                                      : AppColors.textSecondary,
+                                  fontSize: 12)),
                           const SizedBox(height: 4),
-                          Text(_dates[index], style: TextStyle(color: isSelected ? Colors.white : AppColors.textPrimary, fontSize: 18, fontWeight: FontWeight.bold)),
+                          Text(_dates[index],
+                              style: TextStyle(
+                                  color: isSelected
+                                      ? Colors.white
+                                      : AppColors.textPrimary,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold)),
                         ],
                       ),
                     ),
@@ -122,7 +146,8 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
             const SizedBox(height: 32),
 
             // Time Slots Grid
-            const Text('Available Slots', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Available Slots',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),
             GridView.builder(
               shrinkWrap: true,
@@ -158,7 +183,9 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
                 }
 
                 return GestureDetector(
-                  onTap: isAvailable ? () => setState(() => _selectedSlot = index) : null,
+                  onTap: isAvailable
+                      ? () => setState(() => _selectedSlot = index)
+                      : null,
                   child: Container(
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
@@ -171,14 +198,16 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
                       style: TextStyle(
                         color: textColor,
                         fontWeight: FontWeight.bold,
-                        decoration: !isAvailable ? TextDecoration.lineThrough : TextDecoration.none,
+                        decoration: !isAvailable
+                            ? TextDecoration.lineThrough
+                            : TextDecoration.none,
                       ),
                     ),
                   ),
                 );
               },
             ),
-            
+
             const SizedBox(height: 100), // spacing for CTA
           ],
         ),
@@ -188,7 +217,10 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
-            BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10, offset: const Offset(0, -5))
+            BoxShadow(
+                color: Colors.black.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: const Offset(0, -5))
           ],
         ),
         child: SafeArea(
@@ -196,15 +228,22 @@ class _BookingSchedulerScreenState extends ConsumerState<BookingSchedulerScreen>
             width: double.infinity,
             height: 50,
             child: ElevatedButton(
-              onPressed: _selectedSlot != -1 ? () {
-                Navigator.pushNamed(context, AppRoutes.userQuote);
-              } : null,
+              onPressed: _selectedSlot != -1
+                  ? () {
+                      Navigator.pushNamed(context, AppRoutes.userQuote);
+                    }
+                  : null,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 disabledBackgroundColor: AppColors.border,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
               ),
-              child: const Text('Confirm Schedule', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white)),
+              child: const Text('Confirm Schedule',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white)),
             ),
           ),
         ),
